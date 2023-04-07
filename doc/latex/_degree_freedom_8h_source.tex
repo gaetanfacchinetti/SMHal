@@ -1,0 +1,113 @@
+\hypertarget{_degree_freedom_8h_source}{}\doxysection{Degree\+Freedom.\+h}
+\label{_degree_freedom_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DegreeFreedom.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DegreeFreedom.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_DEGREEFREEDOM}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_DEGREEFREEDOM}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}StandardModel.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}DarkSectorModel.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}myspline.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Derivateur.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{enum class} DegFreeModel}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12   LATTICE2016,}
+\DoxyCodeLine{13   SIMPLE}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20   \mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}}(\textcolor{keywordtype}{double} T\_transQCD, \mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} *\_DS = NULL);}
+\DoxyCodeLine{21   \mbox{\hyperlink{class_degree_freedom}{\string~DegreeFreedom}}()\{\};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keywordtype}{void} ComputeGAndH();}
+\DoxyCodeLine{24   \textcolor{keywordtype}{void} ComputeGAndHSmooth();}
+\DoxyCodeLine{25   \textcolor{keywordtype}{void} ComputeGStarHalf();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \textcolor{keywordtype}{void} InitialiseLattice();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{keywordtype}{int} Interpolate();}
+\DoxyCodeLine{30   std::vector<double> reverseVector(std::vector<double> \textcolor{keyword}{const}\& vec);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \textcolor{comment}{// Getter}}
+\DoxyCodeLine{34   std::vector<double> get\_g()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} g\_vec;\};}
+\DoxyCodeLine{35   std::vector<double> get\_h()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} h\_vec;\};}
+\DoxyCodeLine{36   std::vector<double> get\_gSmooth()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} gSmooth\_vec;\};}
+\DoxyCodeLine{37   std::vector<double> get\_hSmooth()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} hSmooth\_vec;\};}
+\DoxyCodeLine{38   std::vector<double> get\_gStarHald()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} gStarHalf\_vec;\};}
+\DoxyCodeLine{39   std::vector<double> get\_logT()\textcolor{keyword}{      const }\{\textcolor{keywordflow}{return} logT\_vec;\};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{keywordtype}{double} get\_T\_transQCD()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} T\_transQCD;\};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   \textcolor{comment}{// BE CAREFULL these functions take log10(T) in input and NOT T}}
+\DoxyCodeLine{44   \textcolor{keywordtype}{double} get\_derLogHSmoothInterp(\textcolor{keywordtype}{double} \textcolor{keyword}{const}\& log10T)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_derLogHSmooth(log10T);\};}
+\DoxyCodeLine{45   \textcolor{keywordtype}{double} get\_gSmoothInterp(\textcolor{keywordtype}{double} \textcolor{keyword}{const}\& log10T)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_gSmooth(log10T);\};}
+\DoxyCodeLine{46   \textcolor{keywordtype}{double} get\_hSmoothInterp(\textcolor{keywordtype}{double} \textcolor{keyword}{const}\& log10T)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_hSmooth(log10T);\};}
+\DoxyCodeLine{47   \textcolor{keywordtype}{double} get\_gStarHalfInterp(\textcolor{keywordtype}{double} \textcolor{keyword}{const}\& log10T)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_gStarHalf(log10T);\};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    \textcolor{comment}{// BE CAREFULL the returned functions take log10(T) in input and NOT T}}
+\DoxyCodeLine{50   my\_spline::spline get\_gSmoothInterp()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_gSmooth;\};}
+\DoxyCodeLine{51   my\_spline::spline get\_hSmoothInterp()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_hSmooth;\};}
+\DoxyCodeLine{52   my\_spline::spline get\_gStarHalfInterp()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_gStarHalf;\};}
+\DoxyCodeLine{53   my\_spline::spline get\_derLogHSmoothInterp()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} spline\_derLogHSmooth;\};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55   \textcolor{comment}{// Hubble constant function of T}}
+\DoxyCodeLine{56   \textcolor{comment}{//double Hubble\_T(double T) \{return 2*pow(PI, 1.5)*sqrt(spline\_gSmooth(log10(T))) *pow(T,2) / (sqrt(45)*M\_PLANCK);\};}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{59   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_degree_freedom_ad65d33bbf7b226c843ce46a02db2c794}{plot\_GAndH}}();}
+\DoxyCodeLine{60   \textcolor{comment}{//void QCDPhaseTransitionForGAndHv1();}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{private}:}
+\DoxyCodeLine{63   \mbox{\hyperlink{class_derivateur}{Derivateur}} *Der;}
+\DoxyCodeLine{64   std::vector<Particle> all\_Part;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66   \textcolor{keywordtype}{double} T\_transQCD;}
+\DoxyCodeLine{67   \textcolor{keywordtype}{double} numSpecies;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   std::vector<double> mass, stat;}
+\DoxyCodeLine{70   std::vector<int> degFree;}
+\DoxyCodeLine{71   std::vector<bool> isPresentAfterQCDPT, isPresentBeforeQCDPT;}
+\DoxyCodeLine{72   std::vector<Particle> SM\_neutrinos;}
+\DoxyCodeLine{73   std::vector<int> neutrinos\_index; }
+\DoxyCodeLine{74   \textcolor{keywordtype}{int} n\_neutrinos;}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76   std::vector<double> g\_vec, h\_vec, logG\_vec, logH\_vec, logT\_vec;}
+\DoxyCodeLine{77   std::vector<double> gSmooth\_vec, hSmooth\_vec, logHSmooth\_vec, gStarHalf\_vec;}
+\DoxyCodeLine{78   std::vector<double> derLogHSmooth\_vec;}
+\DoxyCodeLine{79   std::vector<std::string> name;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81   std::ofstream out\_GAndH, out\_GAndHSmooth, out\_GStarHalf;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83   \textcolor{keywordtype}{int} nBessel;         \textcolor{comment}{// Number of terms in sums}}
+\DoxyCodeLine{84   \textcolor{keywordtype}{int} numPoints;       \textcolor{comment}{// Number of discretisation points}}
+\DoxyCodeLine{85   \textcolor{keywordtype}{double} Tmax;         \textcolor{comment}{// Maximal temperature (en GeV)}}
+\DoxyCodeLine{86   \textcolor{keywordtype}{double} Tmin;         \textcolor{comment}{// Minimal temperature (en GeV)}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{keywordtype}{double} logTmax,logTmin, deltaLogT;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \textcolor{keywordtype}{bool} isComputeGStarHalfCalled, isInterpolateCalled;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92   \textcolor{comment}{// Spline interpolation for the simple QCD phase transition}}
+\DoxyCodeLine{93   my\_spline::spline spline\_derLogHSmooth;}
+\DoxyCodeLine{94   my\_spline::spline spline\_gSmooth;}
+\DoxyCodeLine{95   my\_spline::spline spline\_hSmooth;}
+\DoxyCodeLine{96   my\_spline::spline spline\_gStarHalf;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98   \textcolor{comment}{// Spline interpolation from LATTICE arXiv:1606.07494}}
+\DoxyCodeLine{99   my\_spline::spline spline\_gLattice;}
+\DoxyCodeLine{100   my\_spline::spline spline\_hLattice;}
+\DoxyCodeLine{101   my\_spline::spline spline\_gStarHalfLattice; }
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

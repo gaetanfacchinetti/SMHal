@@ -1,0 +1,244 @@
+\hypertarget{_chemical_decoupling_8h_source}{}\doxysection{Chemical\+Decoupling.\+h}
+\label{_chemical_decoupling_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/ChemicalDecoupling.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/ChemicalDecoupling.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_CHEMICALDECOUPLING}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_CHEMICALDECOUPLING}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccff.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccss.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccsp.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccpp.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}DegreeFreedom.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}DarkSectorModel.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gsl/gsl\_integration.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ExceptionHandler.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{enum class} CS\_TYPE}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16   FULL\_ONLY,}
+\DoxyCodeLine{17   S\_WAVE\_ONLY,}
+\DoxyCodeLine{18   P\_WAVE\_ONLY,}
+\DoxyCodeLine{19   SIMPLIFIED\_ONLY,}
+\DoxyCodeLine{20   FULL\_SIMPLIFIED}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 \textcolor{comment}{// Full simplfied means that we use the expension on}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// Exception thrown when freeze-\/in might occur}}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_freeze_in_exception}{FreezeInException}} : \textcolor{keyword}{public} std::exception}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28   \mbox{\hyperlink{class_freeze_in_exception}{FreezeInException}}() \{ \_msg = (\textcolor{keywordtype}{char} *)\textcolor{stringliteral}{"{}WARNING << FreezeIn exception : "{}}; \};}
+\DoxyCodeLine{29   \mbox{\hyperlink{class_freeze_in_exception}{FreezeInException}}(\textcolor{keywordtype}{char} *msg) \{ \_msg = msg; \};}
+\DoxyCodeLine{30   \mbox{\hyperlink{class_freeze_in_exception}{FreezeInException}}(\textcolor{keywordtype}{char} *msg, \textcolor{keywordtype}{int} line, \textcolor{keywordtype}{char} *func)}
+\DoxyCodeLine{31   \{}
+\DoxyCodeLine{32     \_msg = msg;}
+\DoxyCodeLine{33     \_line = line;}
+\DoxyCodeLine{34     \_func = func;}
+\DoxyCodeLine{35   \};}
+\DoxyCodeLine{36   \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *what() \textcolor{keyword}{const} \textcolor{keywordflow}{throw}() \{ \textcolor{keywordflow}{return} \_msg; \}}
+\DoxyCodeLine{37   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *get\_func()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \_func; \};}
+\DoxyCodeLine{38   \textcolor{keywordtype}{int} get\_line()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \_line; \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{private}:}
+\DoxyCodeLine{41   \textcolor{keywordtype}{char} *\_msg, *\_func;}
+\DoxyCodeLine{42   \textcolor{keywordtype}{int} \_line;}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{//}}
+\DoxyCodeLine{46 \textcolor{comment}{//}}
+\DoxyCodeLine{47 \textcolor{keyword}{struct }\mbox{\hyperlink{structgsl__f__params}{gsl\_f\_params}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}}}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51 \textcolor{keyword}{public}:}
+\DoxyCodeLine{52   \mbox{\hyperlink{class_chemical_decoupling_a5fb81a60a4d269743adce54b57e68188}{ChemicalDecoupling}}(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const} \&\_DS, \mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}} *\_degreeFreedom, CS\_TYPE cs\_type = CS\_TYPE::FULL\_ONLY, \textcolor{keywordtype}{double} n\_simpleSigmaV = -\/1);}
+\DoxyCodeLine{53   \mbox{\hyperlink{class_chemical_decoupling}{\string~ChemicalDecoupling}}()}
+\DoxyCodeLine{54   \{}
+\DoxyCodeLine{55     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < crossSection.size(); i++)}
+\DoxyCodeLine{56       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < crossSection[i].size(); j++)}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < crossSection[i][j].size(); k++)}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59           \textcolor{keyword}{delete} crossSection[i][j][k];}
+\DoxyCodeLine{60           crossSection[i][j][k] = NULL;}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{// Do not forget to delete the workspace ! Otherwise terrible memory leaks problems}}
+\DoxyCodeLine{64     gsl\_integration\_workspace\_free(workspace);}
+\DoxyCodeLine{65   \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67   \textcolor{keywordtype}{void} set\_saveYToPrint(\textcolor{keywordtype}{bool} \textcolor{keyword}{const} \&NewSaveYToPrint)}
+\DoxyCodeLine{68   \{}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} (saveYToPrint != NewSaveYToPrint)}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72       saveYToPrint = NewSaveYToPrint;}
+\DoxyCodeLine{73       std::cout << \textcolor{stringliteral}{"{}|| INFO    : (AbundanceComp.) SaveYToPrint has been changed to        : "{}} << saveYToPrint << std::endl;}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75   \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   \textcolor{keywordtype}{double} DeterminationXfMethod1();}
+\DoxyCodeLine{78   \textcolor{keywordtype}{double} DeterminationXfMethod2();}
+\DoxyCodeLine{79   \textcolor{keywordtype}{double} fToSolveXfModel1Method1(\textcolor{keywordtype}{double} \textcolor{keyword}{const} \&x);}
+\DoxyCodeLine{80   \textcolor{keywordtype}{double} fToSolveXfModel1Method2(\textcolor{keywordtype}{double} \textcolor{keyword}{const} \&x);}
+\DoxyCodeLine{81   \textcolor{keywordtype}{double} Dichotomie(\textcolor{keywordtype}{double} (\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}}::*func)(\textcolor{keywordtype}{double} \textcolor{keyword}{const} \&), \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMin, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMax, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&prec);}
+\DoxyCodeLine{82   \textcolor{keywordtype}{double} \textcolor{keyword}{static} FunctionTest(std::vector<double> x);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84   \textcolor{keywordtype}{void} OutputGammaAndH();}
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} OutputCrossSection();}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{92   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_chemical_decoupling_ac926ef77a4eaadb977740b5968eab906}{SigmaV}}(\textcolor{keywordtype}{double} T, \textcolor{keywordtype}{bool} with\_quarks\_after\_TQCD = \textcolor{keyword}{false});}
+\DoxyCodeLine{94   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_chemical_decoupling_affbf274125cce476324b777b6aa5c98e}{fToIntegrateForSigmaV\_all}}(std::vector<double> variables);}
+\DoxyCodeLine{96   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_chemical_decoupling_a27f257409f1afbe2abb0c8db262560f4}{fToIntegrateForSigmaV\_noquarks}}(std::vector<double> variables);}
+\DoxyCodeLine{97   \textcolor{comment}{// Evaluate the s-\/wave term of the cross-\/section}}
+\DoxyCodeLine{98   \textcolor{keywordtype}{void} Initialise\_s\_wave\_term();}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101   \textcolor{keyword}{static} \textcolor{keywordtype}{double} DerivativeOfComovingDensity(std::vector<double> variables, \textcolor{keywordtype}{double} Y);}
+\DoxyCodeLine{102   \textcolor{keywordtype}{void} DerivativeOfComovingDensityNonStiff(std::vector<double> variables, \textcolor{keywordtype}{double} W, \textcolor{keywordtype}{double} \&deriv);}
+\DoxyCodeLine{103   std::vector<double> SolveFreezeOut();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{keywordtype}{double} ComputeAbundanceToday(std::vector<double> \textcolor{keyword}{const} \&xYInitForAbundanceToday);}
+\DoxyCodeLine{106   \textcolor{keywordtype}{double} FunctionToIntForAbundanceToday(std::vector<double> variables);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108   \textcolor{comment}{// Zone of tested functions}}
+\DoxyCodeLine{109   \textcolor{keywordtype}{void} PlotYFO();}
+\DoxyCodeLine{110   \textcolor{keywordtype}{void} PlotYFI();}
+\DoxyCodeLine{111   \textcolor{keywordtype}{void} plotFuncToIntegrateSigmaV(\textcolor{keywordtype}{double} T);}
+\DoxyCodeLine{112   \textcolor{keywordtype}{void} plotSigmaV();}
+\DoxyCodeLine{113   \textcolor{keywordtype}{void} SolveFreezeIn();}
+\DoxyCodeLine{114   \textcolor{keywordtype}{double} ComputeYFreezeInApprox(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{115   \textcolor{keywordtype}{double} FunctionToIntFreezeInApprox(std::vector<double> var);}
+\DoxyCodeLine{116   \textcolor{keywordtype}{double} FunctionForImplicitEulerA(std::vector<double> variables);}
+\DoxyCodeLine{117   \textcolor{keywordtype}{double} FunctionForImplicitEulerB(std::vector<double> variables);}
+\DoxyCodeLine{118   \textcolor{keywordtype}{double} FunctionForImplicitEulerLnA(std::vector<double> variables);}
+\DoxyCodeLine{119   \textcolor{keywordtype}{double} FunctionForImplicitEulerZ(std::vector<double> variables);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121   \textcolor{comment}{//}}
+\DoxyCodeLine{122   \textcolor{comment}{//}}
+\DoxyCodeLine{123   \textcolor{comment}{// CallBack functions}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackfToSolveXfModel1Method1(\textcolor{keywordtype}{void} *pt2Object, \textcolor{keywordtype}{double} x) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>fToSolveXfModel1Method1(x); \};}
+\DoxyCodeLine{126   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackfToSolveXfModel1Method2(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>fToSolveXfModel1Method2(xx[0]); \};}
+\DoxyCodeLine{127   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackfToIntegrateForSigmaV\_all(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>fToIntegrateForSigmaV\_all(variables); \};}
+\DoxyCodeLine{128   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackfToIntegrateForSigmaV\_noquarks(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>fToIntegrateForSigmaV\_noquarks(variables); \};}
+\DoxyCodeLine{129   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackFunctionToIntForAbundanceToday(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>FunctionToIntForAbundanceToday(variables); \};}
+\DoxyCodeLine{130   \textcolor{keyword}{static} \textcolor{keywordtype}{void} CallBackDerivativeOfAbundanceNonStiff(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables, \textcolor{keywordtype}{double} W, \textcolor{keywordtype}{double} \&deriv) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>DerivativeOfComovingDensityNonStiff(variables, W, deriv); \};}
+\DoxyCodeLine{131   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackFunctionForImplicitEulerA(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>FunctionForImplicitEulerA(variables); \};}
+\DoxyCodeLine{132   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackFunctionForImplicitEulerB(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>FunctionForImplicitEulerB(variables); \};}
+\DoxyCodeLine{133   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackFunctionForImplicitEulerLnA(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>FunctionForImplicitEulerLnA(variables); \};}
+\DoxyCodeLine{134   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBackFunctionForImplicitEulerZ(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> variables) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *)pt2Object)-\/>FunctionForImplicitEulerZ(variables); \};}
+\DoxyCodeLine{135   \textcolor{comment}{/*}}
+\DoxyCodeLine{136 \textcolor{comment}{}}
+\DoxyCodeLine{137 \textcolor{comment}{}}
+\DoxyCodeLine{138 \textcolor{comment}{}}
+\DoxyCodeLine{139 \textcolor{comment}{}}
+\DoxyCodeLine{140 \textcolor{comment}{  */}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{keyword}{private}:}
+\DoxyCodeLine{143   \textcolor{keywordtype}{void} InterpolateCrossSectionP1cm2();}
+\DoxyCodeLine{144   \textcolor{keywordtype}{void} InterpolateSigmaV();}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146   gsl\_integration\_workspace *workspace;}
+\DoxyCodeLine{147   \textcolor{keywordtype}{int} n\_points\_int;}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149   \textcolor{comment}{// WIMPs particles}}
+\DoxyCodeLine{150   std::vector<Particle> chi;}
+\DoxyCodeLine{151   std::vector<double> m\_chi, m\_prop, w\_prop;}
+\DoxyCodeLine{152   std::vector<int> g\_chi;}
+\DoxyCodeLine{153   \textcolor{keywordtype}{bool} is\_CoAnnihilation;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{160   std::vector<std::vector<std::vector<CrossSection *> > > crossSection;}
+\DoxyCodeLine{161   \textcolor{keywordtype}{double} n\_crossSections, n\_crossSections\_ccff;}
+\DoxyCodeLine{162   \textcolor{keywordtype}{double} simpleSigmaV;}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164   \textcolor{comment}{// Variable that set the method of the resolution}}
+\DoxyCodeLine{165   CS\_TYPE cs\_type;}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167   \textcolor{keywordtype}{int} degLibDM;}
+\DoxyCodeLine{168   \textcolor{keywordtype}{double} couplingScalarDM, couplingPScalarDM, couplingScalarFermions, couplingPScalarFermions;}
+\DoxyCodeLine{169   \textcolor{keywordtype}{double} simpleCrossSection;}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171   \textcolor{keywordtype}{double} T\_transQCD;}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173   \textcolor{keywordtype}{int} modelApproximateCrossSection;}
+\DoxyCodeLine{174   \textcolor{keywordtype}{int} useRealCrossSectionWP; \textcolor{comment}{// Use real cross section when possible}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176   std::vector<double> coeffSigmaV;}
+\DoxyCodeLine{177   std::vector<double> xPrint, YIEPrint, YRK6Print, YeqPrint, YFIPrint;}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179   \textcolor{keywordtype}{double} GeV2toCm3Sm1;}
+\DoxyCodeLine{180   \textcolor{keywordtype}{bool} saveYToPrint;}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182   my\_spline::spline spline\_derLogHSmooth;}
+\DoxyCodeLine{183   my\_spline::spline spline\_gSmooth;}
+\DoxyCodeLine{184   my\_spline::spline spline\_hSmooth;}
+\DoxyCodeLine{185   my\_spline::spline spline\_gStarHalf;}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187   std::vector<my\_spline::spline> spline\_crossSection;}
+\DoxyCodeLine{188   my\_spline::spline spline\_sigmaV\_all;}
+\DoxyCodeLine{189   my\_spline::spline spline\_sigmaV\_noquarks;}
+\DoxyCodeLine{190 \};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{comment}{// ===================================================}}
+\DoxyCodeLine{193 \textcolor{comment}{// Parameters for integration with gsl QAGS function}}
+\DoxyCodeLine{194 \textcolor{comment}{// ===================================================}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{keyword}{struct }\mbox{\hyperlink{structgsl__f__params}{gsl\_f\_params}}}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198   \textcolor{keywordtype}{double} \_x;}
+\DoxyCodeLine{199   \mbox{\hyperlink{class_chemical_decoupling}{ChemicalDecoupling}} *pt\_MyClass;}
+\DoxyCodeLine{200 \};}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{keyword}{static} \textcolor{keywordtype}{double} gslClassWrapperLn\_fToIntegrateForSigmaV\_all(\textcolor{keywordtype}{double} lnz, \textcolor{keywordtype}{void} *pp)}
+\DoxyCodeLine{203 \{}
+\DoxyCodeLine{204   \mbox{\hyperlink{structgsl__f__params}{gsl\_f\_params}} *p = (\mbox{\hyperlink{structgsl__f__params}{gsl\_f\_params}} *)pp;}
+\DoxyCodeLine{205   std::vector<double> zx;}
+\DoxyCodeLine{206   zx.resize(2);}
+\DoxyCodeLine{207   zx[0] = exp(lnz);}
+\DoxyCodeLine{208   zx[1] = p-\/>\_x;}
+\DoxyCodeLine{209   \textcolor{comment}{//for(int i = 1; i<p-\/>isize; i++) xx[i] = p-\/>params[i-\/1];}}
+\DoxyCodeLine{210   \textcolor{keywordflow}{return} zx[0] * (p-\/>pt\_MyClass-\/>\mbox{\hyperlink{class_chemical_decoupling_affbf274125cce476324b777b6aa5c98e}{fToIntegrateForSigmaV\_all}}(zx));}
+\DoxyCodeLine{211 \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{keyword}{static} \textcolor{keywordtype}{double} gslClassWrapperLn\_fToIntegrateForSigmaV\_noquarks(\textcolor{keywordtype}{double} lnz, \textcolor{keywordtype}{void} *pp)}
+\DoxyCodeLine{214 \{}
+\DoxyCodeLine{215   \mbox{\hyperlink{structgsl__f__params}{gsl\_f\_params}} *p = (\mbox{\hyperlink{structgsl__f__params}{gsl\_f\_params}} *)pp;}
+\DoxyCodeLine{216   std::vector<double> zx;}
+\DoxyCodeLine{217   zx.resize(2);}
+\DoxyCodeLine{218   zx[0] = exp(lnz);}
+\DoxyCodeLine{219   zx[1] = p-\/>\_x;}
+\DoxyCodeLine{220   \textcolor{comment}{//for(int i = 1; i<p-\/>isize; i++) xx[i] = p-\/>params[i-\/1];}}
+\DoxyCodeLine{221   \textcolor{keywordflow}{return} zx[0] * (p-\/>pt\_MyClass-\/>\mbox{\hyperlink{class_chemical_decoupling_a27f257409f1afbe2abb0c8db262560f4}{fToIntegrateForSigmaV\_noquarks}}(zx));}
+\DoxyCodeLine{222 \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{comment}{/*}}
+\DoxyCodeLine{225 \textcolor{comment}{static double gslClassWrapperLnLn\_FunctionToIntegrateForSigmaV(double lnlnz, void *pp)}}
+\DoxyCodeLine{226 \textcolor{comment}{\{}}
+\DoxyCodeLine{227 \textcolor{comment}{  gsl\_f\_params *p = (gsl\_f\_params *)pp;}}
+\DoxyCodeLine{228 \textcolor{comment}{  std::vector<double> zx;}}
+\DoxyCodeLine{229 \textcolor{comment}{  zx.resize(2);}}
+\DoxyCodeLine{230 \textcolor{comment}{  zx[0] = exp(exp(lnlnz));}}
+\DoxyCodeLine{231 \textcolor{comment}{  zx[1] = p-\/>\_x;}}
+\DoxyCodeLine{232 \textcolor{comment}{  //for(int i = 1; i<p-\/>isize; i++) xx[i] = p-\/>params[i-\/1];}}
+\DoxyCodeLine{233 \textcolor{comment}{  return exp(lnlnz) * zx[0] * (p-\/>pt\_MyClass-\/>FunctionToIntegrateForSigmaV(zx));}}
+\DoxyCodeLine{234 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 \textcolor{comment}{/*}}
+\DoxyCodeLine{237 \textcolor{comment}{static double gslClassWrapper\_FunctionToIntegrateForSigmaV(double z, void *pp)}}
+\DoxyCodeLine{238 \textcolor{comment}{\{}}
+\DoxyCodeLine{239 \textcolor{comment}{  gsl\_f\_params *p = (gsl\_f\_params *)pp;}}
+\DoxyCodeLine{240 \textcolor{comment}{  std::vector<double> zx;}}
+\DoxyCodeLine{241 \textcolor{comment}{  zx.resize(2);}}
+\DoxyCodeLine{242 \textcolor{comment}{  zx[0] = z;}}
+\DoxyCodeLine{243 \textcolor{comment}{  zx[1] = p-\/>\_x;}}
+\DoxyCodeLine{244 \textcolor{comment}{  //for(int i = 1; i<p-\/>isize; i++) xx[i] = p-\/>params[i-\/1];}}
+\DoxyCodeLine{245 \textcolor{comment}{  return (p-\/>pt\_MyClass-\/>FunctionToIntegrateForSigmaV(zx));}}
+\DoxyCodeLine{246 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 \textcolor{comment}{//double FunctionToIntegrateForSigmaV(double z, void* parameters)\{ gsl\_p-\/>pt\_MyClass = this; = return 0;\};}}
+
+\end{DoxyCode}

@@ -1,0 +1,159 @@
+\hypertarget{_dark_sector_model_8h_source}{}\doxysection{Dark\+Sector\+Model.\+h}
+\label{_dark_sector_model_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DarkSectorModel.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DarkSectorModel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DARKSECTORMODEL}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DARKSECTORMODEL}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Particle.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}StandardModel.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{// Attention here a\_VEC are the vector coupliens b\_VEC the axial vector ones}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13   \mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}}();}
+\DoxyCodeLine{14   \mbox{\hyperlink{class_dark_sector_model}{\string~DarkSectorModel}}() \{\};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{comment}{// Getter}}
+\DoxyCodeLine{17   \mbox{\hyperlink{class_particle}{Particle}} get\_chi(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} chi[i]; \};}
+\DoxyCodeLine{18   \mbox{\hyperlink{class_particle}{Particle}} get\_phis(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} phis[i]; \};}
+\DoxyCodeLine{19   \mbox{\hyperlink{class_particle}{Particle}} get\_phip(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} phip[i]; \};}
+\DoxyCodeLine{20   \mbox{\hyperlink{class_particle}{Particle}} get\_X(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} X[i]; \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \mbox{\hyperlink{class_particle}{Particle}} *get\_chi\_ptr(\textcolor{keywordtype}{int} i) \{\textcolor{keywordflow}{return} \&chi[i];\};}
+\DoxyCodeLine{23   \mbox{\hyperlink{class_particle}{Particle}} *get\_phis\_ptr(\textcolor{keywordtype}{int} i) \{\textcolor{keywordflow}{return} \&phis[i];\};}
+\DoxyCodeLine{24   \mbox{\hyperlink{class_particle}{Particle}} *get\_phip\_ptr(\textcolor{keywordtype}{int} i) \{\textcolor{keywordflow}{return} \&phip[i];\};}
+\DoxyCodeLine{25   \mbox{\hyperlink{class_particle}{Particle}} *get\_X\_ptr(\textcolor{keywordtype}{int} i) \{\textcolor{keywordflow}{return} \&X[i];\};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   std::vector<Particle> get\_chi()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} chi; \};}
+\DoxyCodeLine{28   std::vector<Particle> get\_phis()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} phis; \};}
+\DoxyCodeLine{29   std::vector<Particle> get\_phip()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} phip; \};}
+\DoxyCodeLine{30   std::vector<Particle> get\_X()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} X; \};}
+\DoxyCodeLine{31   std::vector<Particle> get\_DS\_Part()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} DS\_Part; \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \textcolor{keywordtype}{int} get\_n\_DS\_DM()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} n\_DS\_DM; \};}
+\DoxyCodeLine{34   \textcolor{keywordtype}{int} get\_n\_DS\_phis()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} n\_DS\_phis; \};}
+\DoxyCodeLine{35   \textcolor{keywordtype}{int} get\_n\_DS\_phip()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} n\_DS\_phip; \};}
+\DoxyCodeLine{36   \textcolor{keywordtype}{int} get\_n\_DS\_X()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} n\_DS\_X; \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \textcolor{keywordtype}{double} get\_lambda\_S\_SM(\textcolor{keywordtype}{int} prop\_s, \textcolor{keywordtype}{int} couple)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_S\_SM[prop\_s][couple]; \};}
+\DoxyCodeLine{39   std::vector<double> get\_lambda\_S\_SM(\textcolor{keywordtype}{int} prop\_s)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_S\_SM[prop\_s]; \};}
+\DoxyCodeLine{40   std::vector<std::vector<double>> get\_lambda\_S\_SM()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_S\_SM; \};}
+\DoxyCodeLine{41   \textcolor{keywordtype}{double} get\_lambda\_PS\_SM(\textcolor{keywordtype}{int} prop\_ps, \textcolor{keywordtype}{int} couple)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_PS\_SM[prop\_ps][couple]; \};}
+\DoxyCodeLine{42   std::vector<double> get\_lambda\_PS\_SM(\textcolor{keywordtype}{int} prop\_p)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_PS\_SM[prop\_p]; \};}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double} get\_a\_VEC\_SM(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} couple)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} a\_VEC\_SM[prop\_vec][couple]; \};}
+\DoxyCodeLine{44   std::vector<double> get\_a\_VEC\_SM(\textcolor{keywordtype}{int} prop\_vec)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} a\_VEC\_SM[prop\_vec]; \};}
+\DoxyCodeLine{45   \textcolor{keywordtype}{double} get\_b\_VEC\_SM(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} couple)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} b\_VEC\_SM[prop\_vec][couple]; \};}
+\DoxyCodeLine{46   std::vector<double> get\_b\_VEC\_SM(\textcolor{keywordtype}{int} prop\_vec)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} b\_VEC\_SM[prop\_vec]; \};}
+\DoxyCodeLine{47  }
+\DoxyCodeLine{48   \textcolor{keywordtype}{double} get\_lambda\_S\_DM(\textcolor{keywordtype}{int} prop\_s, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_S\_DM[prop\_s][dm\_1][dm\_2]; \};}
+\DoxyCodeLine{49   std::vector<std::vector<double>> get\_lambda\_S\_DM(\textcolor{keywordtype}{int} prop\_s)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_S\_DM[prop\_s]; \};}
+\DoxyCodeLine{50   std::vector<std::vector<std::vector<double>>> get\_lambda\_S\_DM()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_S\_DM; \};}
+\DoxyCodeLine{51   \textcolor{keywordtype}{double} get\_lambda\_PS\_DM(\textcolor{keywordtype}{int} prop\_ps, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_PS\_DM[prop\_ps][dm\_1][dm\_2]; \};}
+\DoxyCodeLine{52   std::vector<std::vector<double>> get\_lambda\_PS\_DM(\textcolor{keywordtype}{int} prop\_p)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_PS\_DM[prop\_p]; \};}
+\DoxyCodeLine{53   std::vector<std::vector<std::vector<double>>> get\_lambda\_PS\_DM()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} lambda\_PS\_DM; \};}
+\DoxyCodeLine{54   }
+\DoxyCodeLine{56   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_dark_sector_model_aa43d73ac858380944841e3723ad56e29}{get\_a\_VEC\_DM}}(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} a\_VEC\_DM[prop\_vec][dm\_1][dm\_2]; \};}
+\DoxyCodeLine{58   std::vector<std::vector<double>> \mbox{\hyperlink{class_dark_sector_model_a2393ad76b417d48933988ec9f66e13f4}{get\_a\_VEC\_DM}}(\textcolor{keywordtype}{int} prop\_vec)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} a\_VEC\_DM[prop\_vec]; \};}
+\DoxyCodeLine{60   std::vector<std::vector<std::vector<double>>> \mbox{\hyperlink{class_dark_sector_model_a21e727188a65fc752b278d1dea70c544}{get\_a\_VEC\_DM}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} a\_VEC\_DM; \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_dark_sector_model_a0028db4c976dd9b5b7387a108ef2e6b9}{get\_b\_VEC\_DM}}(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} b\_VEC\_DM[prop\_vec][dm\_1][dm\_2]; \};}
+\DoxyCodeLine{65   std::vector<std::vector<double>> \mbox{\hyperlink{class_dark_sector_model_a88c00e775e4fdaa0bbf08c558ec00044}{get\_b\_VEC\_DM}}(\textcolor{keywordtype}{int} prop\_vec)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} b\_VEC\_DM[prop\_vec]; \};}
+\DoxyCodeLine{67   std::vector<std::vector<std::vector<double>>> \mbox{\hyperlink{class_dark_sector_model_a45b6aa074a5c52117362be2b27ca442e}{get\_b\_VEC\_DM}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} b\_VEC\_DM; \};}
+\DoxyCodeLine{68   }
+\DoxyCodeLine{69   \textcolor{keywordtype}{double} get\_c\_sss(\textcolor{keywordtype}{int} prop\_scalar\_1, \textcolor{keywordtype}{int} prop\_scalar\_2, \textcolor{keywordtype}{int} prop\_scalar\_3)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} c\_sss[prop\_scalar\_1][prop\_scalar\_2][prop\_scalar\_3]; \};}
+\DoxyCodeLine{70   std::vector<std::vector<double>> get\_c\_sss(\textcolor{keywordtype}{int} prop\_scalar\_1)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} c\_sss[prop\_scalar\_1]; \};}
+\DoxyCodeLine{71   std::vector<std::vector<std::vector<double>>> get\_c\_sss()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} c\_sss; \};}
+\DoxyCodeLine{72   \textcolor{keywordtype}{double} get\_d\_spp(\textcolor{keywordtype}{int} prop\_scalar\_1, \textcolor{keywordtype}{int} prop\_pseudoscalar\_1, \textcolor{keywordtype}{int} prop\_pseudoscalar\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} d\_spp[prop\_scalar\_1][prop\_pseudoscalar\_1][prop\_pseudoscalar\_2]; \};}
+\DoxyCodeLine{73   std::vector<std::vector<double>> get\_d\_spp(\textcolor{keywordtype}{int} prop\_scalar\_1)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} d\_spp[prop\_scalar\_1]; \};}
+\DoxyCodeLine{74   std::vector<std::vector<std::vector<double>>> get\_d\_spp()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} d\_spp; \};}
+\DoxyCodeLine{75   \textcolor{keywordtype}{double} get\_d\_psp(\textcolor{keywordtype}{int} prop\_pseudoscalar\_1, \textcolor{keywordtype}{int} prop\_scalar\_1, \textcolor{keywordtype}{int} prop\_pseudoscalar\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} d\_spp[prop\_pseudoscalar\_1][prop\_scalar\_1][prop\_pseudoscalar\_2]; \};}
+\DoxyCodeLine{76   std::vector<std::vector<double>> get\_d\_psp(\textcolor{keywordtype}{int} prop\_pseudoscalar\_1)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} d\_psp[prop\_pseudoscalar\_1]; \};}
+\DoxyCodeLine{77   std::vector<std::vector<std::vector<double>>> get\_d\_psp()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} d\_psp; \};}
+\DoxyCodeLine{78   \textcolor{keywordtype}{double} get\_g\_sXX(\textcolor{keywordtype}{int} prop\_scalar\_1, \textcolor{keywordtype}{int} prop\_vector\_1, \textcolor{keywordtype}{int} prop\_vector\_2)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} g\_sXX[prop\_scalar\_1][prop\_vector\_1][prop\_vector\_2]; \};}
+\DoxyCodeLine{79   std::vector<std::vector<double>> get\_g\_sXX(\textcolor{keywordtype}{int} prop\_scalar\_1)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} g\_sXX[prop\_scalar\_1]; \};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   \textcolor{comment}{//std::vector<int> get\_indexToDSChiIndex() const \{ return indexToDSChiIndex; \};}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84   \textcolor{keywordtype}{void} add\_propagator(Proptype type, \textcolor{keywordtype}{int} dof, std::string name, \textcolor{keywordtype}{double} mass, \textcolor{keywordtype}{double} width);}
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} add\_darkmatter(\textcolor{keywordtype}{double} mass, \textcolor{keywordtype}{double} width, Fermiontype ftype = Fermiontype::majorana); \textcolor{comment}{// DM particles are set to Majorana by default}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{keywordtype}{void} set\_coupling\_DS\_S\_SM(\textcolor{keywordtype}{int} prop\_s, \textcolor{keywordtype}{int} couple, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{lambda\_S\_SM[prop\_s][couple] = lambda;\};}
+\DoxyCodeLine{88   \textcolor{keywordtype}{void} set\_coupling\_DS\_PS\_SM(\textcolor{keywordtype}{int} prop\_p, \textcolor{keywordtype}{int} couple, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{lambda\_PS\_SM[prop\_p][couple] = lambda;\};}
+\DoxyCodeLine{89   \textcolor{keywordtype}{void} set\_coupling\_DS\_a\_VEC\_SM(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} couple, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{a\_VEC\_SM[prop\_vec][couple] = lambda; \};}
+\DoxyCodeLine{90   \textcolor{keywordtype}{void} set\_coupling\_DS\_b\_VEC\_SM(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} couple, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{b\_VEC\_SM[prop\_vec][couple] = lambda; \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92   \textcolor{keywordtype}{void} set\_coupling\_DS\_S\_DM(\textcolor{keywordtype}{int} prop\_s, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{lambda\_S\_DM[prop\_s][dm\_1][dm\_2] = lambda;\};}
+\DoxyCodeLine{93   \textcolor{keywordtype}{void} set\_coupling\_DS\_PS\_DM(\textcolor{keywordtype}{int} prop\_p, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{lambda\_PS\_DM[prop\_p][dm\_1][dm\_2] = lambda;\};}
+\DoxyCodeLine{94   \textcolor{keywordtype}{void} set\_coupling\_DS\_a\_VEC\_DM(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{a\_VEC\_DM[prop\_vec][dm\_1][dm\_2] = lambda; \};}
+\DoxyCodeLine{95   \textcolor{keywordtype}{void} set\_coupling\_DS\_b\_VEC\_DM(\textcolor{keywordtype}{int} prop\_vec, \textcolor{keywordtype}{int} dm\_1, \textcolor{keywordtype}{int} dm\_2, \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& lambda)\{b\_VEC\_DM[prop\_vec][dm\_1][dm\_2] = lambda; \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97   \textcolor{keywordtype}{void} set\_couplings\_DS\_S\_SM(std::vector<std::vector<double>> \textcolor{keyword}{const}\& n\_lambda\_S\_SM) \{ lambda\_S\_SM = n\_lambda\_S\_SM; \};}
+\DoxyCodeLine{98   \textcolor{keywordtype}{void} set\_couplings\_DS\_PS\_SM(std::vector<std::vector<double>> \textcolor{keyword}{const}\& n\_lambda\_PS\_SM) \{ lambda\_PS\_SM = n\_lambda\_PS\_SM; \};}
+\DoxyCodeLine{99   \textcolor{keywordtype}{void} set\_couplings\_DS\_VEC\_SM(std::vector<std::vector<double>> \textcolor{keyword}{const}\&  n\_a\_VEC\_SM, std::vector<std::vector<double>> n\_b\_VEC\_SM)}
+\DoxyCodeLine{100   \{}
+\DoxyCodeLine{101     a\_VEC\_SM = n\_a\_VEC\_SM;}
+\DoxyCodeLine{102     b\_VEC\_SM = n\_b\_VEC\_SM;}
+\DoxyCodeLine{103   \};}
+\DoxyCodeLine{104   \textcolor{keywordtype}{void} set\_couplings\_DS\_S\_DM(std::vector<std::vector<std::vector<double>>> \textcolor{keyword}{const}\& n\_lambda\_S\_DM) \{ lambda\_S\_DM = n\_lambda\_S\_DM; \};}
+\DoxyCodeLine{105   \textcolor{keywordtype}{void} set\_couplings\_DS\_PS\_DM(std::vector<std::vector<std::vector<double>>> \textcolor{keyword}{const}\& n\_lambda\_PS\_DM) \{ lambda\_PS\_DM = n\_lambda\_PS\_DM; \};}
+\DoxyCodeLine{106   \textcolor{keywordtype}{void} set\_couplings\_DS\_VEC\_DM(std::vector<std::vector<std::vector<double>>> \textcolor{keyword}{const}\& n\_a\_VEC\_DM, std::vector<std::vector<std::vector<double>>> n\_b\_VEC\_DM)}
+\DoxyCodeLine{107   \{}
+\DoxyCodeLine{108     a\_VEC\_DM = n\_a\_VEC\_DM;}
+\DoxyCodeLine{109     b\_VEC\_DM = n\_b\_VEC\_DM;}
+\DoxyCodeLine{110   \};}
+\DoxyCodeLine{111   \textcolor{keywordtype}{void} set\_couplings\_c\_sss(std::vector<std::vector<std::vector<double>>> \textcolor{keyword}{const}\& n\_c\_sss) \{ c\_sss = n\_c\_sss; \};}
+\DoxyCodeLine{112   \textcolor{keywordtype}{void} set\_couplings\_g\_sXX(std::vector<std::vector<std::vector<double>>> \textcolor{keyword}{const}\& n\_g\_sXX) \{ g\_sXX = n\_g\_sXX; \};}
+\DoxyCodeLine{113   \textcolor{keywordtype}{void} set\_couplings\_d\_spp(std::vector<std::vector<std::vector<double>>> \textcolor{keyword}{const}\& n\_d\_spp) }
+\DoxyCodeLine{114   \{ }
+\DoxyCodeLine{115     d\_spp = n\_d\_spp; }
+\DoxyCodeLine{116     }
+\DoxyCodeLine{117     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < d\_spp.size(); i++)}
+\DoxyCodeLine{118       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < d\_spp[i].size(); j++)}
+\DoxyCodeLine{119         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < d\_spp[i][j].size(); k++)}
+\DoxyCodeLine{120             d\_psp[j][i][k] = d\_spp[i][j][k];}
+\DoxyCodeLine{121   \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123   \textcolor{comment}{//void set\_width\_phis(int prop\_s, n\_width) \{ phis[0]-\/>set\_width(n\_width);\}}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{comment}{// Private functions}}
+\DoxyCodeLine{126   \textcolor{keywordtype}{void} Initialise();}
+\DoxyCodeLine{127   \textcolor{keywordtype}{void} ForceInitCouplings();}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{private}:}
+\DoxyCodeLine{130   \textcolor{comment}{// List of couplings}}
+\DoxyCodeLine{131   \textcolor{comment}{//double cSXX, cSSS, cSPP;}}
+\DoxyCodeLine{132   std::vector<double> cSff, cPff, AXff, BXff;}
+\DoxyCodeLine{133   std::vector<std::vector<double>> cSCC, cPCC, AXCC, BXCC;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135   \textcolor{comment}{// Additional vectors and constants}}
+\DoxyCodeLine{136   \textcolor{keywordtype}{int} n\_DS\_DM, n\_DS\_phis, n\_DS\_phip, n\_DS\_X;}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138   std::vector<Particle> chi;}
+\DoxyCodeLine{139   std::vector<Particle> phis;}
+\DoxyCodeLine{140   std::vector<Particle> phip;}
+\DoxyCodeLine{141   std::vector<Particle> X;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   std::vector<bool> isPresentBeforeQCDPT, isPresentAfterQCDPT;}
+\DoxyCodeLine{144   std::vector<Particle> DS\_Elem\_Part, DS\_Prop, DS\_Part;}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146   \textcolor{comment}{//std::vector<int> indexToSMFermIndex;}}
+\DoxyCodeLine{147   \textcolor{comment}{//std::vector<int> indexToDSChiIndex;}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149   \textcolor{comment}{// Coupling tables}}
+\DoxyCodeLine{150   std::vector<std::vector<double>> lambda\_S\_SM, lambda\_PS\_SM, a\_VEC\_SM, b\_VEC\_SM;}
+\DoxyCodeLine{151   std::vector<std::vector<std::vector<double>>> lambda\_S\_DM, lambda\_PS\_DM, a\_VEC\_DM, b\_VEC\_DM;}
+\DoxyCodeLine{152   std::vector<std::vector<std::vector<double>>> c\_sss, d\_spp, d\_psp, g\_sXX;}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154   \textcolor{keywordtype}{int} n\_SM\_couples;}
+\DoxyCodeLine{155   \textcolor{keywordtype}{int} n\_SM\_part;}
+\DoxyCodeLine{156   \textcolor{keywordtype}{int} part\_DS\_index;}
+\DoxyCodeLine{157 \};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

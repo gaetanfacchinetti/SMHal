@@ -1,0 +1,63 @@
+\hypertarget{_decay_rates_8h_source}{}\doxysection{Decay\+Rates.\+h}
+\label{_decay_rates_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DecayRates.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DecayRates.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_DECAYRATES}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_DECAYRATES}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}DarkSectorModel.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}ExceptionHandler.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_decay_rates}{DecayRates}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10   \mbox{\hyperlink{class_decay_rates}{DecayRates}}()\{  v = 246.; T\_transQCD = T\_QCD\_GeV;\};}
+\DoxyCodeLine{11   \textcolor{comment}{//DecayRates()\{\};}}
+\DoxyCodeLine{12   \mbox{\hyperlink{class_decay_rates}{\string~DecayRates}}()\{\}; \textcolor{comment}{// we do not delete \_DS since we}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{comment}{// Decay rates for the scalar mediators}}
+\DoxyCodeLine{15   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_decay_rates_af9ced88c1e15a40a6d0d7791bf03f3c7}{DecayRate\_sff}}(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_s);}
+\DoxyCodeLine{16   \textcolor{keywordtype}{double} DecayRate\_scc(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_s);}
+\DoxyCodeLine{17   \textcolor{keywordtype}{double} DecayRate\_sss(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_s);}
+\DoxyCodeLine{18   \textcolor{keywordtype}{double} DecayRate\_spp(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_s);}
+\DoxyCodeLine{19   \textcolor{keywordtype}{double} DecayRate\_sXX(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_s);}
+\DoxyCodeLine{20   \textcolor{keywordtype}{double} DecayRate\_sgluongluon(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const} \&\_DS, \textcolor{keywordtype}{int} prop\_s); \textcolor{comment}{// This is a one-\/loop effect}}
+\DoxyCodeLine{21   \textcolor{keywordtype}{double} DecayRate\_sphotonphoton(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const} \&\_DS, \textcolor{keywordtype}{int} prop\_s); \textcolor{comment}{// This is a one-\/loop effect}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{comment}{// Decay rates for the pseudo scalar mediators}}
+\DoxyCodeLine{24   \textcolor{keywordtype}{double} DecayRate\_pff(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_p);}
+\DoxyCodeLine{25   \textcolor{keywordtype}{double} DecayRate\_pcc(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_p);}
+\DoxyCodeLine{26   \textcolor{keywordtype}{double} DecayRate\_psp(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_p);}
+\DoxyCodeLine{27   \textcolor{keywordtype}{double} DecayRate\_pgluongluon(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const} \&\_DS, \textcolor{keywordtype}{int} prop\_p); \textcolor{comment}{// This is a one-\/loop effect}}
+\DoxyCodeLine{28   \textcolor{keywordtype}{double} DecayRate\_pphotonphoton(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const} \&\_DS, \textcolor{keywordtype}{int} prop\_p); \textcolor{comment}{// This is a one-\/loop effect}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30   \textcolor{comment}{// Decay rates for the vector mediators}}
+\DoxyCodeLine{31   \textcolor{keywordtype}{double} DecayRate\_Xff(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_X);}
+\DoxyCodeLine{32   \textcolor{keywordtype}{double} DecayRate\_Xcc(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_X);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{comment}{// Decay rates for the heavy WIMPs}}
+\DoxyCodeLine{35   \textcolor{keywordtype}{double} DecayRate\_csc(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_chi);}
+\DoxyCodeLine{36   \textcolor{keywordtype}{double} DecayRate\_cpc(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_chi);}
+\DoxyCodeLine{37   \textcolor{keywordtype}{double} DecayRate\_cXc(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_chi);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   \textcolor{comment}{// Total decay rates}}
+\DoxyCodeLine{40   \textcolor{keywordtype}{double} DecayRate\_s(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_s);}
+\DoxyCodeLine{41   \textcolor{keywordtype}{double} DecayRate\_p(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_p);}
+\DoxyCodeLine{42   \textcolor{keywordtype}{double} DecayRate\_X(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_X);}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double} DecayRate\_chi(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const}\& \_DS, \textcolor{keywordtype}{int} prop\_chi);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordtype}{void} set\_width\_phis(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \& \_DS);}
+\DoxyCodeLine{46   \textcolor{keywordtype}{void} set\_width\_phip(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \& \_DS);}
+\DoxyCodeLine{47   \textcolor{keywordtype}{void} set\_width\_X(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \& \_DS);}
+\DoxyCodeLine{48   \textcolor{keywordtype}{void} set\_width\_chi(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \& \_DS);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \textcolor{keywordtype}{double} pf(\textcolor{keywordtype}{double} m0, \textcolor{keywordtype}{double} m1, \textcolor{keywordtype}{double} m2);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{private}:}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keywordtype}{double} v, T\_transQCD;}
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\hypertarget{_special_integrations_8h_source}{}\doxysection{Special\+Integrations.\+h}
+\label{_special_integrations_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/SpecialIntegrations.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/SpecialIntegrations.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SPECIALINTEGRATIONS}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SPECIALINTEGRATIONS}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}mymath.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_special_integrations}{SpecialIntegrations}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_special_integrations}{SpecialIntegrations}}()\{\};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{comment}{// Functions for the evaluation of cross sections}}
+\DoxyCodeLine{13     dcomp IntJt(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{14     dcomp IntJu(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{15     dcomp IntJtComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{16     dcomp IntJuComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     dcomp IntJttComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} c, \textcolor{keywordtype}{double} d, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{19     dcomp IntJtuComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} rc, \textcolor{keywordtype}{double} d, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{20     dcomp IntJuuComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q, \textcolor{keywordtype}{double} ra, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} rc, \textcolor{keywordtype}{double} d, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} IntK(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Functions for the evaluation of the s-\/wave term of thermally averaged cross sections}}
+\DoxyCodeLine{26     dcomp IntHtComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} pkl);}
+\DoxyCodeLine{27     dcomp IntHuComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} pkl);}
+\DoxyCodeLine{28     dcomp IntHttComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} c, \textcolor{keywordtype}{double} d, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} pkl);}
+\DoxyCodeLine{29     dcomp IntHtuComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} d, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} pkl);}
+\DoxyCodeLine{30     dcomp IntHuuComp(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q, \textcolor{keywordtype}{double} r1, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} r2, \textcolor{keywordtype}{double} d, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} pkl);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Other functions}}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} Binom(\textcolor{keywordtype}{int} k, \textcolor{keywordtype}{int} n);  \textcolor{comment}{// Fast computation of the usual binomial coefficient}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} BinomGen(\textcolor{keywordtype}{int} k, \textcolor{keywordtype}{int} n);  \textcolor{comment}{// General definition of the binomial coefficient}}
+\DoxyCodeLine{35     dcomp FF(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{int} p, dcomp x);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} GG(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{int} p, \textcolor{keywordtype}{int} q);}
+\DoxyCodeLine{37     dcomp IntJtCompTest(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b, \textcolor{keywordtype}{double} tmin, \textcolor{keywordtype}{double} tmax);}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

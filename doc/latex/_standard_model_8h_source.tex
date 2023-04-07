@@ -1,0 +1,78 @@
+\hypertarget{_standard_model_8h_source}{}\doxysection{Standard\+Model.\+h}
+\label{_standard_model_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/StandardModel.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/StandardModel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STANDARDMODEL}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STANDARDMODEL}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Particle.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_standard_model}{StandardModel}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \textcolor{comment}{// Fonctions qui en font un singleton}}
+\DoxyCodeLine{12     \textcolor{keyword}{static} \mbox{\hyperlink{class_standard_model}{StandardModel}} *getInstance()}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} (NULL == \_SM)}
+\DoxyCodeLine{15             \_SM = \textcolor{keyword}{new} \mbox{\hyperlink{class_standard_model}{StandardModel}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17         \textcolor{keywordflow}{return} \_SM;}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{static} \textcolor{keywordtype}{void} kill()}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{if} (NULL != \_SM)}
+\DoxyCodeLine{23         \{}
+\DoxyCodeLine{24             \textcolor{keyword}{delete} \_SM;}
+\DoxyCodeLine{25             \_SM = NULL;}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     std::vector<int> get\_indexToSMFermIndex()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} indexToSMFermIndex;\};}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_particle}{Particle}} get\_SM\_Part(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} SM\_Part[i];\};}
+\DoxyCodeLine{31     std::vector<Particle> get\_SM\_Part()\textcolor{keyword}{ const  }\{\textcolor{keywordflow}{return} SM\_Part;\};}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_particle_pair}{ParticlePair}} get\_couples\_SM\_ferm(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const  }\{\textcolor{keywordflow}{return} couples\_SM\_ferm[i];\};}
+\DoxyCodeLine{33     std::vector<ParticlePair> get\_couples\_SM\_ferm()\textcolor{keyword}{ const  }\{\textcolor{keywordflow}{return} couples\_SM\_ferm;\};}
+\DoxyCodeLine{34     std::vector<Particle> get\_SM\_neutrinos()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} SM\_neutrinos;\};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} get\_n\_SM\_Part()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} n\_SM\_Part;\};}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} get\_n\_couples\_SM\_ferm()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} n\_couples\_SM\_ferm;\};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_particle}{Particle}} get\_electron()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} electron;\};}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_particle}{Particle}} * get\_photon\_ptr() \{\textcolor{keywordflow}{return} \&photon;\};}
+\DoxyCodeLine{41     \textcolor{comment}{// Particle get\_neutrino() const \{return neutrino;\};}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     \mbox{\hyperlink{class_standard_model}{StandardModel}}();}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_standard_model}{\string~StandardModel}}()\{\};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{static} \mbox{\hyperlink{class_standard_model}{StandardModel}} *\_SM;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_particle}{Particle}} photon, gluon, higgs, boson\_Z, boson\_Wp, boson\_Wm;}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_particle}{Particle}} neutrino\_e, neutrino\_mu, neutrino\_tau;}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_particle}{Particle}} anti\_neutrino\_e, anti\_neutrino\_mu, anti\_neutrino\_tau;}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_particle}{Particle}} electron, positron, muon, anti\_muon, tau, anti\_tau;}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_particle}{Particle}} quark\_up, quark\_down, quark\_strange, quark\_charm, quark\_bottom, quark\_top;}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_particle}{Particle}} anti\_quark\_up, anti\_quark\_down, anti\_quark\_strange, anti\_quark\_charm, anti\_quark\_bottom, anti\_quark\_top;}
+\DoxyCodeLine{56     \mbox{\hyperlink{class_particle}{Particle}} pion0, pionp, pionm, eta, eta\_prime, kaon0\_short, kaon0\_long, kaonp, kaonm, proton, anti\_proton, neutron;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \mbox{\hyperlink{class_particle_pair}{ParticlePair}} e\_pair, muon\_pair, tau\_pair, nu\_e\_pair, nu\_mu\_pair, nu\_tau\_pair, q\_u\_pair, q\_d\_pair, q\_s\_pair, q\_c\_pair, q\_b\_pair, q\_t\_pair, p\_pair;}
+\DoxyCodeLine{59     std::vector<ParticlePair> couples\_SM\_ferm;}
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} n\_couples\_SM\_ferm;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} n\_SM\_Part, n\_SM\_Elem, n\_SM\_Poly;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     std::vector<Particle> SM\_Elem\_Part, SM\_Elem\_Fermions, SM\_Part, SM\_Fermions;}
+\DoxyCodeLine{65     std::vector<Particle> SM\_neutrinos;}
+\DoxyCodeLine{66     std::vector<bool> isPresentBeforeQCDPT, isPresentAfterQCDPT;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     std::vector<int> indexToSMFermIndex;}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} n\_SM\_Fermions;}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,219 @@
+\hypertarget{_f_s_l_model_8h_source}{}\doxysection{FSLModel.\+h}
+\label{_f_s_l_model_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/FSLModel.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/FSLModel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_FSLModel}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_FSLModel}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}mymath.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}MyUnits.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Galaxy.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}DarkHalo.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}myspline.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{comment}{// BE CAREFULL : It is impossible to define a c200\_max\_point with the new definition}}
+\DoxyCodeLine{12 \textcolor{comment}{// of a point subhalo}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_f_s_l_model}{FSLModel}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17   \mbox{\hyperlink{class_f_s_l_model}{FSLModel}}(\textcolor{keywordtype}{double} n\_m200\_min, \textcolor{keywordtype}{double} n\_epst, \mbox{\hyperlink{class_dark_halo}{DarkHalo}} n\_hostHalo);}
+\DoxyCodeLine{18   \mbox{\hyperlink{class_f_s_l_model}{\string~FSLModel}}()\{\};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keywordtype}{double} tidal\_radius\_over\_scale\_radius(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} c200);}
+\DoxyCodeLine{21   \textcolor{keywordtype}{void} plot\_tidal\_radius\_over\_scale\_radius();}
+\DoxyCodeLine{22   \textcolor{keywordtype}{void} plot\_tidal\_radius\_over\_scale\_radius\_linear\_concentration();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keywordtype}{void} ReadFormTable\_rt\_over\_rs\_DMO();}
+\DoxyCodeLine{25   \textcolor{keywordtype}{double} Interpolation\_rt\_over\_rs\_DMO(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} c200);}
+\DoxyCodeLine{26   \textcolor{keywordtype}{void} plot\_rt\_over\_rs();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \textcolor{keywordtype}{double} c200\_min\_DMO(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} eps\_t);}
+\DoxyCodeLine{29   \textcolor{keywordtype}{double} funcToSolvec200min\_DMO(std::vector<double> Rc200eps);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \textcolor{comment}{// Function to compute c\_bar in terms of the physical mass mt}}
+\DoxyCodeLine{33   \textcolor{keywordtype}{double} c\_bar\_vs\_mphys(\textcolor{keywordtype}{double} mt, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{34   \textcolor{keywordtype}{double} fForDichotomie\_c\_bar\_vs\_mphys(\textcolor{keywordtype}{double} c200, \textcolor{keywordtype}{double} mt, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{35   \textcolor{keywordtype}{void} plot\_c200\_vs\_mphys();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{comment}{//double c200\_max\_point(double s\_i, double cosbcosl, double eta\_i, double theta\_d, double m200);}}
+\DoxyCodeLine{38   \textcolor{comment}{//double funcToSolvec200max\_point(std::vector<double> c200sRetathetam200);}}
+\DoxyCodeLine{39   \textcolor{comment}{//void plot\_funcToSolvec200max\_point(double s\_i, double cosbcosl, double eta\_i, double theta\_d, double m200);}}
+\DoxyCodeLine{40   \textcolor{comment}{//void plot\_c200\_max\_point(double s\_i, double psi, double eta\_i, double theta\_d, double m200\_min, double m200\_max);}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{keywordtype}{double} rt\_over\_rs\_DMO(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} c200);}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double} funcToSolve\_tidal\_radius\_DMO(std::vector<double> xtRc200);}
+\DoxyCodeLine{44   \textcolor{keywordtype}{void} plot\_dimensionless\_tidal\_radius\_DMO();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   \textcolor{keywordtype}{double} fToIntOnm200AverageRhoSub(std::vector<double> yy);}
+\DoxyCodeLine{47   \textcolor{keywordtype}{double} fToIntOnc200AverageRhoSub(std::vector<double> yy);}
+\DoxyCodeLine{48   \textcolor{keywordtype}{double} UnNormalizedAverageRhoSub(\textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{49   \textcolor{keywordtype}{int} InitialiseAverageRhoSub();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keywordtype}{double} averageRhoSub(\textcolor{keywordtype}{double} R)}
+\DoxyCodeLine{52   \{}
+\DoxyCodeLine{53     \textcolor{comment}{//return NsubUnevolved()*UnNormalizedAverageRhoSub(R);}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{if} (is\_rhoSub\_initialized == \textcolor{keyword}{true})}
+\DoxyCodeLine{55       \textcolor{keywordflow}{return} spline\_AverageRhoSub(R);}
+\DoxyCodeLine{56     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58       is\_rhoSub\_initialized = \textcolor{keyword}{true};}
+\DoxyCodeLine{59       InitialiseAverageRhoSub();}
+\DoxyCodeLine{60       \textcolor{keywordflow}{return} spline\_AverageRhoSub(R);}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62   \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \textcolor{keywordtype}{double} get\_Kt\_Tot()}
+\DoxyCodeLine{65   \{}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} (is\_Kt\_Tot\_initialized == \textcolor{keyword}{true})}
+\DoxyCodeLine{67       \textcolor{keywordflow}{return} \_Kt\_Tot;}
+\DoxyCodeLine{68     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70       \_Kt\_Tot = Normalisation\_Kt\_Tot();}
+\DoxyCodeLine{71       is\_Kt\_Tot\_initialized = \textcolor{keyword}{true};}
+\DoxyCodeLine{72       \textcolor{keywordflow}{return} \_Kt\_Tot;}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74   \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76   \textcolor{keywordtype}{double} get\_Nsub()}
+\DoxyCodeLine{77   \{}
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (is\_N\_sub\_initialized == \textcolor{keyword}{true})}
+\DoxyCodeLine{79       \textcolor{keywordflow}{return} \_N\_sub;}
+\DoxyCodeLine{80     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{81     \{}
+\DoxyCodeLine{82       \textcolor{comment}{//std::cout << NsubUnevolved() << "{} "{} << get\_Kt\_Tot() << std::endl;}}
+\DoxyCodeLine{83       \_N\_sub = NsubUnevolved()*get\_Kt\_Tot();}
+\DoxyCodeLine{84       is\_N\_sub\_initialized = \textcolor{keyword}{true};}
+\DoxyCodeLine{85       \textcolor{keywordflow}{return} \_N\_sub;}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87   \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{comment}{// Getter}}
+\DoxyCodeLine{90   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_alpha\_m()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} alpha\_m; \};}
+\DoxyCodeLine{91   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_epst()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} epst; \};}
+\DoxyCodeLine{92   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_m200\_min()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m200\_min; \};}
+\DoxyCodeLine{93   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_m200\_max()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m200\_max; \};}
+\DoxyCodeLine{94   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_c200\_max()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} c200\_max; \};}
+\DoxyCodeLine{95   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_Km()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Km; \};}
+\DoxyCodeLine{96   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_R\_max()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} R\_max; \};}
+\DoxyCodeLine{97   \mbox{\hyperlink{class_dark_halo}{DarkHalo}} \textcolor{keyword}{const} get\_subModel()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} subModel; \};}
+\DoxyCodeLine{98   \mbox{\hyperlink{class_dark_halo}{DarkHalo}} \textcolor{keyword}{const} get\_hostHalo()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} hostHalo;\};}
+\DoxyCodeLine{99   \textcolor{comment}{//Galaxy const get\_galaxy() const \{ return gal; \};}}
+\DoxyCodeLine{100   \mbox{\hyperlink{class_cosmology}{Cosmology}} get\_cosmo()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} cosmo;\};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_vec\_c200(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} vec\_c200[i]; \};}
+\DoxyCodeLine{103   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_vec\_R(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} vec\_R[i]; \};}
+\DoxyCodeLine{104   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_vec\_rt\_over\_rs(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} vec\_rt\_over\_rs[i][j]; \};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106   \textcolor{comment}{//}}
+\DoxyCodeLine{107   \textcolor{comment}{//}}
+\DoxyCodeLine{108   \textcolor{keywordtype}{double} MassFunction(\textcolor{keywordtype}{double} m200\_M200, \textcolor{keywordtype}{double} M200);}
+\DoxyCodeLine{109   \textcolor{keywordtype}{double} TotalNumberOfSubhalosUnevolved();}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \textcolor{keywordtype}{double} ProbDistributionSpace(\textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{112   \textcolor{keywordtype}{double} ProbDistributionMass(\textcolor{keywordtype}{double} m200);}
+\DoxyCodeLine{113   \textcolor{keywordtype}{double} ProbDistributionConcentration(\textcolor{keywordtype}{double} c200, \textcolor{keywordtype}{double} m200);}
+\DoxyCodeLine{114   \textcolor{keywordtype}{double} c\_bar(\textcolor{keywordtype}{double} m200);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116   \textcolor{keywordtype}{double} fToIntOnc200\_MassFraction(std::vector<double> yy);}
+\DoxyCodeLine{117   \textcolor{keywordtype}{double} fToIntOnm200\_MassFraction(std::vector<double> yy);}
+\DoxyCodeLine{118   \textcolor{keywordtype}{double} fToIntOnR\_MassFraction(std::vector<double> yy);}
+\DoxyCodeLine{119   \textcolor{keywordtype}{double} MassFraction();}
+\DoxyCodeLine{120   \textcolor{keywordtype}{double} NsubUnevolved()}
+\DoxyCodeLine{121   \{}
+\DoxyCodeLine{122     \textcolor{keywordflow}{if} (is\_NsubUnevolved\_initialised == \textcolor{keyword}{true})}
+\DoxyCodeLine{123     \{}
+\DoxyCodeLine{124       \textcolor{comment}{//std::cout << "{}There"{} << std::endl;}}
+\DoxyCodeLine{125       \textcolor{keywordflow}{return} \_N\_sub\_un;}
+\DoxyCodeLine{126     \}}
+\DoxyCodeLine{127     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{128     \{}
+\DoxyCodeLine{129       is\_NsubUnevolved\_initialised = \textcolor{keyword}{true};}
+\DoxyCodeLine{130       \_N\_sub\_un = TotalNumberOfSubhalosUnevolved();}
+\DoxyCodeLine{131       \textcolor{comment}{//std::cout << "{}here we have : "{} << \_N\_sub\_un << std::endl;}}
+\DoxyCodeLine{132       \textcolor{keywordflow}{return} \_N\_sub\_un;}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134   \};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136   \textcolor{keywordtype}{double} fToIntOnc200\_EvolvedMassFunction(\textcolor{keywordtype}{double} c200, \textcolor{keywordtype}{double} mt, \textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} c200\_m);}
+\DoxyCodeLine{137   \textcolor{keywordtype}{double} EvolvedMassFunction\_Rfixed(\textcolor{keywordtype}{double} mt, \textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} c200\_m);}
+\DoxyCodeLine{138   \textcolor{keywordtype}{double} fToIntOnR\_EvolvedMassFunction(\textcolor{keywordtype}{double} mt, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{139   \textcolor{keywordtype}{double} EvolvedMassFunction(\textcolor{keywordtype}{double} mt);}
+\DoxyCodeLine{140   \textcolor{keywordtype}{void} plot\_EvolveMassFunction(\textcolor{keywordtype}{int} version);}
+\DoxyCodeLine{141   \textcolor{keywordtype}{double} Nsim\_Ktsim() \{ \textcolor{keywordflow}{return} 1; \};}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   \textcolor{keywordtype}{double} fToIntOnm200\_Norm\_Tot(std::vector<double> varNorm);}
+\DoxyCodeLine{144   \textcolor{keywordtype}{double} fToIntOnc200\_Norm\_Tot(std::vector<double> varNorm);}
+\DoxyCodeLine{145   \textcolor{keywordtype}{double} fToIntOnR\_Norm\_Tot(std::vector<double> varNorm);}
+\DoxyCodeLine{146   \textcolor{keywordtype}{double} Normalisation\_Kt\_Tot();}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148   std::vector<double> Nsub\_calibrated();}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150   \textcolor{keywordtype}{double} NumberDensity\_subhalos(\textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{151   \textcolor{keywordtype}{void} plot\_NumberDensity\_subhalos(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153   \textcolor{comment}{//}}
+\DoxyCodeLine{154   \textcolor{comment}{//}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156   }
+\DoxyCodeLine{157   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_funcToSolvec200min\_DMO(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>funcToSolvec200min\_DMO(xx); \};}
+\DoxyCodeLine{158   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_funcToSolve\_tidal\_radius\_DMO(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>funcToSolve\_tidal\_radius\_DMO(xx); \};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnc200\_EvolvedMassFunction(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnc200\_EvolvedMassFunction(xx[0], xx[1], xx[2], xx[3]); \};}
+\DoxyCodeLine{161   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnR\_EvolvedMassFunction(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnR\_EvolvedMassFunction(xx[0], xx[1]); \};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnm200\_Norm\_Tot(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnm200\_Norm\_Tot(xx); \};}
+\DoxyCodeLine{164   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnc200\_Norm\_Tot(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnc200\_Norm\_Tot(xx); \};}
+\DoxyCodeLine{165   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnR\_Norm\_Tot(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnR\_Norm\_Tot(xx); \};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_MassFunction(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>MassFunction(xx[0], xx[1]); \};}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnm200\_MassFraction(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnm200\_MassFraction(xx); \};}
+\DoxyCodeLine{170   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnc200\_MassFraction(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnc200\_MassFraction(xx); \};}
+\DoxyCodeLine{171   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnR\_MassFraction(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnR\_MassFraction(xx); \};}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnc200AverageRhoSub(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnc200AverageRhoSub(xx); \};}
+\DoxyCodeLine{174   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnm200AverageRhoSub(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fToIntOnm200AverageRhoSub(xx); \};}
+\DoxyCodeLine{175   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fForDichotomie\_c\_bar\_vs\_mphys(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_f_s_l_model}{FSLModel}} *)pt2Object)-\/>fForDichotomie\_c\_bar\_vs\_mphys(xx[0], xx[1], xx[2]); \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177   \textcolor{comment}{//}}
+\DoxyCodeLine{178   \textcolor{comment}{//}}
+\DoxyCodeLine{179   \textcolor{comment}{//}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{keyword}{private}:}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184   std::vector<std::vector<double>> vec\_rt\_over\_rs, vec\_rt\_over\_rs\_DMO, vec\_c200\_min;}
+\DoxyCodeLine{185   std::vector<double> vec\_R, vec\_R\_DMO;}
+\DoxyCodeLine{186   std::vector<double> vec\_c200, vec\_c200\_DMO;}
+\DoxyCodeLine{187   std::vector<double> vec\_R\_bis, vec\_epst;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189   \textcolor{keywordtype}{double} distance\_SGC;}
+\DoxyCodeLine{190   \textcolor{keywordtype}{double} Km, alpha\_m, m200\_min, m200\_max, c200\_max, R\_max;}
+\DoxyCodeLine{191   \textcolor{keywordtype}{double} epst;}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193   \mbox{\hyperlink{class_cosmology}{Cosmology}} cosmo;}
+\DoxyCodeLine{194   \textcolor{comment}{//Galaxy gal;}}
+\DoxyCodeLine{195   \mbox{\hyperlink{class_dark_halo}{DarkHalo}} subModel, hostHalo;}
+\DoxyCodeLine{196   \textcolor{keywordtype}{double} host\_virialmass;}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198   std::string input\_filename;}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200   \textcolor{comment}{// Average value of rho\_sub}}
+\DoxyCodeLine{201   my\_spline::spline spline\_AverageRhoSub;}
+\DoxyCodeLine{202   \textcolor{keywordtype}{double} \_N\_sub, \_N\_sub\_un, \_Kt\_Tot;}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204   \textcolor{keywordtype}{bool} is\_rhoSub\_initialized;}
+\DoxyCodeLine{205   \textcolor{keywordtype}{bool} is\_Kt\_Tot\_initialized;}
+\DoxyCodeLine{206   \textcolor{keywordtype}{bool} is\_N\_sub\_initialized;}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208   \textcolor{keywordtype}{bool} is\_NsubUnevolved\_initialised;}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210   \textcolor{keywordtype}{bool} are\_disk\_effects; \textcolor{comment}{// variable to say if disk effects are taken into account or not}}
+\DoxyCodeLine{211 \};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

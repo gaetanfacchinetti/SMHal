@@ -1,0 +1,397 @@
+\hypertarget{_my_units_8h_source}{}\doxysection{My\+Units.\+h}
+\label{_my_units_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/MyUnits.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/MyUnits.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_MYUNITS}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_MYUNITS}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}mymath.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{/*}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{  Martin definition}}
+\DoxyCodeLine{16 \textcolor{comment}{}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} G\_NEWTON = 6.67408e-\/11; \textcolor{comment}{// [m\string^3.kg\string^-\/1.s\string^-\/2]}}
+\DoxyCodeLine{20 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} LIGHT\_SPEED = 299792458; \textcolor{comment}{// [m/s]}}
+\DoxyCodeLine{21 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} K\_BOLTZMANN = 1.3806488e-\/23; \textcolor{comment}{// Boltzmann constant [J.K\string^-\/1]}}
+\DoxyCodeLine{22 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} H\_BAR = 1.054571726e-\/34; \textcolor{comment}{// reduced Planck constant [J.s]}}
+\DoxyCodeLine{23 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} E\_CHARGE = 1.602176565e-\/19;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{// conversion factors }}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Msun\_to\_kg = 1.32712442099e20/G\_NEWTON; }
+\DoxyCodeLine{28 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kg\_to\_Msun = 1./Msun\_to\_kg;}
+\DoxyCodeLine{29 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kpc\_to\_m = 3.08567758149e19;}
+\DoxyCodeLine{30 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kpc\_to\_cm = 3.08567758149e+21;}
+\DoxyCodeLine{31 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} cm\_to\_kpc = 1./kpc\_to\_cm;}
+\DoxyCodeLine{32 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} m\_to\_kpc = 1./kpc\_to\_m; }
+\DoxyCodeLine{33 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ev\_to\_kg = 1.782661845e-\/36;}
+\DoxyCodeLine{34 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kg\_to\_ev = 1./ev\_to\_kg;}
+\DoxyCodeLine{35 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Mskpc3\_to\_gevcm3 = 1e-\/15*Msun\_to\_kg*kg\_to\_ev*pow(m\_to\_kpc,3.);}
+\DoxyCodeLine{36 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} gevcm3\_to\_Mskpc3 = 1./Mskpc3\_to\_gevcm3;}
+\DoxyCodeLine{37 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Myr\_to\_s = 1e6*365.25*24*3600;}
+\DoxyCodeLine{38 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} s\_to\_Myr = 1/Myr\_to\_s;}
+\DoxyCodeLine{39 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} m\_eV = 1e9/(197.3269718); \textcolor{comment}{// 1 meter times 1 eV}}
+\DoxyCodeLine{40 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_J = E\_CHARGE; \textcolor{comment}{// Proton charge in [C]}}
+\DoxyCodeLine{41 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_J = 1.e9*eV\_to\_J;}
+\DoxyCodeLine{42 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} J\_to\_eV = 1./eV\_to\_J;}
+\DoxyCodeLine{43 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_K = eV\_to\_J/K\_BOLTZMANN;}
+\DoxyCodeLine{44 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_K = 1.e9*eV\_to\_K;}
+\DoxyCodeLine{45 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} K\_to\_eV = 1./eV\_to\_K;}
+\DoxyCodeLine{46 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} K\_to\_GeV = 1./GeV\_to\_K;}
+\DoxyCodeLine{47 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} s\_ev = m\_eV*LIGHT\_SPEED; \textcolor{comment}{// 1 second times 1 eV}}
+\DoxyCodeLine{48 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} speed\_in\_kms = 1e-\/3*sqrt(m\_to\_kpc*Msun\_to\_kg); \textcolor{comment}{// conversion factor: (G*Msun/kpc)\string^1/2 -\/-\/-\/> km/s}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} PLANCK\_MASS = sqrt(H\_BAR*LIGHT\_SPEED/G\_NEWTON)*kg\_to\_ev*1e-\/9; \textcolor{comment}{// Planck mass [GeV]}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{comment}{// cosmological parameters (Planck 2018) -\/ Everything except BAO}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T0\_CMB\_K = 2.72548; \textcolor{comment}{// From Fixsen arXiv:0911.1955}}
+\DoxyCodeLine{56 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T0\_CMB\_GeV = T0\_CMB\_K * K\_to\_GeV;}
+\DoxyCodeLine{57 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} N\_EFF = 3.046; \textcolor{comment}{// From arXiv:1606.06986}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} OMEGA\_C\_h2\_WMAP5 = 0.1081;}
+\DoxyCodeLine{60 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} OMEGA\_B\_h2\_WMAP5 = 2.268/100;}
+\DoxyCodeLine{61 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} SPECTRAL\_INDEX\_WMAP5 = 0.961;}
+\DoxyCodeLine{62 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} SPECTRAL\_AMPLITUDE\_WMAP5 = 2.41e-\/9;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{comment}{/*}}
+\DoxyCodeLine{66 \textcolor{comment}{}}
+\DoxyCodeLine{67 \textcolor{comment}{  Julien definition}}
+\DoxyCodeLine{68 \textcolor{comment}{}}
+\DoxyCodeLine{69 \textcolor{comment}{}}
+\DoxyCodeLine{70 \textcolor{comment}{*/}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{78 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} G\_N = 6.67408e-\/11;}
+\DoxyCodeLine{80 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} HBAR = 1.054571726e-\/34;}
+\DoxyCodeLine{82 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} K\_BOLTZ = 1.38066488e-\/23;}
+\DoxyCodeLine{84 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} C\_LIGHT = 2.99792458e+8;}
+\DoxyCodeLine{86 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} C\_light = 1.e2*C\_LIGHT;}
+\DoxyCodeLine{88 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} MU\_0 = 4.e-\/7 * PI;}
+\DoxyCodeLine{90 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} EPSILON\_0 = 1./(MU\_0 * C\_LIGHT * C\_LIGHT);}
+\DoxyCodeLine{92 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ALPHA\_EM = pow(E\_CHARGE,2)/(4.*PI*EPSILON\_0*HBAR*C\_LIGHT);}
+\DoxyCodeLine{94 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ALPHA\_S = 0.1184;}
+\DoxyCodeLine{96 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} FERMI\_CST = 1.1663787e-\/5;}
+\DoxyCodeLine{98 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} SIN2\_THETA\_W = 0.23146;}
+\DoxyCodeLine{99 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} SIN\_THETA\_W = sqrt(SIN2\_THETA\_W);}
+\DoxyCodeLine{100 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} THETA\_W = asin(SIN\_THETA\_W);}
+\DoxyCodeLine{102 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_PLANCK\_IU = sqrt(HBAR * C\_LIGHT / G\_N);}
+\DoxyCodeLine{104 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} N\_AVOGADRO = 6.02214129e23;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 }
+\DoxyCodeLine{114 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_SUN = 1.3271244e20/G\_N;}
+\DoxyCodeLine{116 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} R\_SUN = 6.955e8;}
+\DoxyCodeLine{118 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_EARTH = 5.9736e24;}
+\DoxyCodeLine{120 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} R\_EARTH = 6.371e6;}
+\DoxyCodeLine{122 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_QCD\_GeV = 0.150;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 }
+\DoxyCodeLine{139 }
+\DoxyCodeLine{141 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_nue = 0;}
+\DoxyCodeLine{142 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_nue = 0;}
+\DoxyCodeLine{144 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_numu = 0;}
+\DoxyCodeLine{145 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_numu = 0;}
+\DoxyCodeLine{147 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_nutau = 0;}
+\DoxyCodeLine{148 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_nutau = 0;}
+\DoxyCodeLine{150 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_e = 0.510998928e-\/3;}
+\DoxyCodeLine{151 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_e = 0;}
+\DoxyCodeLine{153 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_MU = 1.05658369e-\/01;}
+\DoxyCodeLine{154 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_MU = 2.996e-\/19;}
+\DoxyCodeLine{156 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_TAU = 1.77699;}
+\DoxyCodeLine{157 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_TAU = 2.267e-\/12;}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{160 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_CLEP[3] = \{M\_e,M\_MU,M\_TAU\};}
+\DoxyCodeLine{162 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_NLEP[3] = \{M\_nue,M\_numu,M\_nutau\};}
+\DoxyCodeLine{163 \textcolor{comment}{//static const double M\_NLEP[3] = \{0,0,0\};}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{168 }
+\DoxyCodeLine{170 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QUARK\_UP = 2.3e-\/03;}
+\DoxyCodeLine{171 \textcolor{comment}{//static const double M\_qu = 3.3e-\/1;}}
+\DoxyCodeLine{173 \textcolor{comment}{}\textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QUARK\_DOWN = 4.8e-\/03;}
+\DoxyCodeLine{174 \textcolor{comment}{//static const double M\_qd = 3.3e-\/1;}}
+\DoxyCodeLine{176 \textcolor{comment}{}\textcolor{comment}{//static const double M\_qs = 1.0e-\/01;}}
+\DoxyCodeLine{177 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QUARK\_STRANGE = 5.0e-\/01;}
+\DoxyCodeLine{179 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QUARK\_CHARM = 1.5;}
+\DoxyCodeLine{181 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QUARK\_BOTTOM = 4.18;}
+\DoxyCodeLine{183 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QUARK\_TOP = 172.9;}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{186 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QU[3] = \{M\_QUARK\_UP,M\_QUARK\_CHARM,M\_QUARK\_TOP\};}
+\DoxyCodeLine{188 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_QD[3] = \{M\_QUARK\_DOWN,M\_QUARK\_STRANGE,M\_QUARK\_BOTTOM\};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 }
+\DoxyCodeLine{194 }
+\DoxyCodeLine{196 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_Z = 91.1876;}
+\DoxyCodeLine{197 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_Z = 2.4952;}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{200 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_W = 80.385;}
+\DoxyCodeLine{201 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_W = 2.085;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_H = 126.0;}
+\DoxyCodeLine{205 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_H = 1.0;}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{209 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} G\_WEAK = sqrt(8*M\_W*M\_W*FERMI\_CST/sqrt(2.0));}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 }
+\DoxyCodeLine{215 }
+\DoxyCodeLine{217 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_PROTON = 0.938272046;}
+\DoxyCodeLine{219 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_NEUTRON = 0.93956533;}
+\DoxyCodeLine{221 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_deut = 1.87561282202674984;}
+\DoxyCodeLine{223 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_PI\_C = 0.13957018;}
+\DoxyCodeLine{224 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_PI\_C = 2.528e-\/17;}
+\DoxyCodeLine{226 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_PI\_0 = 0.1349766;}
+\DoxyCodeLine{227 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_PI\_0 = 7.725e-\/9;}
+\DoxyCodeLine{229 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_K\_C = 0.493677;}
+\DoxyCodeLine{230 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_K\_C = 5.317e-\/17;}
+\DoxyCodeLine{232 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_K\_0 = 0.497614;}
+\DoxyCodeLine{233 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_K\_0\_S = 7.351e-\/15;}
+\DoxyCodeLine{234 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_K\_0\_L = 1.287e-\/17;}
+\DoxyCodeLine{236 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_ETA = 0.547853;}
+\DoxyCodeLine{237 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_ETA = 1.31e-\/6;}
+\DoxyCodeLine{239 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_ETA\_P = 0.95778;}
+\DoxyCodeLine{240 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_ETA\_P = 0.198e-\/3;}
+\DoxyCodeLine{242 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_SIGMA = 0.6;}
+\DoxyCodeLine{244 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_RHO770 = 0.77549;}
+\DoxyCodeLine{246 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_OMEGA782 = 0.78265;}
+\DoxyCodeLine{248 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_ETAP958 = 0.95778;}
+\DoxyCodeLine{250 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_F0980 = 0.980;}
+\DoxyCodeLine{252 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_A0980 = 0.980;}
+\DoxyCodeLine{254 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_PHI1020 = 1.019455;}
+\DoxyCodeLine{256 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_H11170 = 1.170;}
+\DoxyCodeLine{258 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_D1232 = 1.232;}
+\DoxyCodeLine{260 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} G\_D1232 = 0.120/2.;}
+\DoxyCodeLine{262 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_B11235 = 1.2295;}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 }
+\DoxyCodeLine{266 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} UAM = 1.660538921e-\/27/1.782661845e-\/27;}
+\DoxyCodeLine{268 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} A\_to\_GeV = UAM;}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 \textcolor{comment}{//static const double ATOMIC\_WEIGHT[200]=\{}}
+\DoxyCodeLine{271 \textcolor{comment}{//  1,2,3,4,5,6,7,8,9,10,11,12,}}
+\DoxyCodeLine{272 \textcolor{comment}{//\};}}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} DEG\_TO\_RAD = PI/180.;}
+\DoxyCodeLine{281 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} RAD\_TO\_DEG = 180./PI;}
+\DoxyCodeLine{282 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} DEG\_TO\_ARCMIN = 60.;}
+\DoxyCodeLine{283 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ARCMIN\_TO\_DEG = 1./DEG\_TO\_ARCMIN;}
+\DoxyCodeLine{284 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ARCMIN\_TO\_RAD = ARCMIN\_TO\_DEG * DEG\_TO\_RAD;}
+\DoxyCodeLine{285 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ARCMIN\_TO\_ARCSEC = 60.;}
+\DoxyCodeLine{286 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ARCSEC\_TO\_RAD = 1./(RAD\_TO\_DEG * DEG\_TO\_ARCMIN * ARCMIN\_TO\_ARCSEC);}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288 }
+\DoxyCodeLine{290 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} mb\_to\_cm2 = 1.e-\/27;}
+\DoxyCodeLine{291 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} cm2\_to\_mb = 1.e+27;}
+\DoxyCodeLine{293 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} pb\_to\_cm2 = 1.e-\/36;}
+\DoxyCodeLine{294 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} cm2\_to\_pb = 1.e36;}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{297 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_kg = 1.782661845e-\/36;}
+\DoxyCodeLine{298 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_kg = 1.782661845e-\/27;}
+\DoxyCodeLine{299 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kg\_to\_eV = 1./eV\_to\_kg;}
+\DoxyCodeLine{300 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kg\_to\_GeV = 1./GeV\_to\_kg;}
+\DoxyCodeLine{302 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} MSOL\_to\_kg = M\_SUN;}
+\DoxyCodeLine{303 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} kg\_to\_MSOL = 1.0/MSOL\_to\_kg;}
+\DoxyCodeLine{305 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} MSOL\_to\_GeV = (MSOL\_to\_kg*kg\_to\_GeV);}
+\DoxyCodeLine{307 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_MSOL = 1./MSOL\_to\_GeV;}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{310 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeVpercm3\_to\_MSOLperkpc3 = GeV\_to\_MSOL * pow(kpc\_to\_cm,3);}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{313 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GN\_Msunkpcm2\_to\_km2sm2 = G\_N*1.e-\/6*M\_SUN*100*cm\_to\_kpc;}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315 }
+\DoxyCodeLine{317 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} MEARTH\_to\_kg = M\_EARTH;}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{320 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} yr\_to\_sec = 365.25 * 24. * 60. * 60.;}
+\DoxyCodeLine{321 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Myr\_to\_sec = 1.e6 * yr\_to\_sec;}
+\DoxyCodeLine{322 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} sec\_to\_yr = 1./yr\_to\_sec;}
+\DoxyCodeLine{323 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} sec\_to\_Myr = 1./Myr\_to\_sec;}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{326 \textcolor{comment}{//static const double eV\_to\_J = E\_CHARGE;}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328 \textcolor{comment}{//static const double J\_to\_eV = 1./eV\_to\_J;}}
+\DoxyCodeLine{329 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} J\_to\_GeV = 1./GeV\_to\_J;}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{332 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} erg\_to\_J = 1.0e-\/7;}
+\DoxyCodeLine{333 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} erg\_to\_GeV = 1.0e-\/7 * J\_to\_GeV;}
+\DoxyCodeLine{334 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} erg\_to\_eV = 1.0e-\/7 * J\_to\_eV;}
+\DoxyCodeLine{335 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_erg = 1.0/erg\_to\_GeV;}
+\DoxyCodeLine{336 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_erg = 1.0/erg\_to\_eV;}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 }
+\DoxyCodeLine{342 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Hz\_to\_eV = (2.*PI*HBAR) * J\_to\_eV;}
+\DoxyCodeLine{343 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Hz\_to\_GeV = (2.*PI*HBAR) * J\_to\_GeV;}
+\DoxyCodeLine{344 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_Hz = 1./Hz\_to\_eV;}
+\DoxyCodeLine{345 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_Hz = 1./Hz\_to\_GeV;}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{348 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Gauss\_to\_Tesla = 1.e-\/4;}
+\DoxyCodeLine{349 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} muGauss\_to\_Tesla = 1.e-\/10;}
+\DoxyCodeLine{350 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Tesla\_to\_Gauss = 1.e4;}
+\DoxyCodeLine{351 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Tesla\_to\_muGauss = 1.e10;}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{355 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Jansky\_to\_Jperm2sHz = 1.e-\/26;}
+\DoxyCodeLine{356 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Jansky\_to\_ergpercm2sGeV = }
+\DoxyCodeLine{357   1.e-\/4 * Jansky\_to\_Jperm2sHz * J\_to\_GeV * GeV\_to\_erg * GeV\_to\_Hz;}
+\DoxyCodeLine{358 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} Jansky\_to\_GeVpercm2sGeV = Jansky\_to\_ergpercm2sGeV * erg\_to\_GeV;}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 }
+\DoxyCodeLine{362 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_sm1 = eV\_to\_J/HBAR;}
+\DoxyCodeLine{364 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_sm1 = GeV\_to\_J/HBAR;}
+\DoxyCodeLine{366 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} s\_to\_eVm1 = eV\_to\_sm1;}
+\DoxyCodeLine{368 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} s\_to\_GeVm1 = GeV\_to\_sm1;}
+\DoxyCodeLine{370 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_mm1 = eV\_to\_sm1/C\_LIGHT;}
+\DoxyCodeLine{372 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_mm1 = GeV\_to\_sm1/C\_LIGHT;}
+\DoxyCodeLine{374 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} eV\_to\_cmm1 = eV\_to\_sm1/C\_light;}
+\DoxyCodeLine{376 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeV\_to\_cmm1 = GeV\_to\_sm1/C\_light;}
+\DoxyCodeLine{378 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} m\_to\_eVm1 = eV\_to\_mm1;}
+\DoxyCodeLine{380 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} m\_to\_GeVm1 = GeV\_to\_mm1;}
+\DoxyCodeLine{382 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} cm\_to\_eVm1 = eV\_to\_cmm1;}
+\DoxyCodeLine{384 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} cm\_to\_GeVm1 = GeV\_to\_cmm1;}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{387 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeVm2\_to\_pb = pow(HBAR*J\_to\_GeV * C\_light,2) * cm2\_to\_pb;}
+\DoxyCodeLine{388 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} pb\_to\_GeVm2 = 1./GeVm2\_to\_pb;}
+\DoxyCodeLine{389 \textcolor{comment}{// (hbar c)\string^3 / hbar = 1.167e-\/17 [cm\string^3/s][GeV\string^2]}}
+\DoxyCodeLine{390 \textcolor{comment}{// => 1 GeV\string^-\/2 = 1.167e-\/17 [cm\string^3/s]}}
+\DoxyCodeLine{391 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} GeVm2\_to\_cm3persec = }
+\DoxyCodeLine{392   pow(HBAR*J\_to\_GeV * C\_light,3)/ (HBAR * J\_to\_GeV);}
+\DoxyCodeLine{393 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} cm3persec\_to\_GeVm2 = 1./GeVm2\_to\_cm3persec;}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396 }
+\DoxyCodeLine{401 }
+\DoxyCodeLine{403 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ELECTRON\_RADIUS = ALPHA\_EM * HBAR * J\_to\_GeV * C\_LIGHT / M\_e;}
+\DoxyCodeLine{405 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} SIGMA\_THOMSON = 8.e28*PI*pow(ELECTRON\_RADIUS,2)/3.;}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407 }
+\DoxyCodeLine{409 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} muGauss2\_to\_GeVpercm3 = 1./(4./3. * SIGMA\_THOMSON * }
+\DoxyCodeLine{410                      1.e3 * mb\_to\_cm2 * C\_light /}
+\DoxyCodeLine{411                      ( pow(8.*PI*M\_e,2) * 2.53e-\/18));}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{417 }
+\DoxyCodeLine{419 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} M\_PLANCK = M\_PLANCK\_IU * }
+\DoxyCodeLine{420   sqrt(J\_to\_GeV * kg\_to\_GeV) * s\_to\_GeVm1 / m\_to\_GeVm1;}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422 }
+\DoxyCodeLine{424 \textcolor{comment}{//static const double HUBBLE\_h = 0.73; // dimensionless}}
+\DoxyCodeLine{426 \textcolor{comment}{}\textcolor{comment}{//static const double HUBBLE\_h = 0.71; // dimensionless}}
+\DoxyCodeLine{427 \textcolor{comment}{//static const double HUBBLE\_H = 100 * HUBBLE\_h; // [km/s/Mpc]}}
+\DoxyCodeLine{429 \textcolor{comment}{}\textcolor{comment}{//static const double HUBBLE\_h = 0.6781; // dimensionless}}
+\DoxyCodeLine{430 \textcolor{comment}{//static const double HUBBLE\_h = 0.6774; // dimensionless}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \textcolor{comment}{//static const double HUBBLE\_H = 100 * HUBBLE\_h; // [km/s/Mpc]}}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435 }
+\DoxyCodeLine{438 \textcolor{comment}{//static const double rhoC = 3 * pow(HUBBLE\_H * 1.e5*cm\_to\_kpc*1.e-\/3,2)/(8*PI*G\_N) * }}
+\DoxyCodeLine{439  \textcolor{comment}{// pow(1.e-\/2*kpc\_to\_cm,3) * kg\_to\_MSOL;}}
+\DoxyCodeLine{440 \textcolor{comment}{//static const double rhoC\_GeV\_per\_cm3 = rhoC * MSOL\_to\_GeV * pow(cm\_to\_kpc,3);}}
+\DoxyCodeLine{441 \textcolor{comment}{//static const double rhoC\_GeV4 = rhoC\_GeV\_per\_cm3 / pow(cm\_to\_GeVm1,3);}}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443 \textcolor{comment}{//static const double H0GeV = ((1e+2*HUBBLE\_H) / (kpc\_to\_cm)) * (HBAR / GeV\_to\_J);}}
+\DoxyCodeLine{444 \textcolor{comment}{//static const double rhoC\_GeV4Bis = (3.0/(8.0*PI))*pow(H0GeV,2)*pow(M\_PLANCK,2);}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{447 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} U\_CMB = PI*PI * pow(K\_BOLTZ * T0\_CMB\_K * J\_to\_GeV,4) / }
+\DoxyCodeLine{448   (15. * pow(HBAR * J\_to\_GeV * C\_light,3));}
+\DoxyCodeLine{449 }
+\DoxyCodeLine{450 }
+\DoxyCodeLine{453 \textcolor{comment}{//static const double Omega\_M = 0.14170/pow(HUBBLE\_h,2);   // Planck all included / previous value : 0.1334/pow(HUBBLE\_h,2)}}
+\DoxyCodeLine{454 \textcolor{comment}{//static const double Omega\_B = 2.230/pow(10*HUBBLE\_h,2); // PLANCK all included / otherwise :  2.258/pow(10*HUBBLE\_h,2);}}
+\DoxyCodeLine{455 \textcolor{comment}{// static const double Omega\_NU = (M\_nue+M\_numu+M\_nutau)/(93.14e-\/9*pow(HUBBLE\_h,2));}}
+\DoxyCodeLine{456 \textcolor{comment}{// static const double Omega\_CDM = Omega\_M-\/Omega\_B-\/Omega\_NU;}}
+\DoxyCodeLine{457 \textcolor{comment}{//static const double Omega\_Lambda = 1.0 -\/ Omega\_M;}}
+\DoxyCodeLine{459 \textcolor{comment}{}\textcolor{comment}{//static const double Omega\_CDM = 0.1188/pow(HUBBLE\_h,2);}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 \textcolor{comment}{// static const double N\_EFF = 3.000;}}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \textcolor{comment}{//static const double Omega\_Gamma = (2*((PI*PI)/30)*pow(T0\_CMB\_GeV,4)/rhoC\_GeV4Bis);}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466 }
+\DoxyCodeLine{468 \textcolor{comment}{//static const double B\_MW = 50.;}}
+\DoxyCodeLine{469 \textcolor{comment}{//static const double B\_MW = 10.;}}
+\DoxyCodeLine{470 \textcolor{comment}{//static const double B\_MW = 3.;}}
+\DoxyCodeLine{471 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} B\_MW = 1.; \textcolor{comment}{// when averaged over a 1 kpc sphere}}
+\DoxyCodeLine{472 \textcolor{comment}{//static const double B\_MW = 0.;}}
+\DoxyCodeLine{473 \textcolor{comment}{// test with Timur and Roberto}}
+\DoxyCodeLine{474 \textcolor{comment}{//static const double B\_MW = 2.631;}}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{477 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} dB\_MW = 0.;}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{482 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} U\_BMW = 1.e-\/20*B\_MW*B\_MW/(2*MU\_0) * J\_to\_GeV * 1.e-\/6;}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484 }
+\DoxyCodeLine{487 \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} N\_ISRF\_MODEL = 3;}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489 \textcolor{keyword}{static} \textcolor{keywordtype}{int} ISRF\_MODEL\_ID = 1;}
+\DoxyCodeLine{490 \textcolor{comment}{// IR component.}}
+\DoxyCodeLine{491 \textcolor{comment}{//static const double T\_IR\_GeV[N\_ISRF\_MODEL] = \{3.45e-\/12,2.85e-\/12,2.9e-\/12\};}}
+\DoxyCodeLine{492 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_IR\_GeV[N\_ISRF\_MODEL] = \{2.85e-\/12,2.85e-\/12,2.9e-\/12\};}
+\DoxyCodeLine{493 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_IR\_K[N\_ISRF\_MODEL] = \{T\_IR\_GeV[0] * GeV\_to\_K , }
+\DoxyCodeLine{494                      T\_IR\_GeV[1] * GeV\_to\_K ,}
+\DoxyCodeLine{495                      T\_IR\_GeV[2] * GeV\_to\_K\};}
+\DoxyCodeLine{496 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} U\_IR[N\_ISRF\_MODEL] = \{1.e-\/10,2.54e-\/10,3.2117e-\/10\};}
+\DoxyCodeLine{497 \textcolor{comment}{// Optical Component}}
+\DoxyCodeLine{498 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_SL\_GeV[N\_ISRF\_MODEL] = \{3.e-\/10,2.7e-\/11,2.7e-\/11\};}
+\DoxyCodeLine{499 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_SL\_K[N\_ISRF\_MODEL] = \{T\_SL\_GeV[0] * GeV\_to\_K,}
+\DoxyCodeLine{500                      T\_SL\_GeV[1] * GeV\_to\_K,}
+\DoxyCodeLine{501                      T\_SL\_GeV[2] * GeV\_to\_K\};}
+\DoxyCodeLine{502 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} U\_SL[N\_ISRF\_MODEL] = \{3.98e-\/10,5.47e-\/11,6.1992e-\/11\};}
+\DoxyCodeLine{503 \textcolor{comment}{// UV component}}
+\DoxyCodeLine{504 \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} N\_UV\_COMP = 3;}
+\DoxyCodeLine{505 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_UV\_GeV[N\_ISRF\_MODEL][N\_UV\_COMP] = \{\{0,0,0\},}
+\DoxyCodeLine{506                           \{2.8e-\/10,5.3e-\/10,2.e-\/9\},}
+\DoxyCodeLine{507                           \{2.5e-\/10,4.8e-\/10,1.9e-\/9\}\};}
+\DoxyCodeLine{508 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_UV\_K[N\_ISRF\_MODEL][N\_UV\_COMP] = }
+\DoxyCodeLine{509   \{\{0,0,0\},}
+\DoxyCodeLine{510    \{T\_UV\_GeV[1][0]*GeV\_to\_K,T\_UV\_GeV[1][1]* GeV\_to\_K,T\_UV\_GeV[1][2]*GeV\_to\_K\},}
+\DoxyCodeLine{511    \{T\_UV\_GeV[2][0]*GeV\_to\_K,T\_UV\_GeV[2][1]* GeV\_to\_K,T\_UV\_GeV[2][2]*GeV\_to\_K\}\};}
+\DoxyCodeLine{512 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} U\_UV[N\_ISRF\_MODEL][N\_UV\_COMP] = }
+\DoxyCodeLine{513   \{\{0,0,0\},}
+\DoxyCodeLine{514    \{3.7e-\/10,2.29e-\/10,1.1885192e-\/10\},}
+\DoxyCodeLine{515    \{3.376475e-\/10,2.593e-\/10,1.02645e-\/10\}\};}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517 }
+\DoxyCodeLine{520 \textcolor{keyword}{static} std::vector<double> T\_ISRF\_GeV;}
+\DoxyCodeLine{521 \textcolor{keyword}{static} std::vector<double> T\_ISRF\_K;}
+\DoxyCodeLine{523 \textcolor{keyword}{static} std::vector<double> U\_ISRF;}
+\DoxyCodeLine{525 \textcolor{keyword}{static} std::vector<double> CORR\_ISRF\_BB;}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{527 }
+\DoxyCodeLine{529 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} BETA\_MW = 220.e3/C\_LIGHT;}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531 }
+\DoxyCodeLine{535 }
+\DoxyCodeLine{539 }
+\DoxyCodeLine{542 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} B0\_IC\_CMB = 4./3. * SIGMA\_THOMSON * 1.e3 * mb\_to\_cm2 * }
+\DoxyCodeLine{543   U\_CMB * C\_light / (M\_e*M\_e);}
+\DoxyCodeLine{545 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} TAU\_IC\_CMB = 1./B0\_IC\_CMB;}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{549 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} B0\_IC\_IR = 4./3. * SIGMA\_THOMSON * 1.e3 * mb\_to\_cm2 * }
+\DoxyCodeLine{550   U\_IR[0] * C\_light / (M\_e*M\_e);}
+\DoxyCodeLine{552 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} TAU\_IC\_IR = 1./B0\_IC\_IR;}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{556 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} B0\_SYNC = 2.53e-\/18 * B\_MW * B\_MW;}
+\DoxyCodeLine{558 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} TAU\_SYNC = (B\_MW > 0.0) ? 1./B0\_SYNC : 1.e30;}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{561 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} TAU\_TOT = 1./(B0\_IC\_CMB + B0\_IC\_IR + B0\_SYNC);}
+\DoxyCodeLine{562 }
+\DoxyCodeLine{563 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

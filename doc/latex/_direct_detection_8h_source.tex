@@ -1,0 +1,121 @@
+\hypertarget{_direct_detection_8h_source}{}\doxysection{Direct\+Detection.\+h}
+\label{_direct_detection_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DirectDetection.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/DirectDetection.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_DIRECTDETECTION}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_DIRECTDETECTION}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}MyUnits.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}mymath.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}DarkSectorModel.h"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{enum class} EffectiveOperator}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     N0, }
+\DoxyCodeLine{30     N1, }
+\DoxyCodeLine{31     N2, }
+\DoxyCodeLine{32     N3, }
+\DoxyCodeLine{33     N4, }
+\DoxyCodeLine{34     N5, }
+\DoxyCodeLine{35     N6, }
+\DoxyCodeLine{36     N7, }
+\DoxyCodeLine{37     N8, }
+\DoxyCodeLine{38     N9, }
+\DoxyCodeLine{39     N10 }
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{44 \textcolor{keyword}{enum class} NROperator}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     ONR0,  }
+\DoxyCodeLine{47     ONR1,  }
+\DoxyCodeLine{48     ONR2,  }
+\DoxyCodeLine{49     ONR3,  }
+\DoxyCodeLine{50     ONR4,  }
+\DoxyCodeLine{51     ONR5,  }
+\DoxyCodeLine{52     ONR6,  }
+\DoxyCodeLine{53     ONR7,  }
+\DoxyCodeLine{54     ONR8,  }
+\DoxyCodeLine{55     ONR9,  }
+\DoxyCodeLine{56     ONR10, }
+\DoxyCodeLine{57     ONR11, }
+\DoxyCodeLine{58     ONR12, }
+\DoxyCodeLine{59     ONR13, }
+\DoxyCodeLine{60     ONR14, }
+\DoxyCodeLine{61     ONR15  }
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{enum class} QuarkType}
+\DoxyCodeLine{65 \{}
+\DoxyCodeLine{66     UP,}
+\DoxyCodeLine{67     DOWN,}
+\DoxyCodeLine{68     STRANGE}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{enum class} NucleonType}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73     PROTON,}
+\DoxyCodeLine{74     NEUTRON}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{enum class} IsospinType}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     ISOSCALAR,}
+\DoxyCodeLine{80     ISOVECTOR}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{91 \textcolor{keyword}{class }DirectDetection}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{public}:}
+\DoxyCodeLine{95     DirectDetection(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \textcolor{keyword}{const} \&DS);}
+\DoxyCodeLine{96     \string~DirectDetection()\{\};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{double} NROperatorCoefficient(\textcolor{keywordtype}{int} index\_op, \textcolor{keywordtype}{int} index\_nucleon) \{ \textcolor{keywordflow}{return} cNR[index\_op][index\_nucleon]; \};}
+\DoxyCodeLine{101     \textcolor{keywordtype}{double} NROperatorCoefficient(NROperator op, \textcolor{keywordtype}{int} index\_nucleon);}
+\DoxyCodeLine{103     \textcolor{keywordtype}{double} NROperatorCoefficient(NROperator op, NucleonType nucleon);}
+\DoxyCodeLine{105     \textcolor{keywordtype}{double} NROperatorCoefficient(\textcolor{keywordtype}{int} i, NucleonType nucleon);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{double} NROperatorCoefficient\_ISO(\textcolor{keywordtype}{int} index\_op, \textcolor{keywordtype}{int} index\_iso) \{ \textcolor{keywordflow}{return} cNR\_iso[index\_op][index\_iso]; \};}
+\DoxyCodeLine{110     \textcolor{keywordtype}{double} NROperatorCoefficient\_ISO(NROperator op, \textcolor{keywordtype}{int} index\_nucleon);}
+\DoxyCodeLine{112     \textcolor{keywordtype}{double} NROperatorCoefficient\_ISO(NROperator op, IsospinType isospin);}
+\DoxyCodeLine{114     \textcolor{keywordtype}{double} NROperatorCoefficient\_ISO(\textcolor{keywordtype}{int} i, IsospinType isospin);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{double} DMNucleonCoefficient(EffectiveOperator op, NucleonType nucleon);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{keyword}{private}:}
+\DoxyCodeLine{125     \textcolor{keywordtype}{double} fCoeff(QuarkType quark, NucleonType nucleon);}
+\DoxyCodeLine{127     \textcolor{keywordtype}{double} DDCoeff(QuarkType quark, NucleonType nucleon);}
+\DoxyCodeLine{129     \textcolor{keywordtype}{double} dCoeff(QuarkType quark, NucleonType nucleon);}
+\DoxyCodeLine{131     \textcolor{keywordtype}{double} fGcoeff(NucleonType nucleon);}
+\DoxyCodeLine{133     \textcolor{keywordtype}{double} ONtoONR(EffectiveOperator opeff, NROperator opnr);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{139     \textcolor{keywordtype}{double} mN;   }
+\DoxyCodeLine{140     \textcolor{keywordtype}{double} mchi; }
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     std::vector<EffectiveOperator> vec\_ON; }
+\DoxyCodeLine{143     std::vector<NROperator> vec\_ONR;       }
+\DoxyCodeLine{144     std::vector<QuarkType> vec\_Qtypes;     }
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     std::vector<std::vector<double> > cNR\_iso; }
+\DoxyCodeLine{147     std::vector<std::vector<double> > cNR;     }
+\DoxyCodeLine{148     std::vector<std::vector<double> > cN;      }
+\DoxyCodeLine{149     std::vector<std::vector<double> > cq;      }
+\DoxyCodeLine{150     std::vector<double> cg;                    }
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     std::vector<double> mq; }
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     std::vector<std::vector<double> > vec\_ONtoONR;}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157     \textcolor{keywordtype}{double} C3, C4, m\_bar;}
+\DoxyCodeLine{158     \textcolor{keywordtype}{double} f\_u\_p, f\_d\_p, f\_s\_p;}
+\DoxyCodeLine{159     \textcolor{keywordtype}{double} f\_u\_n, f\_d\_n, f\_s\_n;}
+\DoxyCodeLine{160     \textcolor{keywordtype}{double} DD\_u\_p, DD\_d\_p, DD\_s\_p;}
+\DoxyCodeLine{161     \textcolor{keywordtype}{double} DD\_u\_n, DD\_d\_n, DD\_s\_n;}
+\DoxyCodeLine{162     \textcolor{keywordtype}{double} d\_u\_p, d\_d\_p, d\_s\_p;}
+\DoxyCodeLine{163     \textcolor{keywordtype}{double} d\_u\_n, d\_d\_n, d\_s\_n;}
+\DoxyCodeLine{164 \};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

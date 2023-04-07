@@ -1,0 +1,128 @@
+\hypertarget{class_galaxy}{}\doxysection{Galaxy Class Reference}
+\label{class_galaxy}\index{Galaxy@{Galaxy}}
+Inheritance diagram for Galaxy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_galaxy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_galaxy_ada241c0d1505eacdea24ad1316f544eb}\label{class_galaxy_ada241c0d1505eacdea24ad1316f544eb}} 
+{\bfseries Galaxy} (\mbox{\hyperlink{class_cosmology}{Cosmology}} cosmo)
+\item 
+\mbox{\Hypertarget{class_galaxy_acd73f8c1f72d90bbe2e438ff50df1082}\label{class_galaxy_acd73f8c1f72d90bbe2e438ff50df1082}} 
+{\bfseries Galaxy} (\mbox{\hyperlink{class_cosmology}{Cosmology}} cosmo, int model\+\_\+dm, int model\+\_\+baryons)
+\item 
+\mbox{\Hypertarget{class_galaxy_ad92fe4681a63c844fc609358264785d5}\label{class_galaxy_ad92fe4681a63c844fc609358264785d5}} 
+double {\bfseries get\+\_\+rmax} () const
+\item 
+\mbox{\Hypertarget{class_galaxy_acb4317f9811ca5e8ee9b2a5dae58ae6a}\label{class_galaxy_acb4317f9811ca5e8ee9b2a5dae58ae6a}} 
+double {\bfseries total\+\_\+\+ISM\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_ae6cc49e28078a20f6af2f2a952a65194}\label{class_galaxy_ae6cc49e28078a20f6af2f2a952a65194}} 
+double {\bfseries HI\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_a0835554e09feafac0305885f02a3221b}\label{class_galaxy_a0835554e09feafac0305885f02a3221b}} 
+double {\bfseries H2\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_a13ead2c574401f97e48fa0e911fad3a7}\label{class_galaxy_a13ead2c574401f97e48fa0e911fad3a7}} 
+double {\bfseries der\+\_\+\+R\+\_\+\+HI\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_aab7b8c9203e3e722cac4e331b630c31e}\label{class_galaxy_aab7b8c9203e3e722cac4e331b630c31e}} 
+double {\bfseries der\+\_\+z\+\_\+\+HI\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_a86a22f53e624cf40a28a1ccdafbd4c20}\label{class_galaxy_a86a22f53e624cf40a28a1ccdafbd4c20}} 
+double {\bfseries der\+\_\+\+R\+\_\+\+H2\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_a93d1c79a048fffb31a18fb4d1070308a}\label{class_galaxy_a93d1c79a048fffb31a18fb4d1070308a}} 
+double {\bfseries der\+\_\+z\+\_\+\+H2\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_a405d4e321185b754f926a57993093660}\label{class_galaxy_a405d4e321185b754f926a57993093660}} 
+double {\bfseries total\+\_\+baryon\+\_\+density} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_galaxy_aa975e1a92d4e153a9a8f68986281888b}\label{class_galaxy_aa975e1a92d4e153a9a8f68986281888b}} 
+double {\bfseries disc\+\_\+surface\+\_\+density} (double R)
+\item 
+\mbox{\Hypertarget{class_galaxy_aca8a8055d9a7b438f4aa77318fa7be88}\label{class_galaxy_aca8a8055d9a7b438f4aa77318fa7be88}} 
+double {\bfseries integrand\+\_\+spherical\+\_\+density} (std\+::vector$<$ double $>$ z\+\_\+r)
+\item 
+\mbox{\Hypertarget{class_galaxy_acd954ca8d7c3056c0968dd8a0f5dba49}\label{class_galaxy_acd954ca8d7c3056c0968dd8a0f5dba49}} 
+void {\bfseries compute\+\_\+spherical\+\_\+density} ()
+\item 
+\mbox{\Hypertarget{class_galaxy_a52f03dbb2a7158d18fbc6e75e416461f}\label{class_galaxy_a52f03dbb2a7158d18fbc6e75e416461f}} 
+double {\bfseries interpolate\+\_\+spherical\+\_\+density} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_aa4735b579104047ebbf8e060f34e94f0}\label{class_galaxy_aa4735b579104047ebbf8e060f34e94f0}} 
+double {\bfseries density} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_af66018ae4afda370650b63ad1301d4f2}\label{class_galaxy_af66018ae4afda370650b63ad1301d4f2}} 
+double {\bfseries integrand\+\_\+baryon\+\_\+mass} (std\+::vector$<$ double $>$ rr)
+\item 
+\mbox{\Hypertarget{class_galaxy_af41300355fd7f42f9ac7fb58efd55582}\label{class_galaxy_af41300355fd7f42f9ac7fb58efd55582}} 
+void {\bfseries compute\+\_\+baryon\+\_\+mass} ()
+\item 
+\mbox{\Hypertarget{class_galaxy_a47559481a38a1d7d7cd6fd1aeda6d703}\label{class_galaxy_a47559481a38a1d7d7cd6fd1aeda6d703}} 
+double {\bfseries interpolate\+\_\+baryon\+\_\+mass} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_a7708320cd71bebd94723aa94b382aad6}\label{class_galaxy_a7708320cd71bebd94723aa94b382aad6}} 
+double {\bfseries mass} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_ab409e41af33b4dc94fe0c1f83de48527}\label{class_galaxy_ab409e41af33b4dc94fe0c1f83de48527}} 
+double {\bfseries integrand\+\_\+baryon\+\_\+potential} (std\+::vector$<$ double $>$ rr)
+\item 
+\mbox{\Hypertarget{class_galaxy_afad526cc3aa1a23804f38acc96381915}\label{class_galaxy_afad526cc3aa1a23804f38acc96381915}} 
+void {\bfseries compute\+\_\+baryon\+\_\+potential} ()
+\item 
+\mbox{\Hypertarget{class_galaxy_ac927a3e08eb6db46081c94319a85d49a}\label{class_galaxy_ac927a3e08eb6db46081c94319a85d49a}} 
+double {\bfseries interpolate\+\_\+baryon\+\_\+potential} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_af8a76bbe5d73fed72a221b8ae97b8aaa}\label{class_galaxy_af8a76bbe5d73fed72a221b8ae97b8aaa}} 
+double {\bfseries gravitational\+\_\+potential} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_a203249ad0a8275ce4042cc29f984680b}\label{class_galaxy_a203249ad0a8275ce4042cc29f984680b}} 
+double {\bfseries circular\+\_\+velocity} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_a2897fc215bee3656503c40bacf527c62}\label{class_galaxy_a2897fc215bee3656503c40bacf527c62}} 
+double {\bfseries circular\+\_\+period} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_a16561defec95b36b2e2ea831c53f1052}\label{class_galaxy_a16561defec95b36b2e2ea831c53f1052}} 
+double {\bfseries escape\+\_\+speed} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_a86b601c0850a499ab132acf457b6d705}\label{class_galaxy_a86b601c0850a499ab132acf457b6d705}} 
+double {\bfseries circular\+\_\+\+Ncross} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_aa4e6df8f2f0d6644692462155827b375}\label{class_galaxy_aa4e6df8f2f0d6644692462155827b375}} 
+double {\bfseries circular\+\_\+velocity\+\_\+baryons\+\_\+only} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_a70b8c80b9b046e377b5a8b8a2cba20be}\label{class_galaxy_a70b8c80b9b046e377b5a8b8a2cba20be}} 
+double {\bfseries circular\+\_\+velocity\+\_\+\+DM\+\_\+only} (double r)
+\item 
+\mbox{\Hypertarget{class_galaxy_ad55bd3765fd26dc4f850d1f0c757fa3f}\label{class_galaxy_ad55bd3765fd26dc4f850d1f0c757fa3f}} 
+void {\bfseries plot\+\_\+circular\+\_\+velocity} ()
+\item 
+\mbox{\Hypertarget{class_galaxy_a879dee12f97d5cb503468747356e8638}\label{class_galaxy_a879dee12f97d5cb503468747356e8638}} 
+double const {\bfseries get\+\_\+model\+\_\+dm} () const
+\item 
+\mbox{\Hypertarget{class_galaxy_aaa8161d5c2208147d9d624516b47f52d}\label{class_galaxy_aaa8161d5c2208147d9d624516b47f52d}} 
+double const {\bfseries get\+\_\+model\+\_\+baryons} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_galaxy_ae7e59788676b280a7733330eb83f1387}\label{class_galaxy_ae7e59788676b280a7733330eb83f1387}} 
+\mbox{\hyperlink{class_mass_model}{Mass\+Model}} {\bfseries model}
+\item 
+\mbox{\Hypertarget{class_galaxy_a88085a1730c36465a32bd718538e08e1}\label{class_galaxy_a88085a1730c36465a32bd718538e08e1}} 
+int {\bfseries m\+\_\+model\+\_\+dm}
+\item 
+\mbox{\Hypertarget{class_galaxy_a0a9777b27a57e8a66703e3111ab07c52}\label{class_galaxy_a0a9777b27a57e8a66703e3111ab07c52}} 
+int {\bfseries m\+\_\+model\+\_\+baryons}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Galaxy.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Galaxy.\+cpp\end{DoxyCompactItemize}

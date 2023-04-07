@@ -1,0 +1,90 @@
+\hypertarget{_press_schechter_8h_source}{}\doxysection{Press\+Schechter.\+h}
+\label{_press_schechter_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/PressSchechter.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/PressSchechter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_PRESSSCHECHTER}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_PRESSSCHECHTER}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Cosmology.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}PowerSpectrum.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}GaussLegendre.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}myspline.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_press_schechter}{PressSchechter}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13   \mbox{\hyperlink{class_press_schechter}{PressSchechter}}()\{\};}
+\DoxyCodeLine{14   \mbox{\hyperlink{class_press_schechter}{PressSchechter}}(\mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} n\_PS);}
+\DoxyCodeLine{15   \mbox{\hyperlink{class_press_schechter}{\string~PressSchechter}}()\{\};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} get\_PowerSpectrum()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} PS; \};}
+\DoxyCodeLine{18   \textcolor{keywordtype}{double} get\_delta\_c()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} delta\_c; \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{27   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a50d6068a90b0b9ea755df7db4adb1b8e}{NumberHalos\_unitsOfVolume\_PS}}(\textcolor{keywordtype}{double} Mmin, \textcolor{keywordtype}{double} Mmax, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{34   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a91917cdf52dc5c4035db8103663394e3}{Der\_MassFraction\_PS}}(\textcolor{keywordtype}{double} M, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{35   \textcolor{keywordtype}{double} NumberDensity\_PS(\textcolor{keywordtype}{double} M, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{44   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a89afbb5f95b5c70019c33d9636ed68d8}{NumberDensity\_PS\_spike}}(\textcolor{keywordtype}{double} As\_spike, \textcolor{keywordtype}{double} ks\_spike, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{45   \textcolor{keywordtype}{double} Der\_MassFraction\_PS\_spike(\textcolor{keywordtype}{double} As\_spike, \textcolor{keywordtype}{double} ks\_spike, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{46  }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{54   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a86a38e9f04969a3213c1e465e74bec35}{NumberHalos\_unitsOfVolume\_ST}}(\textcolor{keywordtype}{double} Mmin, \textcolor{keywordtype}{double} Mmax, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{55   \textcolor{keywordtype}{double} Der\_MassFraction\_ST(\textcolor{keywordtype}{double} M, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{56   \textcolor{keywordtype}{double} NumberDensity\_ST(\textcolor{keywordtype}{double} M, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58   \textcolor{comment}{//double Der\_MassFraction\_PS\_with\_spike(double M, double As, double ks, double z);}}
+\DoxyCodeLine{59   \textcolor{comment}{//double NumberDensity\_PS\_with\_spike(double M, double As, double ks, double z);}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a209044de3060940de1200efb2473e898}{Overdensity\_BryanNorman\_1998}}(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a66a4eb17392c99a994d64d39b75bd05d}{nuM}}(\textcolor{keywordtype}{double} M, \textcolor{keywordtype}{double} z); \{\textcolor{keywordflow}{return} delta\_c/PS.\mbox{\hyperlink{class_power_spectrum_a5dffa98252d22c0a3c5c5836f1bcff29}{SigmaM}}(M, z);\};}
+\DoxyCodeLine{75   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_press_schechter_a95e231327a13e2babcbae9372ec27653}{nuR}}(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z); \{\textcolor{keywordflow}{return} delta\_c/PS.SigmaR(R, z);\};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   \textcolor{comment}{// Function related to the EST formalism}}
+\DoxyCodeLine{78   \textcolor{keywordtype}{double} NumberProgenitors\_EST(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} z1, \textcolor{keywordtype}{double} z2);}
+\DoxyCodeLine{79   \textcolor{keywordtype}{double} CMF\_Density\_EST(\textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z); \textcolor{comment}{// The cumulative mass function in terms of density}}
+\DoxyCodeLine{80   \textcolor{keywordtype}{double} fToIntOns\_CMF\_Density\_EST(\textcolor{keywordtype}{double} S2, \textcolor{keywordtype}{double} S1, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{81   \textcolor{keywordtype}{double} CMF\_Approx\_EST(\textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z); \textcolor{comment}{// Approximative number of structures in the halo of mass M0}}
+\DoxyCodeLine{82   \textcolor{keywordtype}{double} MF\_EST(\textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{83   \textcolor{keywordtype}{void} plot\_MF\_EST(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{comment}{//}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{comment}{// Function plot}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \textcolor{keywordtype}{void} plot\_NormalisedHaloMassFunction\_PS(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{92   \textcolor{keywordtype}{void} plot\_NormalisedHaloMassFunction\_ST(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{93   \textcolor{comment}{//void plot\_HaloMassFunction\_PS\_with\_spike(double z, double As, double ks, bool in\_units\_of\_h);}}
+\DoxyCodeLine{94   \textcolor{keywordtype}{void} plot\_HaloMassFunction\_PS(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{bool} in\_units\_of\_h = \textcolor{keyword}{false}, std::string add = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{95   \textcolor{keywordtype}{void} plot\_HaloMassFunction\_ST(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{bool} in\_units\_of\_h = \textcolor{keyword}{false});}
+\DoxyCodeLine{96   \textcolor{keywordtype}{void} plot\_NumberProgenitors\_EST(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1, \textcolor{keywordtype}{double} z2);}
+\DoxyCodeLine{97   \textcolor{keywordtype}{void} plot\_CMF\_EST(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{98   \textcolor{keywordtype}{void} plot\_DeltaS\_EST(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{int} version);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \mbox{\hyperlink{class_cosmology}{Cosmology}} \textcolor{keyword}{const} get\_cosmo()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Cosmo; \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   \textcolor{keywordtype}{void} Interpolate\_M2\_MF\_EST\_vs\_M(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{103   \textcolor{keywordtype}{double} Interp\_M2\_MF\_EST\_vs\_M(\textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_NumberDensity\_PS(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_press_schechter}{PressSchechter}} *)pt2Object)-\/>NumberDensity\_PS(xx[0], xx[1]); \};}
+\DoxyCodeLine{106   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_NumberDensity\_ST(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_press_schechter}{PressSchechter}} *)pt2Object)-\/>NumberDensity\_ST(xx[0], xx[1]); \};}
+\DoxyCodeLine{107   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOns\_CMF\_Density\_EST(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_press_schechter}{PressSchechter}} *)pt2Object)-\/>fToIntOns\_CMF\_Density\_EST(xx[0], xx[1], xx[2]); \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{private}:}
+\DoxyCodeLine{110   \mbox{\hyperlink{class_cosmology}{Cosmology}} Cosmo;}
+\DoxyCodeLine{111   \mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} PS;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113   PSWindowType window\_type;}
+\DoxyCodeLine{114   \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} gl100, gl200, gl500, gl1000, gl10000, gl2000;}
+\DoxyCodeLine{115   my\_spline::spline spline\_M2\_MF\_EST\_log10\_M;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117   \textcolor{keywordtype}{double} delta\_c;}
+\DoxyCodeLine{118   \textcolor{keywordtype}{double} rho\_bar;}
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

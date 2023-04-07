@@ -1,0 +1,44 @@
+\_form#0=91x33:\[ {\cal I} = \int_{a}^{b} dx\, f(x)\;; \]
+\_form#1=163x35:\[ {\cal I} = \int_{\ln(a)}^{\ln(b)} d\ln(x)\,(x\times f(x))\;; \]
+\_form#2=180x35:\[ {\cal I} = \int_{e^{a/b}}^{e^{1}} d\exp(x)\,(b\,e^{-x/b}\, f(x))\;; \]
+\_form#3=218x35:\[ {\cal I} = \int_{\ln(\ln(a))}^{\ln(\ln(b))} d\ln(\ln(x))\, x\ln(x)\times f(x)\;.\]
+\_form#4=63x14:$T < T_QCD$
+\_form#5=63x14:$T<T_QCD$
+\_form#6=11x9:$ \nu_{e} $
+\_form#7=13x10:$ \nu_{\mu} $
+\_form#8=11x9:$ \nu_{\tau} $
+\_form#9=8x6:$ \tau $
+\_form#10=45x19:$ \rho = \frac{3H^2}{8\pi G} $
+\_form#11=96x31:\[ U_B = \frac{B^2}{2\mu_0}\;({\rm J/m^3}) \]
+\_form#12=80x15:\[ 1\mu{\rm G} = 10^{-10}{\rm T}\]
+\_form#13=113x15:$ dE/dt = - b_{0}^{\rm IC} E^2/E_{0} $
+\_form#14=36x11:$ E_0 = 1 $
+\_form#15=113x15:$ dE/dt = - b_{0}^{\rm IR} E^2/E_{0} $
+\_form#16=121x15:$ dE/dt = - b_{0}^{\rm sync} E^2/E_{0} $
+\_form#17=10x10:$\Lambda$
+\_form#18=15x13:$\mathcal{A}_s$
+\_form#19=63x16:$k_s~({\rm Mpc}^{-1})$
+\_form#20=6x6:$z$
+\_form#21=40x14:$\sigma_M(M)$
+\_form#22=156x14:$ \mathcal{P}_{\mathcal{R}} = \mathcal{A}_s * k_s * delta(k- k_s) $
+\_form#23=29x13:$M_{\rm min}$
+\_form#24=30x13:$M_{\rm max}$
+\_form#25=8x9:$_\odot$
+\_form#26=38x15:${\rm Mpc}^{-3}$
+\_form#27=10x13:$k_{\rm s}$
+\_form#28=14x13:$A_{\rm s}$
+\_form#29=60x14:$\delta(M- M_{\rm s})$
+\_form#30=16x13:$M_{\rm s}$
+\_form#31=14x10:$M$
+\_form#32=105x16:${\rm Mpc}^{-3}/\delta(M-M_{\rm s})$
+\_form#33=13x18:$_\odot^{-1}$
+\_form#34=25x14:$\rm [M_{\odot}]$
+\_form#35=26x9:$nu_{M}$
+\_form#36=16x9:$\nu_{M}$
+\_form#37=44x14:$M~[\rm M_{\odot}]$
+\_form#38=39x14:$R~[\rm kpc]$
+\_form#39=59x14:$M_{\rm min}~[\rm M_\odot]$
+\_form#40=61x14:$M_{\rm max}~[\rm M_\odot]$
+\_form#41=44x15:$[\rm Mpc^{-3}]$
+\_form#42=44x14:$M~[\rm M_\odot]$
+\_form#43=14x9:$\nu_{R}$

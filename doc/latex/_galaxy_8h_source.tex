@@ -1,0 +1,72 @@
+\hypertarget{_galaxy_8h_source}{}\doxysection{Galaxy.\+h}
+\label{_galaxy_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/Galaxy.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/Galaxy.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GALAXY\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GALAXY\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}DarkHalo.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Baryons.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}MassModels.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}mymath.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}myspline.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}MyUnits.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_galaxy}{Galaxy}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_dark_halo}{DarkHalo}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{15   \mbox{\hyperlink{class_mass_model}{MassModel}} model;}
+\DoxyCodeLine{16   \textcolor{keywordtype}{int} m\_model\_dm;}
+\DoxyCodeLine{17   \textcolor{keywordtype}{int} m\_model\_baryons;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20   \mbox{\hyperlink{class_galaxy}{Galaxy}}(\mbox{\hyperlink{class_cosmology}{Cosmology}} cosmo);}
+\DoxyCodeLine{21   \mbox{\hyperlink{class_galaxy}{Galaxy}}(\mbox{\hyperlink{class_cosmology}{Cosmology}} cosmo, \textcolor{keywordtype}{int} model\_dm, \textcolor{keywordtype}{int} model\_baryons);}
+\DoxyCodeLine{22   \textcolor{keywordtype}{double} get\_rmax() \textcolor{keyword}{const};                      \textcolor{comment}{// [kpc]}}
+\DoxyCodeLine{23   \textcolor{keywordtype}{double} total\_ISM\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z); \textcolor{comment}{// [Msun/kpc\string^3]}}
+\DoxyCodeLine{24   \textcolor{keywordtype}{double} HI\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z);        \textcolor{comment}{// [Msun/kpc\string^3]}}
+\DoxyCodeLine{25   \textcolor{keywordtype}{double} H2\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z);        \textcolor{comment}{// [Msun/kpc\string^3]}}
+\DoxyCodeLine{26   \textcolor{keywordtype}{double} der\_R\_HI\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{27   \textcolor{keywordtype}{double} der\_z\_HI\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{28   \textcolor{keywordtype}{double} der\_R\_H2\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{29   \textcolor{keywordtype}{double} der\_z\_H2\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{30   \textcolor{keywordtype}{double} total\_baryon\_density(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} z); \textcolor{comment}{// [Msun/kpc\string^3]}}
+\DoxyCodeLine{31   \textcolor{keywordtype}{double} disc\_surface\_density(\textcolor{keywordtype}{double} R);           \textcolor{comment}{// [Msun/kpc\string^2]}}
+\DoxyCodeLine{32   \textcolor{keywordtype}{double} integrand\_spherical\_density(std::vector<double> z\_r);}
+\DoxyCodeLine{33   \textcolor{keywordtype}{void} compute\_spherical\_density();}
+\DoxyCodeLine{34   \textcolor{keywordtype}{double} interpolate\_spherical\_density(\textcolor{keywordtype}{double} r);}
+\DoxyCodeLine{35   \textcolor{keywordtype}{double} density(\textcolor{keywordtype}{double} r); \textcolor{comment}{// [Msun/kpc\string^3]}}
+\DoxyCodeLine{36   \textcolor{keywordtype}{double} integrand\_baryon\_mass(std::vector<double> rr);}
+\DoxyCodeLine{37   \textcolor{keywordtype}{void} compute\_baryon\_mass();}
+\DoxyCodeLine{38   \textcolor{keywordtype}{double} interpolate\_baryon\_mass(\textcolor{keywordtype}{double} r);}
+\DoxyCodeLine{39   \textcolor{keywordtype}{double} mass(\textcolor{keywordtype}{double} r); \textcolor{comment}{// [Msun]}}
+\DoxyCodeLine{40   \textcolor{keywordtype}{double} integrand\_baryon\_potential(std::vector<double> rr);}
+\DoxyCodeLine{41   \textcolor{keywordtype}{void} compute\_baryon\_potential();}
+\DoxyCodeLine{42   \textcolor{keywordtype}{double} interpolate\_baryon\_potential(\textcolor{keywordtype}{double} r);}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double} gravitational\_potential(\textcolor{keywordtype}{double} r); \textcolor{comment}{// [(km/s)\string^2]}}
+\DoxyCodeLine{44   \textcolor{keywordtype}{double} circular\_velocity(\textcolor{keywordtype}{double} r);       \textcolor{comment}{// [km/s]}}
+\DoxyCodeLine{45   \textcolor{keywordtype}{double} circular\_period(\textcolor{keywordtype}{double} r);         \textcolor{comment}{// [Myr]}}
+\DoxyCodeLine{46   \textcolor{keywordtype}{double} escape\_speed(\textcolor{keywordtype}{double} r);            \textcolor{comment}{// [km/s]}}
+\DoxyCodeLine{47   \textcolor{keywordtype}{double} circular\_Ncross(\textcolor{keywordtype}{double} r);         \textcolor{comment}{// Number of disk crossing}}
+\DoxyCodeLine{48   \textcolor{keywordtype}{double} circular\_velocity\_baryons\_only(\textcolor{keywordtype}{double} r);}
+\DoxyCodeLine{49   \textcolor{keywordtype}{double} circular\_velocity\_DM\_only(\textcolor{keywordtype}{double} r);}
+\DoxyCodeLine{50   \textcolor{keywordtype}{void} plot\_circular\_velocity();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{comment}{// Getter}}
+\DoxyCodeLine{53   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_model\_dm()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_model\_dm; \};}
+\DoxyCodeLine{54   \textcolor{keywordtype}{double} \textcolor{keyword}{const} get\_model\_baryons()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_model\_baryons; \};}
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_integrand\_spherical\_density(\textcolor{keywordtype}{void} *pt2object, std::vector<double> z\_r);}
+\DoxyCodeLine{58 \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_integrand\_baryon\_mass(\textcolor{keywordtype}{void} *pt2object, std::vector<double> rr);}
+\DoxyCodeLine{59 \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_integrand\_baryon\_potential(\textcolor{keywordtype}{void} *pt2object, std::vector<double> rr);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{/* double miyamoto\_nagai\_potential(double R, double z, double a, double b, double M); */}}
+\DoxyCodeLine{62 \textcolor{comment}{/* static double integrand1(std::vector<double> z\_r\_a\_b\_M\_r); */}}
+\DoxyCodeLine{63 \textcolor{comment}{/* static double integrand2(std::vector<double> z\_r\_a\_b\_M\_r); */}}
+\DoxyCodeLine{64 \textcolor{comment}{/* double MN\_spherical\_potential(double r, double a, double b, double M); */}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

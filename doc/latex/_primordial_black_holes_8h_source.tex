@@ -1,0 +1,49 @@
+\hypertarget{_primordial_black_holes_8h_source}{}\doxysection{Primordial\+Black\+Holes.\+h}
+\label{_primordial_black_holes_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/PrimordialBlackHoles.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/PrimordialBlackHoles.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PRIMORDIALBLACKHOLES}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PRIMORDIALBLACKHOLES}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}DegreeFreedom.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}PowerSpectrum.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_primordial_black_holes}{PrimordialBlackHoles}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_primordial_black_holes}{PrimordialBlackHoles}}(\mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} n\_ps, \mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}} *n\_degFree) : ps(n\_ps), degFree(n\_degFree)\{\};}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_primordial_black_holes}{\string~PrimordialBlackHoles}}()\{\};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{double} MassHorizon\_vs\_Tformation(\textcolor{keywordtype}{double} Tform); \textcolor{comment}{// Result in Msol}}
+\DoxyCodeLine{16     \textcolor{keywordtype}{double} Tformation\_vs\_MassHorizon(\textcolor{keywordtype}{double} Mass); \textcolor{comment}{// Result in GeV for input in Msol}}
+\DoxyCodeLine{17     \textcolor{keywordtype}{double} Radius\_vs\_MassHorizon(\textcolor{keywordtype}{double} Mass);  \textcolor{comment}{// Result in Mpc for input in Msol}}
+\DoxyCodeLine{18     \textcolor{keywordtype}{double} MassHorizon\_vs\_Radius(\textcolor{keywordtype}{double} Radius);  \textcolor{comment}{// Result in Msol for input in Mpc }}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{// Function for a spiked  curvature power spectrum P\_R(k) = A\_s k\_s \(\backslash\)delta(k-\/k\_s)}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} SigmaR(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} As, \textcolor{keywordtype}{double} ks);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} TransferFunction\_RDera(\textcolor{keywordtype}{double} y);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} Beta(\textcolor{keywordtype}{double} R, \textcolor{keywordtype}{double} alpha, \textcolor{keywordtype}{double} As, \textcolor{keywordtype}{double} ks);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} fPBH(\textcolor{keywordtype}{double} Mass, \textcolor{keywordtype}{double} alpha, \textcolor{keywordtype}{double} As, \textcolor{keywordtype}{double} ks);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{double} Max\_fPBH(\textcolor{keywordtype}{double} alpha, \textcolor{keywordtype}{double} As, \textcolor{keywordtype}{double} ks);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{double} Max\_As(\textcolor{keywordtype}{double} max\_f, \textcolor{keywordtype}{double} alpha, \textcolor{keywordtype}{double} ks);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} plot\_MassHorizon\_vs\_Radius();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} plot\_fPBH(\textcolor{keywordtype}{double} As, \textcolor{keywordtype}{double} ks);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} plot\_Max\_As();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_MassHorizon\_vs\_Tformation\_toSolve(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_primordial_black_holes}{PrimordialBlackHoles}} *)pt2Object)-\/>MassHorizon\_vs\_Tformation(xx[0]) -\/ xx[1]; \};}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_Radius\_vs\_MassHorizon\_toSolve(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_primordial_black_holes}{PrimordialBlackHoles}} *)pt2Object)-\/>Radius\_vs\_MassHorizon(xx[0]) -\/ xx[1]; \};}
+\DoxyCodeLine{35     \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_Max\_fPBH\_toSolve(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_primordial_black_holes}{PrimordialBlackHoles}} *)pt2Object)-\/>Max\_fPBH(xx[2], xx[0], xx[3]) -\/ xx[1]; \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 private :}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} ps;}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}} *degFree;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,36 @@
+\hypertarget{_gauss_legendre_8h_source}{}\doxysection{Gauss\+Legendre.\+h}
+\label{_gauss_legendre_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/GaussLegendre.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/GaussLegendre.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_GAUSSLEGENDRE}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_GAUSSLEGENDRE}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8   }
+\DoxyCodeLine{9  \textcolor{keyword}{public}:}
+\DoxyCodeLine{10   }
+\DoxyCodeLine{11   \textcolor{comment}{// Constructeur et destructeur}}
+\DoxyCodeLine{12   \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}}()\{\};}
+\DoxyCodeLine{13   \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}}(\textcolor{keywordtype}{int} n\_ngl);}
+\DoxyCodeLine{14   \mbox{\hyperlink{class_gauss_legendre}{\string~GaussLegendre}}()\{\};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{comment}{// Accesseur}}
+\DoxyCodeLine{17   \textcolor{keywordtype}{int} \textcolor{keyword}{const}\& get\_ngl()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} ngl;\};}
+\DoxyCodeLine{18   \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& get\_w(\textcolor{keywordtype}{int} iii)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} w[iii];\};}
+\DoxyCodeLine{19   \textcolor{keywordtype}{double} \textcolor{keyword}{const}\& get\_x(\textcolor{keywordtype}{int} iii)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} x[iii];\};}
+\DoxyCodeLine{20   }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22  \textcolor{keyword}{private}:}
+\DoxyCodeLine{23   \textcolor{keywordtype}{int} ngl;}
+\DoxyCodeLine{24   \textcolor{keywordtype}{double} EPS;}
+\DoxyCodeLine{25   std::vector<double> w,x;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

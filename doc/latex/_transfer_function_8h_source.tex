@@ -1,0 +1,47 @@
+\hypertarget{_transfer_function_8h_source}{}\doxysection{Transfer\+Function.\+h}
+\label{_transfer_function_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/TransferFunction.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/TransferFunction.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_TRANSFERFUNCTION}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_TRANSFERFUNCTION}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}MyUnits.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Cosmology.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{// Content of the class provided by M. Stref}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_transfer_function}{TransferFunction}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     }
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_transfer_function}{TransferFunction}}()\{\};}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_transfer_function}{TransferFunction}}(\mbox{\hyperlink{class_cosmology}{Cosmology}} n\_Cosmo);}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_transfer_function}{\string~TransferFunction}}()\{\};}
+\DoxyCodeLine{17     }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{double} R\_ratio(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{double} T0\_tilde(\textcolor{keywordtype}{double} q, \textcolor{keywordtype}{double} alphac, \textcolor{keywordtype}{double} betac);}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} shape\_parameter(\textcolor{keywordtype}{double} k);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} T\_cdm(\textcolor{keywordtype}{double} k);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} G\_func(\textcolor{keywordtype}{double} y);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} s\_tilde(\textcolor{keywordtype}{double} k);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{double} T\_baryons(\textcolor{keywordtype}{double} k);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{double} transfer\_function\_EH98(\textcolor{keywordtype}{double} k);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{double} effective\_CDM\_transfer\_function(\textcolor{keywordtype}{double} k);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} plot();}
+\DoxyCodeLine{30     }
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_cosmology}{Cosmology}} Cosmo;}
+\DoxyCodeLine{33     \textcolor{keywordtype}{double} Omega\_c\_h2, Omega\_b\_h2, Omega\_m\_h2;}
+\DoxyCodeLine{34     \textcolor{keywordtype}{double} z\_eq, k\_eq, z\_drag, sound\_horizon, alpha\_c, beta\_c, k\_silk, alpha\_b, beta\_b;}
+\DoxyCodeLine{35     \textcolor{keywordtype}{double} Theta27 = T0\_CMB\_K/2.7; \textcolor{comment}{// Normalised CMB temperature}}
+\DoxyCodeLine{36     }
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

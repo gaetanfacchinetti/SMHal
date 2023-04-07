@@ -1,0 +1,81 @@
+\hypertarget{_constraint_coupling_universal_8h_source}{}\doxysection{Constraint\+Coupling\+Universal.\+h}
+\label{_constraint_coupling_universal_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/ConstraintCouplingUniversal.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/ConstraintCouplingUniversal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_CONSTRAINTCOUPLINGUNIVERSAL}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_CONSTRAINTCOUPLINGUNIVERSAL}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccgaga.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccff.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccss.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccpp.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_ccsp.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSectionMajorana\_cccc.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSectionDirac\_cccc.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSectionDirac\_ccbccb.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}CrossSections/CrossSection\_cfcf.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}SpecialIntegrations.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}StandardModel.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}DegreeFreedom.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}ChemicalDecoupling.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}KineticDecoupling.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}MinimalMass.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}CPOddHiggsLowMass.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}InputReader.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}DecayRates.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}gsl/gsl\_complex.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}gsl/gsl\_complex\_math.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}ExceptionHandler.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}FSLModel.h"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}DirectDetection.h"{}}}
+\DoxyCodeLine{28 \textcolor{comment}{//\#include "{}DirectDetection.h"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{enum class} CouplingType}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     UNIVERSAL\_CONSTANT,}
+\DoxyCodeLine{33     UNIVERSAL\_YUKAWA,}
+\DoxyCodeLine{34     SINGLE\_CONSTANT,}
+\DoxyCodeLine{35     SINGLE\_YUKAWA}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{class_constraint_coupling_universal}{ConstraintCouplingUniversal}}}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_constraint_coupling_universal}{ConstraintCouplingUniversal}}(CouplingType n\_cptype = CouplingType::UNIVERSAL\_CONSTANT)\{n\_SM = StandardModel::getInstance()-\/>get\_n\_couples\_SM\_ferm(); cptype = n\_cptype;\};}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_constraint_coupling_universal}{\string~ConstraintCouplingUniversal}}()\{\};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{double} Coupling\_correctAbundance(std::string \textcolor{keyword}{const} \&name\_input, std::string \textcolor{keyword}{const} \&name\_output);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{double} TkdAndMinMass(std::string \textcolor{keyword}{const} \&name\_model\_file\_input, std::string \textcolor{keyword}{const} \&name\_coupling\_file\_input, std::string \textcolor{keyword}{const} \&name\_output);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{double} UnevolvedNsubhalos(std::string \textcolor{keyword}{const} \&name\_minmass\_file\_input, std::string \textcolor{keyword}{const} \&name\_output);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{double} SelfInteractingCS(std::string \textcolor{keyword}{const} \&name\_model\_file\_input, std::string \textcolor{keyword}{const} \&name\_coupling\_file\_input, std::string \textcolor{keyword}{const} \&name\_output);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{double} DecayTime(std::string \textcolor{keyword}{const} \&name\_model\_file\_input, std::string \textcolor{keyword}{const} \&name\_coupling\_file\_input, std::string \textcolor{keyword}{const} \&name\_output);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     std::vector<double> ConstraintOneModel(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}} *degFree, \textcolor{keywordtype}{double} \_omega\_C\_h2);}
+\DoxyCodeLine{51     std::vector<double> TemperatureKdOneModel(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \textcolor{keywordtype}{double} lambda, \mbox{\hyperlink{class_degree_freedom}{DegreeFreedom}} *degFree);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} SetNewUniversalCoupling(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \textcolor{keywordtype}{double} lambda\_SM, \textcolor{keywordtype}{double} lambda\_DM);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} SetNewUniversalYukawaCoupling(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \textcolor{keywordtype}{double} lambda\_SM, \textcolor{keywordtype}{double} lambda\_DM);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} SetNewSingleCoupling(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \textcolor{keywordtype}{double} lambda\_SM, \textcolor{keywordtype}{double} lambda\_DM, \textcolor{keywordtype}{int} coupl);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} SetCoupling(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \textcolor{keywordtype}{double} lambda\_SM, \textcolor{keywordtype}{double} lambda\_DM, \textcolor{keywordtype}{int} coupl=3); \textcolor{comment}{// By default coupling to electron/positron only if nothing specified}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} Write\_input\_MinimalMassHalos\_vs\_massDM\_vs\_massProp(std::string \textcolor{keyword}{const} \&name\_input, Proptype type, \textcolor{keywordtype}{int} Npts, \textcolor{keywordtype}{double} massMin, \textcolor{keywordtype}{double} massMax);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{double} MaximalValueCouplingDM(\mbox{\hyperlink{class_dark_sector_model}{DarkSectorModel}} \&model, \textcolor{keywordtype}{int} coupl = 3);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{comment}{// getter funcitons}}
+\DoxyCodeLine{61     CouplingType get\_coupling\_type()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} cptype;\}; }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{// Reader functions}}
+\DoxyCodeLine{64     std::vector<std::vector<double>> ReadCouplings(std::string \textcolor{keyword}{const} \&name);}
+\DoxyCodeLine{65     std::vector<std::vector<double> > ReadMinimalMass(std::string \textcolor{keyword}{const} \&name);}
+\DoxyCodeLine{66     }
+\DoxyCodeLine{67     \textcolor{keywordtype}{double} WriteMassesFromModel(std::string \textcolor{keyword}{const} \&name\_input);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{double} plot\_approximate\_Yf();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{private}:}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} n\_SM;  }
+\DoxyCodeLine{72     CouplingType cptype;}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

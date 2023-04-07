@@ -1,0 +1,83 @@
+\hypertarget{class_kinetic_decoupling}{}\doxysection{Kinetic\+Decoupling Class Reference}
+\label{class_kinetic_decoupling}\index{KineticDecoupling@{KineticDecoupling}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a73305a3b6c69ebaae53e82d961067750}\label{class_kinetic_decoupling_a73305a3b6c69ebaae53e82d961067750}} 
+{\bfseries Kinetic\+Decoupling} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} const \&\+\_\+\+DS, \mbox{\hyperlink{class_degree_freedom}{Degree\+Freedom}} $\ast$\+\_\+deg\+Free, int index\+\_\+chi)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a130704ec9b2540b30af57403105ade14}\label{class_kinetic_decoupling_a130704ec9b2540b30af57403105ade14}} 
+double {\bfseries gamma\+Tot} (double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_ae009aa6fecfd63f7832b2f51351dc5b4}\label{class_kinetic_decoupling_ae009aa6fecfd63f7832b2f51351dc5b4}} 
+double {\bfseries gamma} (int index\+\_\+cs, double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a16850975915ab0d626d2466def5a1c86}\label{class_kinetic_decoupling_a16850975915ab0d626d2466def5a1c86}} 
+double {\bfseries gamma\+\_\+1\+Loop\+\_\+photons} (double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a775c2225b9093923f7ef2a65a1c75c9a}\label{class_kinetic_decoupling_a775c2225b9093923f7ef2a65a1c75c9a}} 
+void {\bfseries Derivative\+Of\+Temperature} (std\+::vector$<$ double $>$ var, double w, double \&deriv)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a3e69cd6a0b2a313da28d9d8e33210d2a}\label{class_kinetic_decoupling_a3e69cd6a0b2a313da28d9d8e33210d2a}} 
+double {\bfseries FTo\+Estimate\+Dec\+Tem} (double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a1440bb270a17b99068dcf5e05a47d6a5}\label{class_kinetic_decoupling_a1440bb270a17b99068dcf5e05a47d6a5}} 
+double {\bfseries Estimate\+Decoupling\+Temperature} ()
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_af232228d53d53e69a88784fba21e2178}\label{class_kinetic_decoupling_af232228d53d53e69a88784fba21e2178}} 
+double {\bfseries Solve\+Temperature\+EI} ()
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a62fb58f66f559a5657cd706a7e7b5312}\label{class_kinetic_decoupling_a62fb58f66f559a5657cd706a7e7b5312}} 
+double {\bfseries Solve\+Temperature} ()
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_abad279ceb23d1d012111c0bff582f704}\label{class_kinetic_decoupling_abad279ceb23d1d012111c0bff582f704}} 
+double {\bfseries FTo\+Check\+Dec\+Tem} (double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a6aa17d99640f006cd2b7ea890a56666b}\label{class_kinetic_decoupling_a6aa17d99640f006cd2b7ea890a56666b}} 
+void {\bfseries plot\+Temperature\+Evolution} ()
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_aae0e178ead56dc2e4a2e866375b99544}\label{class_kinetic_decoupling_aae0e178ead56dc2e4a2e866375b99544}} 
+void {\bfseries plot\+Temperature\+Evolution\+EI} (std\+::string name)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a8d04935f7dba7e4a23a8be2354b2040d}\label{class_kinetic_decoupling_a8d04935f7dba7e4a23a8be2354b2040d}} 
+void {\bfseries plot\+Gamma\+Tot} ()
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_afca13536debaed88f159ff792f3e5424}\label{class_kinetic_decoupling_afca13536debaed88f159ff792f3e5424}} 
+void {\bfseries plot\+Gamma\+\_\+1\+Loop\+\_\+photons} ()
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a245fc5c13f95060a8cbf104e04593958}\label{class_kinetic_decoupling_a245fc5c13f95060a8cbf104e04593958}} 
+void {\bfseries plotf\+To\+Int\+For\+Gamma} (int index\+\_\+cs, double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a0b05f2810a16ded05cae7630784c4a11}\label{class_kinetic_decoupling_a0b05f2810a16ded05cae7630784c4a11}} 
+void {\bfseries plotf\+To\+Estimate\+Dec\+Tem} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a006475bf20b1cc2e8343e1049b1bb7f5}\label{class_kinetic_decoupling_a006475bf20b1cc2e8343e1049b1bb7f5}} 
+static double {\bfseries Call\+Back\+FTo\+Estimate\+Dec\+Tem} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ TT)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a715cdcc0eac2ad70344e4e13b33ec9cc}\label{class_kinetic_decoupling_a715cdcc0eac2ad70344e4e13b33ec9cc}} 
+static double {\bfseries Call\+Back\+FTo\+Check\+Dec\+Tem} (void $\ast$pt2\+Object, double T)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_aa64c1edee782acfbc4624fc97c8fc35a}\label{class_kinetic_decoupling_aa64c1edee782acfbc4624fc97c8fc35a}} 
+static void {\bfseries Call\+Back\+Derivative\+Of\+Temperature} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ var, double w, double \&deriv)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a7f753253ccd30c97bca96be451bf97ce}\label{class_kinetic_decoupling_a7f753253ccd30c97bca96be451bf97ce}} 
+static double {\bfseries Call\+Back\+Function\+For\+Implicit\+Euler\+LinearA} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a5a7aa200ae4e9704401098b2ccc578ac}\label{class_kinetic_decoupling_a5a7aa200ae4e9704401098b2ccc578ac}} 
+static double {\bfseries Call\+Back\+Function\+For\+Implicit\+Euler\+LinearZ} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a4d45e6e51145c935762e182a4958f139}\label{class_kinetic_decoupling_a4d45e6e51145c935762e182a4958f139}} 
+static double {\bfseries Call\+Back\+\_\+f\+To\+Int\+For\+Gamma} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ xx)
+\item 
+\mbox{\Hypertarget{class_kinetic_decoupling_a14c6fae886e677ad05ceacebc36d9cc5}\label{class_kinetic_decoupling_a14c6fae886e677ad05ceacebc36d9cc5}} 
+static double {\bfseries Call\+Back\+\_\+f\+To\+Int\+For\+Gamma\+\_\+1\+Loop\+\_\+photons} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ xx)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Kinetic\+Decoupling.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Kinetic\+Decoupling.\+cpp\end{DoxyCompactItemize}

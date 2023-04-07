@@ -1,0 +1,46 @@
+\hypertarget{_cosmological_boost_8h_source}{}\doxysection{Cosmological\+Boost.\+h}
+\label{_cosmological_boost_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/CosmologicalBoost.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/CosmologicalBoost.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_COSMOLOGICALBOOST}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_COSMOLOGICALBOOST}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}MassConcentrationModel.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}DarkHalo.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{enum class} ProfileConfig}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     ALL\_NFW,}
+\DoxyCodeLine{10     ALL\_MOORE,}
+\DoxyCodeLine{11     MIXED}
+\DoxyCodeLine{12 \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_cosmological_boost}{CosmologicalBoost}} }
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_cosmological_boost}{CosmologicalBoost}}(\mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} n\_PS);}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_cosmological_boost}{\string~CosmologicalBoost}}()\{\};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{double} OneHaloBoost(\textcolor{keywordtype}{double} m, \textcolor{keywordtype}{double} z, DensityProfile profile = DensityProfile::NFW);}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} fToIntOnm\_for\_TotalBoost(\textcolor{keywordtype}{double} m, \textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} n\_prof);}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} TotalBoost(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} mmin, ProfileConfig prof\_config);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} MinimalBound\_TotalBoost(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} mmin);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} plot\_TotalBoost(\textcolor{keywordtype}{double} mmin);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnm\_for\_TotalBoost(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_cosmological_boost}{CosmologicalBoost}} *)pt2Object)-\/>fToIntOnm\_for\_TotalBoost(xx[0], xx[1], xx[2]); \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} PS, PS\_without\_spikes;}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} MCM, MCM\_without\_spikes;}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_press_schechter}{PressSchechter}} PrSc;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{double} rhom0; \textcolor{comment}{// [Msol * Mpc\string^\{-\/3\}]}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

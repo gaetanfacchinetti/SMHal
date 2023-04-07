@@ -1,0 +1,154 @@
+\hypertarget{class_chemical_decoupling}{}\doxysection{Chemical\+Decoupling Class Reference}
+\label{class_chemical_decoupling}\index{ChemicalDecoupling@{ChemicalDecoupling}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chemical_decoupling_a5fb81a60a4d269743adce54b57e68188}{Chemical\+Decoupling}} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} const \&\+\_\+\+DS, \mbox{\hyperlink{class_degree_freedom}{Degree\+Freedom}} $\ast$\+\_\+degree\+Freedom, CS\+\_\+\+TYPE cs\+\_\+type=CS\+\_\+\+TYPE\+::\+FULL\+\_\+\+ONLY, double n\+\_\+simple\+SigmaV=-\/1)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_ae0ab44cd711a2b93fc7dfbe395f065db}\label{class_chemical_decoupling_ae0ab44cd711a2b93fc7dfbe395f065db}} 
+void {\bfseries set\+\_\+save\+YTo\+Print} (bool const \&New\+Save\+YTo\+Print)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a7c250d0e8c7b2c099c177e70b7994bc5}\label{class_chemical_decoupling_a7c250d0e8c7b2c099c177e70b7994bc5}} 
+double {\bfseries Determination\+Xf\+Method1} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a972402d8cecac74186d6e355230a2739}\label{class_chemical_decoupling_a972402d8cecac74186d6e355230a2739}} 
+double {\bfseries Determination\+Xf\+Method2} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a324a141f7054703477b67b2e8dcd9364}\label{class_chemical_decoupling_a324a141f7054703477b67b2e8dcd9364}} 
+double {\bfseries f\+To\+Solve\+Xf\+Model1\+Method1} (double const \&x)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a06b6392fd31428eb9b4c0d8c6ea5eeb6}\label{class_chemical_decoupling_a06b6392fd31428eb9b4c0d8c6ea5eeb6}} 
+double {\bfseries f\+To\+Solve\+Xf\+Model1\+Method2} (double const \&x)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a762dcc265e045879681f39570e48b838}\label{class_chemical_decoupling_a762dcc265e045879681f39570e48b838}} 
+double {\bfseries Dichotomie} (double(Chemical\+Decoupling\+::$\ast$func)(double const \&), double const \&x\+Min, double const \&x\+Max, double const \&prec)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_af6727da03b2b260d3dd9e67a69e6b4e9}\label{class_chemical_decoupling_af6727da03b2b260d3dd9e67a69e6b4e9}} 
+void {\bfseries Output\+Gamma\+AndH} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a12bb8b1350efd26db519eed97a47fb33}\label{class_chemical_decoupling_a12bb8b1350efd26db519eed97a47fb33}} 
+void {\bfseries Output\+Cross\+Section} ()
+\item 
+double \mbox{\hyperlink{class_chemical_decoupling_ac926ef77a4eaadb977740b5968eab906}{SigmaV}} (double T, bool with\+\_\+quarks\+\_\+after\+\_\+\+TQCD=false)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_affbf274125cce476324b777b6aa5c98e}\label{class_chemical_decoupling_affbf274125cce476324b777b6aa5c98e}} 
+double {\bfseries f\+To\+Integrate\+For\+Sigma\+V\+\_\+all} (std\+::vector$<$ double $>$ variables)
+\begin{DoxyCompactList}\small\item\em Function to integrate in order to evaluate the total thermally averaged annihilation cross-\/section including the quarks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a27f257409f1afbe2abb0c8db262560f4}\label{class_chemical_decoupling_a27f257409f1afbe2abb0c8db262560f4}} 
+double {\bfseries f\+To\+Integrate\+For\+Sigma\+V\+\_\+noquarks} (std\+::vector$<$ double $>$ variables)
+\begin{DoxyCompactList}\small\item\em Function to integrate in order to evaluate the thermally averaged annihilation cross-\/section without quarks after $T<T_QCD$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a9ba2d9cb0a0394eb3def6d600df7cb65}\label{class_chemical_decoupling_a9ba2d9cb0a0394eb3def6d600df7cb65}} 
+void {\bfseries Initialise\+\_\+s\+\_\+wave\+\_\+term} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a11837ae85c131bcce46c5d64a1f7e5eb}\label{class_chemical_decoupling_a11837ae85c131bcce46c5d64a1f7e5eb}} 
+void {\bfseries Derivative\+Of\+Comoving\+Density\+Non\+Stiff} (std\+::vector$<$ double $>$ variables, double W, double \&deriv)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a976319a06effd67d2b716770eadd866f}\label{class_chemical_decoupling_a976319a06effd67d2b716770eadd866f}} 
+std\+::vector$<$ double $>$ {\bfseries Solve\+Freeze\+Out} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_af72e19015ed7960e1218174985748487}\label{class_chemical_decoupling_af72e19015ed7960e1218174985748487}} 
+double {\bfseries Compute\+Abundance\+Today} (std\+::vector$<$ double $>$ const \&x\+YInit\+For\+Abundance\+Today)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a4d91bb15c26be3039d22da94b226328e}\label{class_chemical_decoupling_a4d91bb15c26be3039d22da94b226328e}} 
+double {\bfseries Function\+To\+Int\+For\+Abundance\+Today} (std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a65cd8affe857cfbe22905564b614d0b4}\label{class_chemical_decoupling_a65cd8affe857cfbe22905564b614d0b4}} 
+void {\bfseries Plot\+YFO} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a65089c256e4a1f56d092789a9d444609}\label{class_chemical_decoupling_a65089c256e4a1f56d092789a9d444609}} 
+void {\bfseries Plot\+YFI} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_aba7520bdab883174b8d2679372b0a5e6}\label{class_chemical_decoupling_aba7520bdab883174b8d2679372b0a5e6}} 
+void {\bfseries plot\+Func\+To\+Integrate\+SigmaV} (double T)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_ae306f3ea432c3c8e3e4836ce1767b61c}\label{class_chemical_decoupling_ae306f3ea432c3c8e3e4836ce1767b61c}} 
+void {\bfseries plot\+SigmaV} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_af237251b04bc57e73d2042884980bc31}\label{class_chemical_decoupling_af237251b04bc57e73d2042884980bc31}} 
+void {\bfseries Solve\+Freeze\+In} ()
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a42e7296cecb9e2dcda3db2d4d387f031}\label{class_chemical_decoupling_a42e7296cecb9e2dcda3db2d4d387f031}} 
+double {\bfseries Compute\+YFreeze\+In\+Approx} (double x)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_af16f1a557506133fb768db370800b7bc}\label{class_chemical_decoupling_af16f1a557506133fb768db370800b7bc}} 
+double {\bfseries Function\+To\+Int\+Freeze\+In\+Approx} (std\+::vector$<$ double $>$ var)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_af4e34b08fc201723ce5115acfb71ee92}\label{class_chemical_decoupling_af4e34b08fc201723ce5115acfb71ee92}} 
+double {\bfseries Function\+For\+Implicit\+EulerA} (std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_ac29f26aaa48440b0696fcec612d42412}\label{class_chemical_decoupling_ac29f26aaa48440b0696fcec612d42412}} 
+double {\bfseries Function\+For\+Implicit\+EulerB} (std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a76b8cf9d358ef9e666eaf25b248e96ad}\label{class_chemical_decoupling_a76b8cf9d358ef9e666eaf25b248e96ad}} 
+double {\bfseries Function\+For\+Implicit\+Euler\+LnA} (std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a7de5aeb454d693022b528a8e1f5487b7}\label{class_chemical_decoupling_a7de5aeb454d693022b528a8e1f5487b7}} 
+double {\bfseries Function\+For\+Implicit\+EulerZ} (std\+::vector$<$ double $>$ variables)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a3ddb0eb53e5052a1319419d4a5b02ffa}\label{class_chemical_decoupling_a3ddb0eb53e5052a1319419d4a5b02ffa}} 
+static double {\bfseries Function\+Test} (std\+::vector$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a4b2ecdb3d0e7fc5f08c7e53e55421565}\label{class_chemical_decoupling_a4b2ecdb3d0e7fc5f08c7e53e55421565}} 
+static double {\bfseries Derivative\+Of\+Comoving\+Density} (std\+::vector$<$ double $>$ variables, double Y)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a66fe1ea26955586d5e7bcd965c884877}\label{class_chemical_decoupling_a66fe1ea26955586d5e7bcd965c884877}} 
+static double {\bfseries Call\+Backf\+To\+Solve\+Xf\+Model1\+Method1} (void $\ast$pt2\+Object, double x)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a344a08905568dbefc5f918cfcc7fa303}\label{class_chemical_decoupling_a344a08905568dbefc5f918cfcc7fa303}} 
+static double {\bfseries Call\+Backf\+To\+Solve\+Xf\+Model1\+Method2} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ xx)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a73ebd2d6edd1e35222d1b5bef00a6aad}\label{class_chemical_decoupling_a73ebd2d6edd1e35222d1b5bef00a6aad}} 
+static double {\bfseries Call\+Backf\+To\+Integrate\+For\+Sigma\+V\+\_\+all} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_ae0ff54cbb005c323f283d490938ee2db}\label{class_chemical_decoupling_ae0ff54cbb005c323f283d490938ee2db}} 
+static double {\bfseries Call\+Backf\+To\+Integrate\+For\+Sigma\+V\+\_\+noquarks} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_ab58c64bbb46441f5707fadc56723e5d4}\label{class_chemical_decoupling_ab58c64bbb46441f5707fadc56723e5d4}} 
+static double {\bfseries Call\+Back\+Function\+To\+Int\+For\+Abundance\+Today} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_ad3a377a3e2dfb417cfa4483c5c9cb317}\label{class_chemical_decoupling_ad3a377a3e2dfb417cfa4483c5c9cb317}} 
+static void {\bfseries Call\+Back\+Derivative\+Of\+Abundance\+Non\+Stiff} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables, double W, double \&deriv)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a0d57c0c4380349a95d2e73776a8be477}\label{class_chemical_decoupling_a0d57c0c4380349a95d2e73776a8be477}} 
+static double {\bfseries Call\+Back\+Function\+For\+Implicit\+EulerA} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a3d7dd5e5cbfa8da7de87a707e799187f}\label{class_chemical_decoupling_a3d7dd5e5cbfa8da7de87a707e799187f}} 
+static double {\bfseries Call\+Back\+Function\+For\+Implicit\+EulerB} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a79b18d06a64c9cf85ae3001e2bc0ad35}\label{class_chemical_decoupling_a79b18d06a64c9cf85ae3001e2bc0ad35}} 
+static double {\bfseries Call\+Back\+Function\+For\+Implicit\+Euler\+LnA} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\item 
+\mbox{\Hypertarget{class_chemical_decoupling_a93ff8a04834f16395110780f23e43e57}\label{class_chemical_decoupling_a93ff8a04834f16395110780f23e43e57}} 
+static double {\bfseries Call\+Back\+Function\+For\+Implicit\+EulerZ} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ variables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chemical_decoupling_a5fb81a60a4d269743adce54b57e68188}\label{class_chemical_decoupling_a5fb81a60a4d269743adce54b57e68188}} 
+\index{ChemicalDecoupling@{ChemicalDecoupling}!ChemicalDecoupling@{ChemicalDecoupling}}
+\index{ChemicalDecoupling@{ChemicalDecoupling}!ChemicalDecoupling@{ChemicalDecoupling}}
+\doxysubsubsection{\texorpdfstring{ChemicalDecoupling()}{ChemicalDecoupling()}}
+{\footnotesize\ttfamily Chemical\+Decoupling\+::\+Chemical\+Decoupling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} const \&}]{\+\_\+\+DS,  }\item[{\mbox{\hyperlink{class_degree_freedom}{Degree\+Freedom}} $\ast$}]{\+\_\+degree\+Freedom,  }\item[{CS\+\_\+\+TYPE}]{cs\+\_\+type = {\ttfamily CS\+\_\+TYPE\+:\+:FULL\+\_\+ONLY},  }\item[{double}]{n\+\_\+simple\+SigmaV = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+We sum over all possible cross-\/sections Note that cross\+Section\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} = cross\+Section\mbox{[}j\mbox{]}\mbox{[}i\mbox{]} therefore we use this symmetry For Dirac DM we also have cross\+Section\mbox{[}i\mbox{]}\mbox{[}i\mbox{]} = 0 (no terms on the diagonal) Therefore we also use this symmetry to reduce computation time
+
+Initialise the values of the vectors that can be printed to follow the evolution of the resolution
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chemical_decoupling_ac926ef77a4eaadb977740b5968eab906}\label{class_chemical_decoupling_ac926ef77a4eaadb977740b5968eab906}} 
+\index{ChemicalDecoupling@{ChemicalDecoupling}!SigmaV@{SigmaV}}
+\index{SigmaV@{SigmaV}!ChemicalDecoupling@{ChemicalDecoupling}}
+\doxysubsubsection{\texorpdfstring{SigmaV()}{SigmaV()}}
+{\footnotesize\ttfamily double Chemical\+Decoupling\+::\+SigmaV (\begin{DoxyParamCaption}\item[{double}]{T,  }\item[{bool}]{with\+\_\+quarks\+\_\+after\+\_\+\+TQCD = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Thermally averaed annihilation cross-\/section ~\newline
+ not taking into account the quarks once they ~\newline
+ are not only present as hadrons (when $T < T_QCD$) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Chemical\+Decoupling.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Chemical\+Decoupling.\+cpp\end{DoxyCompactItemize}

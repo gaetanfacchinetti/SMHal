@@ -1,0 +1,86 @@
+\hypertarget{class_particle}{}\doxysection{Particle Class Reference}
+\label{class_particle}\index{Particle@{Particle}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_a62161a458a16d77c517ea4cb8b9adf18}\label{class_particle_a62161a458a16d77c517ea4cb8b9adf18}} 
+{\bfseries Particle} (double spin, int n\+\_\+deg\+Free, std\+::string name, double mass, double width, double n\+\_\+electric\+\_\+charge, int ind, QCDTYPE qtype=QCDTYPE\+::\+NOTHING)
+\item 
+\mbox{\Hypertarget{class_particle_a5bf092d0619ae396a8f3a69735c6ac24}\label{class_particle_a5bf092d0619ae396a8f3a69735c6ac24}} 
+{\bfseries Particle} (double spin, int n\+\_\+deg\+Free, std\+::string name, double mass, double width, double n\+\_\+electric\+\_\+charge, int ind, Proptype n\+\_\+ptype, int n\+\_\+specific\+\_\+ind=0, Fermiontype n\+\_\+ftype=Fermiontype\+::nothing, QCDTYPE n\+\_\+qtype=QCDTYPE\+::\+NOTHING)
+\item 
+\mbox{\Hypertarget{class_particle_afb5ea2db5ab9c73612976e2cec09424c}\label{class_particle_afb5ea2db5ab9c73612976e2cec09424c}} 
+double {\bfseries get\+\_\+mass} () const
+\item 
+\mbox{\Hypertarget{class_particle_ad273dbb0c697a62faff101e5737437b9}\label{class_particle_ad273dbb0c697a62faff101e5737437b9}} 
+double {\bfseries get\+\_\+width} () const
+\item 
+\mbox{\Hypertarget{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}\label{class_particle_a7940217ea9051d81bfe20fa6b0d8f898}} 
+double {\bfseries get\+\_\+spin} () const
+\item 
+\mbox{\Hypertarget{class_particle_a07e580d565c826a1685a781bdfab5ad9}\label{class_particle_a07e580d565c826a1685a781bdfab5ad9}} 
+QCDTYPE {\bfseries get\+\_\+\+QCDType} () const
+\item 
+\mbox{\Hypertarget{class_particle_aa31b94e8a448440ab95db331ec9fa70a}\label{class_particle_aa31b94e8a448440ab95db331ec9fa70a}} 
+Proptype {\bfseries get\+\_\+proptype} () const
+\item 
+\mbox{\Hypertarget{class_particle_a3e8920319227ff358807feaef40353b9}\label{class_particle_a3e8920319227ff358807feaef40353b9}} 
+Fermiontype {\bfseries get\+\_\+fermiontype} () const
+\item 
+\mbox{\Hypertarget{class_particle_ae6e512366bc7ae655fb3a24d5aeee3c7}\label{class_particle_ae6e512366bc7ae655fb3a24d5aeee3c7}} 
+std\+::string {\bfseries get\+\_\+fermiontype\+\_\+str} () const
+\item 
+\mbox{\Hypertarget{class_particle_ad233dfd7c0d2475b4b818d20dbfab461}\label{class_particle_ad233dfd7c0d2475b4b818d20dbfab461}} 
+int {\bfseries get\+\_\+index} () const
+\item 
+\mbox{\Hypertarget{class_particle_a6194eb38536e62e62ac7aa4929be46a2}\label{class_particle_a6194eb38536e62e62ac7aa4929be46a2}} 
+int {\bfseries get\+\_\+specific\+\_\+index} () const
+\item 
+\mbox{\Hypertarget{class_particle_a2d5bb3d2be8a1d24a75812ffb24889a7}\label{class_particle_a2d5bb3d2be8a1d24a75812ffb24889a7}} 
+int {\bfseries get\+\_\+deg\+Free} () const
+\item 
+\mbox{\Hypertarget{class_particle_a9241c51e61c4fe1487df3544aaf0c61a}\label{class_particle_a9241c51e61c4fe1487df3544aaf0c61a}} 
+double {\bfseries get\+\_\+stat} () const
+\item 
+\mbox{\Hypertarget{class_particle_aa8406b67b4ef3c60b8575242df937b7e}\label{class_particle_aa8406b67b4ef3c60b8575242df937b7e}} 
+double {\bfseries get\+\_\+electric\+\_\+charge} () const
+\item 
+\mbox{\Hypertarget{class_particle_a390a6cb5887cc33b6caf38f01941ec8f}\label{class_particle_a390a6cb5887cc33b6caf38f01941ec8f}} 
+bool {\bfseries is\+\_\+\+Present\+Before\+QCDPT} () const
+\item 
+\mbox{\Hypertarget{class_particle_a62c237621ae048244a00ff8fc8bb683c}\label{class_particle_a62c237621ae048244a00ff8fc8bb683c}} 
+bool {\bfseries is\+\_\+\+Present\+After\+QCDPT} () const
+\item 
+\mbox{\Hypertarget{class_particle_ad96a53554a9e9cc190bec0900d23ce63}\label{class_particle_ad96a53554a9e9cc190bec0900d23ce63}} 
+std\+::string {\bfseries get\+\_\+name} () const
+\item 
+\mbox{\Hypertarget{class_particle_aeda57b36e940d9d5e7b504bc8c811174}\label{class_particle_aeda57b36e940d9d5e7b504bc8c811174}} 
+void {\bfseries set\+\_\+name} (std\+::string const \&n\+\_\+name)
+\item 
+\mbox{\Hypertarget{class_particle_a4ccecdfd83b811dc38014261518fed62}\label{class_particle_a4ccecdfd83b811dc38014261518fed62}} 
+void {\bfseries set\+\_\+mass} (double const \&n\+\_\+mass)
+\item 
+\mbox{\Hypertarget{class_particle_a8feb8d29c855403591fa7ef9fef46a0d}\label{class_particle_a8feb8d29c855403591fa7ef9fef46a0d}} 
+void {\bfseries set\+\_\+deg\+Free} (int const \&n\+\_\+deg\+Free)
+\item 
+\mbox{\Hypertarget{class_particle_a4493b895f8dc1f35e2278b3832d24f0a}\label{class_particle_a4493b895f8dc1f35e2278b3832d24f0a}} 
+void {\bfseries set\+\_\+width} (double const \&n\+\_\+width)
+\item 
+\mbox{\Hypertarget{class_particle_a794625ce7ac9c66c70d619de49a61d58}\label{class_particle_a794625ce7ac9c66c70d619de49a61d58}} 
+void {\bfseries set\+\_\+ftype} (Fermiontype const \&n\+\_\+ftype)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_ab604c881fdbf2488d6527d1f740aaa55}\label{class_particle_ab604c881fdbf2488d6527d1f740aaa55}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const std\+::vector$<$ \mbox{\hyperlink{class_particle}{Particle}} $\ast$ $>$ \&v)
+\item 
+\mbox{\Hypertarget{class_particle_a139350a59c6dd1ee404e50cb31dc0689}\label{class_particle_a139350a59c6dd1ee404e50cb31dc0689}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const std\+::vector$<$ \mbox{\hyperlink{class_particle}{Particle}} $>$ \&v)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Particle.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Particle.\+cpp\end{DoxyCompactItemize}

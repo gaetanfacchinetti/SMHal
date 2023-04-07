@@ -1,0 +1,161 @@
+\hypertarget{class_power_spectrum}{}\doxysection{Power\+Spectrum Class Reference}
+\label{class_power_spectrum}\index{PowerSpectrum@{PowerSpectrum}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_power_spectrum_acd008c2a13fa1d7efd181ce297fb42dc}\label{class_power_spectrum_acd008c2a13fa1d7efd181ce297fb42dc}} 
+{\bfseries Power\+Spectrum} (\mbox{\hyperlink{class_cosmology}{Cosmology}} n\+\_\+\+Cosmo, PSWindow\+Type w=PSWindow\+Type\+::real\+\_\+space\+\_\+top\+\_\+hat, bool n\+\_\+normalised\+\_\+s8=false)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a88f8fbb6b30cc557093e16225fe93447}\label{class_power_spectrum_a88f8fbb6b30cc557093e16225fe93447}} 
+void {\bfseries set\+\_\+spikes} (std\+::vector$<$ double $>$ n\+\_\+as\+\_\+spike, std\+::vector$<$ double $>$ n\+\_\+ks\+\_\+spike, std\+::vector$<$ double $>$ n\+\_\+eps\+\_\+spike)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a8af6ad12588f825437e19a4781056419}\label{class_power_spectrum_a8af6ad12588f825437e19a4781056419}} 
+void {\bfseries reset\+\_\+spikes} ()
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a07ddc82ed39eeb2269e73ee9c034ba86}\label{class_power_spectrum_a07ddc82ed39eeb2269e73ee9c034ba86}} 
+double {\bfseries regulator\+\_\+spikes} (double k, double ks\+\_\+spike, double eps)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a9cebd5e154850879135110249d775dfa}\label{class_power_spectrum_a9cebd5e154850879135110249d775dfa}} 
+double {\bfseries dimensionless\+\_\+curvature\+\_\+power\+\_\+spectrum} (double k)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a35e64a058402b69017887a59b7059152}\label{class_power_spectrum_a35e64a058402b69017887a59b7059152}} 
+double {\bfseries curvature\+\_\+power\+\_\+spectrum} (double k)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_aa1c0e2a5b7a833e621ad4165e367c4ef}\label{class_power_spectrum_aa1c0e2a5b7a833e621ad4165e367c4ef}} 
+double {\bfseries matter\+\_\+power\+\_\+spectrum} (double k, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a8ac19f152e26cc19078cb50ffd07ce65}\label{class_power_spectrum_a8ac19f152e26cc19078cb50ffd07ce65}} 
+double {\bfseries dimensionless\+\_\+matter\+\_\+power\+\_\+spectrum} (double k, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_abcd37989d221ac18871ee51e24998214}\label{class_power_spectrum_abcd37989d221ac18871ee51e24998214}} 
+void {\bfseries plot\+\_\+\+Power\+Spectrum} (double z, std\+::string add=\char`\"{}\char`\"{})
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a17a34befc70f4fd5680a47530c1a7654}\label{class_power_spectrum_a17a34befc70f4fd5680a47530c1a7654}} 
+double {\bfseries Window} (double kR)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a30a21d2a139f06c1de914d8a5b36078e}\label{class_power_spectrum_a30a21d2a139f06c1de914d8a5b36078e}} 
+double {\bfseries Der\+\_\+\+Window\+\_\+vs\+\_\+kR} (double kR)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a71aa4e3056c5401148fb52d81ce78e73}\label{class_power_spectrum_a71aa4e3056c5401148fb52d81ce78e73}} 
+double {\bfseries Lagrangian\+Radius\+\_\+vs\+\_\+\+Mass} (double Mass)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_ad6ca0b7fa52506796556ab237b185fea}\label{class_power_spectrum_ad6ca0b7fa52506796556ab237b185fea}} 
+double {\bfseries Mass\+\_\+vs\+\_\+\+Lagrangian\+Radius} (double Radius)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a45bb62c124d250ab795ac5f4032e8260}\label{class_power_spectrum_a45bb62c124d250ab795ac5f4032e8260}} 
+double {\bfseries Der\+\_\+\+Mass\+\_\+vs\+\_\+\+Lagrangian\+Radius} (double Mass)
+\item 
+double \mbox{\hyperlink{class_power_spectrum_a5dffa98252d22c0a3c5c5836f1bcff29}{SigmaM}} (double M, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_ac867b2603d3bd7ced3d8f1ec6d55a8b7}\label{class_power_spectrum_ac867b2603d3bd7ced3d8f1ec6d55a8b7}} 
+double {\bfseries SigmaR} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_acbd9873ed767b1f1fbaff4f5498a6170}\label{class_power_spectrum_acbd9873ed767b1f1fbaff4f5498a6170}} 
+double {\bfseries Sigma\+R2} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_acc0196eae6fc6eb170113374d94ca375}\label{class_power_spectrum_acc0196eae6fc6eb170113374d94ca375}} 
+double {\bfseries Sigma\+M2} (double M, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a191b24d8a3c18627b2c26b9592bc12eb}\label{class_power_spectrum_a191b24d8a3c18627b2c26b9592bc12eb}} 
+double {\bfseries f\+For\+Dichotomie\+\_\+\+Mass\+\_\+vs\+\_\+\+Sigma2} (double M, double s\+M2, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a8314fa467d4cdc6499f35f7a92ce44a2}\label{class_power_spectrum_a8314fa467d4cdc6499f35f7a92ce44a2}} 
+double {\bfseries Mass\+\_\+vs\+\_\+\+Sigma2} (double s\+M2, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a0c7327d9689a52407383ae81cd30e03f}\label{class_power_spectrum_a0c7327d9689a52407383ae81cd30e03f}} 
+double {\bfseries f\+To\+Int\+For\+\_\+\+Sigma2R} (std\+::vector$<$ double $>$ lnk\+Rz)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a97184f8af96c8b6c74eee1dc3fe62b61}\label{class_power_spectrum_a97184f8af96c8b6c74eee1dc3fe62b61}} 
+double {\bfseries Der\+\_\+\+Ln\+Sigma\+R\+\_\+vs\+\_\+R} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a33c9a9aed539aaec0727e624b578c5df}\label{class_power_spectrum_a33c9a9aed539aaec0727e624b578c5df}} 
+double {\bfseries Der\+\_\+\+Ln\+Sigma\+M\+\_\+vs\+\_\+M} (double M, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_afff45d1bbf5f34acfea8bc077b081b5c}\label{class_power_spectrum_afff45d1bbf5f34acfea8bc077b081b5c}} 
+double {\bfseries Der\+\_\+sigma\+R2\+\_\+vs\+\_\+R} (double R, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_ab235a62381a4670e1be8ed4b35c0ef51}\label{class_power_spectrum_ab235a62381a4670e1be8ed4b35c0ef51}} 
+double {\bfseries Der\+\_\+sigma\+M2\+\_\+vs\+\_\+M} (double M, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a903245dae20ad04c43e9b2bdab459a36}\label{class_power_spectrum_a903245dae20ad04c43e9b2bdab459a36}} 
+double {\bfseries f\+To\+Int\+For\+\_\+\+Der\+\_\+sigma\+R2\+\_\+vs\+\_\+R} (std\+::vector$<$ double $>$ k\+Rz)
+\item 
+double \mbox{\hyperlink{class_power_spectrum_a8fbfe4dbb9afed749622fade7ab2ebf1}{Sigma\+R2\+\_\+narrow\+\_\+spike\+\_\+over\+\_\+window}} (double As\+\_\+spike, double ks\+\_\+spike, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a46210ebf134e33b2498f4bb78ac49f5a}\label{class_power_spectrum_a46210ebf134e33b2498f4bb78ac49f5a}} 
+double {\bfseries Sigma\+R2\+\_\+narrow\+\_\+spike} (double R, double As\+\_\+spike, double ks\+\_\+spike, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a3e48e5e1ac08103275669fad570bd377}\label{class_power_spectrum_a3e48e5e1ac08103275669fad570bd377}} 
+void {\bfseries Interpolate\+\_\+\+Sigma\+M2\+\_\+vs\+\_\+M} (double z)
+\item 
+double \mbox{\hyperlink{class_power_spectrum_ac7e1d33a64567b11c1669b7b372f4076}{Interp\+\_\+\+Sigma\+M2}} (double M, double z)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a8a6f651d5ec0f2e26a339e3e0d4d748a}\label{class_power_spectrum_a8a6f651d5ec0f2e26a339e3e0d4d748a}} 
+void {\bfseries plot\+\_\+\+Sigma\+M\+\_\+vs\+\_\+z} (double M)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a61ac2968df2aa3ecfc1c8f4b3d688518}\label{class_power_spectrum_a61ac2968df2aa3ecfc1c8f4b3d688518}} 
+void {\bfseries plot\+\_\+\+Sigma\+\_\+vs\+\_\+\+RM} (double z, bool with\+\_\+respect\+\_\+to\+\_\+M, bool in\+\_\+units\+\_\+of\+\_\+h=false, std\+::string add=\char`\"{}\char`\"{})
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a512fa8d2f36882b2c70a2e722888c29c}\label{class_power_spectrum_a512fa8d2f36882b2c70a2e722888c29c}} 
+void {\bfseries plot\+\_\+\+Der\+\_\+\+Ln\+Sigma\+\_\+vs\+\_\+\+Ln\+RM} (double z, bool with\+\_\+respect\+\_\+to\+\_\+M=false, bool in\+\_\+units\+\_\+of\+\_\+h=false)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a3ab0ed2c3d81a2e54fdc7d5367ff41de}\label{class_power_spectrum_a3ab0ed2c3d81a2e54fdc7d5367ff41de}} 
+void {\bfseries plot\+\_\+f\+To\+Int\+For\+\_\+\+Sigma2R} (double z, double R)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a3dec3a9ca20ff918a60e1dfd21cccc5a}\label{class_power_spectrum_a3dec3a9ca20ff918a60e1dfd21cccc5a}} 
+\mbox{\hyperlink{class_cosmology}{Cosmology}} {\bfseries get\+\_\+\+Cosmology} () const
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a6c0d27cc12b8c12793e8fad90c242b6a}\label{class_power_spectrum_a6c0d27cc12b8c12793e8fad90c242b6a}} 
+PSWindow\+Type {\bfseries get\+\_\+window} () const
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a0c851e72577d64d0ee629732735e9fd8}\label{class_power_spectrum_a0c851e72577d64d0ee629732735e9fd8}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+ks\+\_\+spike} () const
+\item 
+\mbox{\Hypertarget{class_power_spectrum_abb2c412f9b64dce30fe71f2cb8b5ac60}\label{class_power_spectrum_abb2c412f9b64dce30fe71f2cb8b5ac60}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+\+As\+\_\+spike} () const
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a72b76338b20db51659c7abe0ab77e49e}\label{class_power_spectrum_a72b76338b20db51659c7abe0ab77e49e}} 
+double {\bfseries Volume\+Form} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_power_spectrum_a49b784d5e078ea7b5c3da5bd443baf9b}\label{class_power_spectrum_a49b784d5e078ea7b5c3da5bd443baf9b}} 
+static double {\bfseries Call\+Back\+\_\+f\+To\+Int\+For\+\_\+\+Sigma2R} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ xx)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_ace5410d7c96e67421114d560372cb8f4}\label{class_power_spectrum_ace5410d7c96e67421114d560372cb8f4}} 
+static double {\bfseries Call\+Back\+\_\+f\+To\+Int\+For\+\_\+\+Der\+\_\+sigma\+R2\+\_\+vs\+\_\+R} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ xx)
+\item 
+\mbox{\Hypertarget{class_power_spectrum_ae2f39117c3bac558b12babcf3a5d458f}\label{class_power_spectrum_ae2f39117c3bac558b12babcf3a5d458f}} 
+static double {\bfseries Call\+Back\+\_\+f\+For\+Dichotomie\+\_\+\+Mass\+\_\+vs\+\_\+\+Sigma\+M2} (void $\ast$pt2\+Object, std\+::vector$<$ double $>$ xx)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_power_spectrum_ac7e1d33a64567b11c1669b7b372f4076}\label{class_power_spectrum_ac7e1d33a64567b11c1669b7b372f4076}} 
+\index{PowerSpectrum@{PowerSpectrum}!Interp\_SigmaM2@{Interp\_SigmaM2}}
+\index{Interp\_SigmaM2@{Interp\_SigmaM2}!PowerSpectrum@{PowerSpectrum}}
+\doxysubsubsection{\texorpdfstring{Interp\_SigmaM2()}{Interp\_SigmaM2()}}
+{\footnotesize\ttfamily double Power\+Spectrum\+::\+Interp\+\_\+\+Sigma\+M2 (\begin{DoxyParamCaption}\item[{double}]{M,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+Return the result of the interpolation but if the redshift is the same and the interpolation has been done \mbox{\Hypertarget{class_power_spectrum_a5dffa98252d22c0a3c5c5836f1bcff29}\label{class_power_spectrum_a5dffa98252d22c0a3c5c5836f1bcff29}} 
+\index{PowerSpectrum@{PowerSpectrum}!SigmaM@{SigmaM}}
+\index{SigmaM@{SigmaM}!PowerSpectrum@{PowerSpectrum}}
+\doxysubsubsection{\texorpdfstring{SigmaM()}{SigmaM()}}
+{\footnotesize\ttfamily double Power\+Spectrum\+::\+SigmaM (\begin{DoxyParamCaption}\item[{double}]{M,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Variance of the matter power spectrum at redshift z for $\Lambda$CDM power spectrum Input \+: $\mathcal{A}_s$ (dimensionless) $k_s~({\rm Mpc}^{-1})$ $z$ (dimensionless) ~\newline
+ Output \+: $\sigma_M(M)$ (dimensionless) \mbox{\Hypertarget{class_power_spectrum_a8fbfe4dbb9afed749622fade7ab2ebf1}\label{class_power_spectrum_a8fbfe4dbb9afed749622fade7ab2ebf1}} 
+\index{PowerSpectrum@{PowerSpectrum}!SigmaR2\_narrow\_spike\_over\_window@{SigmaR2\_narrow\_spike\_over\_window}}
+\index{SigmaR2\_narrow\_spike\_over\_window@{SigmaR2\_narrow\_spike\_over\_window}!PowerSpectrum@{PowerSpectrum}}
+\doxysubsubsection{\texorpdfstring{SigmaR2\_narrow\_spike\_over\_window()}{SigmaR2\_narrow\_spike\_over\_window()}}
+{\footnotesize\ttfamily double Power\+Spectrum\+::\+Sigma\+R2\+\_\+narrow\+\_\+spike\+\_\+over\+\_\+window (\begin{DoxyParamCaption}\item[{double}]{As\+\_\+spike,  }\item[{double}]{ks\+\_\+spike,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+Variance of the matter power spectrum at redshift z for spiked power spectrum \+: ~\newline
+ $ \mathcal{P}_{\mathcal{R}} = \mathcal{A}_s * k_s * delta(k- k_s) $ Input \+: $\mathcal{A}_s$ (dimensionless) $k_s~({\rm Mpc}^{-1})$ $z$ (dimensionless) ~\newline
+ Output \+: $\sigma_M(M)$ (dimensionless) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Power\+Spectrum.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Power\+Spectrum.\+cpp\end{DoxyCompactItemize}

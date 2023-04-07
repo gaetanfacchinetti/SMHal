@@ -1,0 +1,157 @@
+\hypertarget{_particle_8h_source}{}\doxysection{Particle.\+h}
+\label{_particle_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/Particle.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/Particle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PARTICLE}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PARTICLE}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}MyUnits.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{enum class} QCDTYPE}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9   QUARK,}
+\DoxyCodeLine{10   GLUON,}
+\DoxyCodeLine{11   MESON,}
+\DoxyCodeLine{12   BARYON,}
+\DoxyCodeLine{13   NOTHING}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{enum class} INT\_TYPE}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18   SS,}
+\DoxyCodeLine{19   ST,}
+\DoxyCodeLine{20   SU,}
+\DoxyCodeLine{21   TT,}
+\DoxyCodeLine{22   TU,}
+\DoxyCodeLine{23   UU,}
+\DoxyCodeLine{24   NON}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{enum class} Proptype}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   scalar,}
+\DoxyCodeLine{30   pseudoscalar,}
+\DoxyCodeLine{31   vector,}
+\DoxyCodeLine{32   dm}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{enum class} Fermiontype}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37   dirac,}
+\DoxyCodeLine{38   majorana,}
+\DoxyCodeLine{39   nothing}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{class_particle}{Particle}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{public}:}
+\DoxyCodeLine{46   \mbox{\hyperlink{class_particle}{Particle}}(\textcolor{keywordtype}{double} spin, \textcolor{keywordtype}{int} n\_degFree, std::string name, \textcolor{keywordtype}{double} mass, }
+\DoxyCodeLine{47            \textcolor{keywordtype}{double} width, \textcolor{keywordtype}{double} n\_electric\_charge, \textcolor{keywordtype}{int} ind, QCDTYPE qtype = QCDTYPE::NOTHING);}
+\DoxyCodeLine{48   \mbox{\hyperlink{class_particle}{Particle}}(\textcolor{keywordtype}{double} spin, \textcolor{keywordtype}{int} n\_degFree, std::string name, \textcolor{keywordtype}{double} mass, }
+\DoxyCodeLine{49            \textcolor{keywordtype}{double} width, \textcolor{keywordtype}{double} n\_electric\_charge, \textcolor{keywordtype}{int} ind, Proptype n\_ptype, \textcolor{keywordtype}{int} n\_specific\_ind = 0, Fermiontype n\_ftype = Fermiontype::nothing, QCDTYPE n\_qtype = QCDTYPE::NOTHING);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \mbox{\hyperlink{class_particle}{Particle}}()\{\};}
+\DoxyCodeLine{52   \mbox{\hyperlink{class_particle}{\string~Particle}}()\{\};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keywordtype}{double} get\_mass()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} mass; \};}
+\DoxyCodeLine{55   \textcolor{keywordtype}{double} get\_width()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} width; \};}
+\DoxyCodeLine{56   \textcolor{keywordtype}{double} get\_spin()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} spin; \};}
+\DoxyCodeLine{57   QCDTYPE get\_QCDType()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} qtype; \};}
+\DoxyCodeLine{58   Proptype get\_proptype()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} ptype; \};}
+\DoxyCodeLine{59   Fermiontype get\_fermiontype()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} ftype; \};}
+\DoxyCodeLine{60   std::string get\_fermiontype\_str()\textcolor{keyword}{ const}}
+\DoxyCodeLine{61 \textcolor{keyword}{  }\{}
+\DoxyCodeLine{62     \textcolor{keywordflow}{if} (ftype == Fermiontype::majorana)}
+\DoxyCodeLine{63       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Majorana"{}};}
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} (ftype == Fermiontype::dirac)}
+\DoxyCodeLine{65       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dirac"{}};}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} (ftype == Fermiontype::nothing)}
+\DoxyCodeLine{67       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nothing"{}};}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{69   \}}
+\DoxyCodeLine{70   \textcolor{keywordtype}{int} get\_index()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} ind; \};}
+\DoxyCodeLine{71   \textcolor{keywordtype}{int} get\_specific\_index()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} specific\_ind; \};}
+\DoxyCodeLine{72   \textcolor{keywordtype}{int} get\_degFree()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} degFree; \};}
+\DoxyCodeLine{73   \textcolor{keywordtype}{double} get\_stat()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} stat; \};}
+\DoxyCodeLine{74   \textcolor{keywordtype}{double} get\_electric\_charge()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} electric\_charge; \};}
+\DoxyCodeLine{75   \textcolor{keywordtype}{bool} is\_PresentBeforeQCDPT()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} isPresentBeforeQCDPT; \};}
+\DoxyCodeLine{76   \textcolor{keywordtype}{bool} is\_PresentAfterQCDPT()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} isPresentAfterQCDPT; \};}
+\DoxyCodeLine{77   std::string get\_name()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} name; \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79   \textcolor{keywordtype}{void} set\_name(std::string \textcolor{keyword}{const} \&n\_name) \{ name = n\_name; \};}
+\DoxyCodeLine{80   \textcolor{keywordtype}{void} set\_mass(\textcolor{keywordtype}{double} \textcolor{keyword}{const} \&n\_mass) \{ mass = n\_mass; \};}
+\DoxyCodeLine{81   \textcolor{keywordtype}{void} set\_degFree(\textcolor{keywordtype}{int} \textcolor{keyword}{const} \&n\_degFree) \{ degFree = n\_degFree; \};}
+\DoxyCodeLine{82   \textcolor{keywordtype}{void} set\_width(\textcolor{keywordtype}{double} \textcolor{keyword}{const} \&n\_width) \{ width = n\_width; \};}
+\DoxyCodeLine{83   \textcolor{keywordtype}{void} set\_ftype(Fermiontype \textcolor{keyword}{const} \&n\_ftype) \{ ftype = n\_ftype; \};}
+\DoxyCodeLine{84   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} std::vector<Particle *> \&v);}
+\DoxyCodeLine{85   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} std::vector<Particle> \&v);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{comment}{//bool isEqualTo(Particle const\& b) const;}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{private}:}
+\DoxyCodeLine{90   \textcolor{keywordtype}{double} mass, width, spin, electric\_charge;}
+\DoxyCodeLine{91   std::string type, name;}
+\DoxyCodeLine{92   \textcolor{keywordtype}{int} degFree, ind, specific\_ind;}
+\DoxyCodeLine{93   \textcolor{keywordtype}{double} stat;}
+\DoxyCodeLine{94   \textcolor{keywordtype}{bool} isPresentBeforeQCDPT, isPresentAfterQCDPT;}
+\DoxyCodeLine{95   QCDTYPE qtype;}
+\DoxyCodeLine{96   Proptype ptype;}
+\DoxyCodeLine{97   Fermiontype ftype;}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{class }\mbox{\hyperlink{class_particle_pair}{ParticlePair}}}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102 \textcolor{keyword}{public}:}
+\DoxyCodeLine{103   \mbox{\hyperlink{class_particle_pair}{ParticlePair}}()\{\};}
+\DoxyCodeLine{104   \mbox{\hyperlink{class_particle_pair}{ParticlePair}}(\mbox{\hyperlink{class_particle}{Particle}} \&part1, \mbox{\hyperlink{class_particle}{Particle}} \&part2, \textcolor{keywordtype}{int} n\_index, INT\_TYPE n\_int\_type = INT\_TYPE::NON);}
+\DoxyCodeLine{105   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} std::vector<ParticlePair *> \&v);}
+\DoxyCodeLine{106   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} std::vector<ParticlePair> \&v);}
+\DoxyCodeLine{107   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{class_particle_pair}{ParticlePair}} pp);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109   \mbox{\hyperlink{class_particle_pair}{\string~ParticlePair}}()\{\};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \mbox{\hyperlink{class_particle}{Particle}} get\_first()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} part1; \};}
+\DoxyCodeLine{112   \mbox{\hyperlink{class_particle}{Particle}} get\_second()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} part2; \};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114   \mbox{\hyperlink{class_particle}{Particle}} get\_particle(\textcolor{keywordtype}{int} selec)\textcolor{keyword}{ const}}
+\DoxyCodeLine{115 \textcolor{keyword}{  }\{}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} (selec == 0)}
+\DoxyCodeLine{117       \textcolor{keywordflow}{return} part1;}
+\DoxyCodeLine{118     \textcolor{keywordflow}{if} (selec == 1)}
+\DoxyCodeLine{119       \textcolor{keywordflow}{return} part2;}
+\DoxyCodeLine{120     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{121     \{}
+\DoxyCodeLine{122       std::cout << \textcolor{stringliteral}{"{}FATAL ERROR : Trying to access a particle in a particle pair with an indicator greater than 1"{}} << std::endl;}
+\DoxyCodeLine{123       exit(0);}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125   \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127   INT\_TYPE get\_type()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} int\_type; \};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129   \textcolor{keywordtype}{int} ind()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} index; \};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{keyword}{private}:}
+\DoxyCodeLine{132   \mbox{\hyperlink{class_particle}{Particle}} part1, part2;}
+\DoxyCodeLine{133   INT\_TYPE int\_type;}
+\DoxyCodeLine{134   \textcolor{keywordtype}{int} index;}
+\DoxyCodeLine{135 \};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/*}}
+\DoxyCodeLine{138 \textcolor{comment}{class DSParticle : public Particle}}
+\DoxyCodeLine{139 \textcolor{comment}{\{}}
+\DoxyCodeLine{140 \textcolor{comment}{public:}}
+\DoxyCodeLine{141 \textcolor{comment}{  DSParticle(double spin, int n\_degFree, std::string name, double mass,}}
+\DoxyCodeLine{142 \textcolor{comment}{             double width, int ind, Proptype n\_ptype = Proptype::DM, QCDTYPE qtype = QCDTYPE::NOTHING);}}
+\DoxyCodeLine{143 \textcolor{comment}{  DSParticle();}}
+\DoxyCodeLine{144 \textcolor{comment}{}}
+\DoxyCodeLine{145 \textcolor{comment}{  Proptype get\_proptype() const \{ return ptype; \};}}
+\DoxyCodeLine{146 \textcolor{comment}{}}
+\DoxyCodeLine{147 \textcolor{comment}{private:}}
+\DoxyCodeLine{148 \textcolor{comment}{  Proptype ptype;}}
+\DoxyCodeLine{149 \textcolor{comment}{\};*/}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

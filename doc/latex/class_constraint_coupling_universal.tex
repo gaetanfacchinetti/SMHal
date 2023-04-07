@@ -1,0 +1,68 @@
+\hypertarget{class_constraint_coupling_universal}{}\doxysection{Constraint\+Coupling\+Universal Class Reference}
+\label{class_constraint_coupling_universal}\index{ConstraintCouplingUniversal@{ConstraintCouplingUniversal}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a861195726f73b4200f82a044de18360b}\label{class_constraint_coupling_universal_a861195726f73b4200f82a044de18360b}} 
+{\bfseries Constraint\+Coupling\+Universal} (Coupling\+Type n\+\_\+cptype=Coupling\+Type\+::\+UNIVERSAL\+\_\+\+CONSTANT)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a1acc669c0530f52525651476a2241c37}\label{class_constraint_coupling_universal_a1acc669c0530f52525651476a2241c37}} 
+double {\bfseries Coupling\+\_\+correct\+Abundance} (std\+::string const \&name\+\_\+input, std\+::string const \&name\+\_\+output)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a6a57e127dd1d03326408fa5b075806fa}\label{class_constraint_coupling_universal_a6a57e127dd1d03326408fa5b075806fa}} 
+double {\bfseries Tkd\+And\+Min\+Mass} (std\+::string const \&name\+\_\+model\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+coupling\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+output)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a6854fe6ab96264468c9d96d7794e64a2}\label{class_constraint_coupling_universal_a6854fe6ab96264468c9d96d7794e64a2}} 
+double {\bfseries Unevolved\+Nsubhalos} (std\+::string const \&name\+\_\+minmass\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+output)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a5683286908def4ab0536084914453e96}\label{class_constraint_coupling_universal_a5683286908def4ab0536084914453e96}} 
+double {\bfseries Self\+Interacting\+CS} (std\+::string const \&name\+\_\+model\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+coupling\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+output)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_ad5504577acb9fad110e99cecc78a2c74}\label{class_constraint_coupling_universal_ad5504577acb9fad110e99cecc78a2c74}} 
+double {\bfseries Decay\+Time} (std\+::string const \&name\+\_\+model\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+coupling\+\_\+file\+\_\+input, std\+::string const \&name\+\_\+output)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a2e4af24ff6f5101bcb6644bacf53ef06}\label{class_constraint_coupling_universal_a2e4af24ff6f5101bcb6644bacf53ef06}} 
+std\+::vector$<$ double $>$ {\bfseries Constraint\+One\+Model} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, \mbox{\hyperlink{class_degree_freedom}{Degree\+Freedom}} $\ast$deg\+Free, double \+\_\+omega\+\_\+\+C\+\_\+h2)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a81dad9e8cd099537f51d2dc42505f755}\label{class_constraint_coupling_universal_a81dad9e8cd099537f51d2dc42505f755}} 
+std\+::vector$<$ double $>$ {\bfseries Temperature\+Kd\+One\+Model} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, double lambda, \mbox{\hyperlink{class_degree_freedom}{Degree\+Freedom}} $\ast$deg\+Free)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a1189a3383f4fada83d4d057518fabdf1}\label{class_constraint_coupling_universal_a1189a3383f4fada83d4d057518fabdf1}} 
+bool {\bfseries Set\+New\+Universal\+Coupling} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, double lambda\+\_\+\+SM, double lambda\+\_\+\+DM)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a704c34f9c7e09c9dc9a9af603924ed4c}\label{class_constraint_coupling_universal_a704c34f9c7e09c9dc9a9af603924ed4c}} 
+bool {\bfseries Set\+New\+Universal\+Yukawa\+Coupling} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, double lambda\+\_\+\+SM, double lambda\+\_\+\+DM)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a4f6218c633e69ee3e8195f6a84dbfde3}\label{class_constraint_coupling_universal_a4f6218c633e69ee3e8195f6a84dbfde3}} 
+bool {\bfseries Set\+New\+Single\+Coupling} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, double lambda\+\_\+\+SM, double lambda\+\_\+\+DM, int coupl)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a973bfcf75755dea3de9d3196a4122acf}\label{class_constraint_coupling_universal_a973bfcf75755dea3de9d3196a4122acf}} 
+bool {\bfseries Set\+Coupling} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, double lambda\+\_\+\+SM, double lambda\+\_\+\+DM, int coupl=3)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a934d34cdd904c73b11b96ef0310d1361}\label{class_constraint_coupling_universal_a934d34cdd904c73b11b96ef0310d1361}} 
+void {\bfseries Write\+\_\+input\+\_\+\+Minimal\+Mass\+Halos\+\_\+vs\+\_\+mass\+DM\+\_\+vs\+\_\+mass\+Prop} (std\+::string const \&name\+\_\+input, Proptype type, int Npts, double mass\+Min, double mass\+Max)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_af4c867c0f2b977ccaae8c4a4d2140845}\label{class_constraint_coupling_universal_af4c867c0f2b977ccaae8c4a4d2140845}} 
+double {\bfseries Maximal\+Value\+Coupling\+DM} (\mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} \&model, int coupl=3)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a81e9ba26941fd50d9b0bccbd0a40271a}\label{class_constraint_coupling_universal_a81e9ba26941fd50d9b0bccbd0a40271a}} 
+Coupling\+Type {\bfseries get\+\_\+coupling\+\_\+type} () const
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a4545c538e5072390e52dca66ba20adb5}\label{class_constraint_coupling_universal_a4545c538e5072390e52dca66ba20adb5}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries Read\+Couplings} (std\+::string const \&name)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_adb37540d7a70d66073dfe5f1bdfe927f}\label{class_constraint_coupling_universal_adb37540d7a70d66073dfe5f1bdfe927f}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries Read\+Minimal\+Mass} (std\+::string const \&name)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a7b35dc5fcbdde39f938ef60a7654e577}\label{class_constraint_coupling_universal_a7b35dc5fcbdde39f938ef60a7654e577}} 
+double {\bfseries Write\+Masses\+From\+Model} (std\+::string const \&name\+\_\+input)
+\item 
+\mbox{\Hypertarget{class_constraint_coupling_universal_a59b7cbcdea55a2a697331e18f842c95b}\label{class_constraint_coupling_universal_a59b7cbcdea55a2a697331e18f842c95b}} 
+double {\bfseries plot\+\_\+approximate\+\_\+\+Yf} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Constraint\+Coupling\+Universal.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Constraint\+Coupling\+Universal.\+cpp\end{DoxyCompactItemize}

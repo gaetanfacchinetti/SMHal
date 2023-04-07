@@ -1,0 +1,99 @@
+\hypertarget{_c_p_odd_higgs_low_mass_8h_source}{}\doxysection{CPOdd\+Higgs\+Low\+Mass.\+h}
+\label{_c_p_odd_higgs_low_mass_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/CPOddHiggsLowMass.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/CPOddHiggsLowMass.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_CPODDHIGGSLOWMASS}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_CPODDHIGGSLOWMASS}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}StandardModel.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}mymath.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_c_p_odd_higgs_low_mass}{CPOddHiggsLowMass}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11   \mbox{\hyperlink{class_c_p_odd_higgs_low_mass}{CPOddHiggsLowMass}}(std::string \textcolor{keyword}{const} \&n\_name\_file);}
+\DoxyCodeLine{12   \mbox{\hyperlink{class_c_p_odd_higgs_low_mass}{\string~CPOddHiggsLowMass}}()\{\};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{keywordtype}{void} Read();}
+\DoxyCodeLine{15   \textcolor{keywordtype}{void} Write(std::string \textcolor{keyword}{const} \&name\_file\_out);}
+\DoxyCodeLine{16   \textcolor{keywordtype}{void} Diagonalise(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18   dcomp FF(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{19   dcomp Cg(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{20   dcomp sCgam(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} s);}
+\DoxyCodeLine{21   dcomp sdCgam(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} s);}
+\DoxyCodeLine{22   \textcolor{keywordtype}{double} ach0A(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   dcomp sFg(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} s, \textcolor{keywordtype}{double} T\_over\_TQCD);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{comment}{// For numerical tests}}
+\DoxyCodeLine{27   dcomp sFg\_test(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} s, \textcolor{keywordtype}{double} T\_over\_TQCD);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{comment}{// Initialise the vector version of : 4 mesons and A1-\/3 mesons amplitudes}}
+\DoxyCodeLine{30   \textcolor{keywordtype}{void} AmplitudeInitialise();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \textcolor{comment}{// 4 mesons and A1-\/3 mesons amplitudes}}
+\DoxyCodeLine{33   \textcolor{keywordtype}{double} AmpA1f(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{34   \textcolor{keywordtype}{double} AmpPi3f(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{35   \textcolor{keywordtype}{double} AmpEtaf(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{36   \textcolor{keywordtype}{double} AmpEtapf(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \textcolor{comment}{// Amplitude for the decay in 3 mesons of the physical A1 tilde}}
+\DoxyCodeLine{39   \textcolor{keywordtype}{double} AmpAf(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{comment}{// Decay Rates}}
+\DoxyCodeLine{42   \textcolor{keywordtype}{double} GamaA(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3); \textcolor{comment}{// A1-\/>mes1+mes2+mes3}}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double} fToIntForGamaA(std::vector<double> ismes1mes2mes3);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordtype}{double} GamaAch(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD);  \textcolor{comment}{// Total decay of A1 into three mesons with the chiral lagrangian}}
+\DoxyCodeLine{46   \textcolor{keywordtype}{double} GamaAsp(\textcolor{keywordtype}{int} i);                      \textcolor{comment}{// Total decay of A1 into three mesons with the spectator lagrangian}}
+\DoxyCodeLine{47   \textcolor{keywordtype}{double} GamaLe(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD);   \textcolor{comment}{// Decay of A1 into e+ and e-\/}}
+\DoxyCodeLine{48   \textcolor{keywordtype}{double} GamaLmu(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD);  \textcolor{comment}{// Decay of A1 into mu+ and mu-\/}}
+\DoxyCodeLine{49   \textcolor{keywordtype}{double} GamaL(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD);    \textcolor{comment}{// Total decay of A1 into e+,e-\/ and mu+,mu-\/}}
+\DoxyCodeLine{50   \textcolor{keywordtype}{double} Gamach0(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD);  \textcolor{comment}{// Decay of A1 into dark matter}}
+\DoxyCodeLine{51   \textcolor{keywordtype}{double} GamaAt1S(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD); \textcolor{comment}{// Decay of A1 into two photons}}
+\DoxyCodeLine{52   \textcolor{keywordtype}{double} GammaTAS(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{double} T\_over\_TQCD); \textcolor{comment}{// Total decay of A1}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keywordtype}{double} Sfactor(\textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{55   \textcolor{keywordtype}{void} Order(\textcolor{keywordtype}{int} \&i, \textcolor{keywordtype}{int} \&j, \textcolor{keywordtype}{int} \&k);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57   \textcolor{keywordtype}{void} plot\_MixingParameters();}
+\DoxyCodeLine{58   \textcolor{keywordtype}{void} plot\_GammaA();}
+\DoxyCodeLine{59   \textcolor{keywordtype}{void} plot\_GamaA(\textcolor{keywordtype}{int} mes1, \textcolor{keywordtype}{int} mes2, \textcolor{keywordtype}{int} mes3);}
+\DoxyCodeLine{60   \textcolor{keywordtype}{void} plot\_Amp();}
+\DoxyCodeLine{61   \textcolor{keywordtype}{void} plot\_sFg(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{62   \textcolor{keywordtype}{void} plot\_sCgam(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \textcolor{comment}{// CallBack functions}}
+\DoxyCodeLine{65   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntForGamaA(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_c_p_odd_higgs_low_mass}{CPOddHiggsLowMass}} *)pt2Object)-\/>fToIntForGamaA(xx); \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{private}:}
+\DoxyCodeLine{68   std::string name\_file;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   \textcolor{comment}{// Number of points in the input file}}
+\DoxyCodeLine{71   \textcolor{keywordtype}{int} Npoints;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73   std::vector<double> lamb, kappa, Tbeta, mH1, mA1, mch0, mch1, mch2, Cotb, Sbeta, Cbeta;}
+\DoxyCodeLine{74   std::vector<double> GA1N1N1, U11, U12, U21, U22, V11, V12, V21, V22, P11, P12;}
+\DoxyCodeLine{75   \textcolor{keywordtype}{double} V, del, del1, del2, del3, del4, del5, del6, del7, del8, del9, Delta, fpi, mpi, mpip, mpim, mpi8, mpi9, meta, metp, te, Nc, Qu, Qd, Qe, Qch, g;}
+\DoxyCodeLine{76   \textcolor{keywordtype}{double} vv, mK, mKz;}
+\DoxyCodeLine{77   std::vector<double> OAA, OA3, OA8, OA9, OAeta, OAetp;}
+\DoxyCodeLine{78   std::vector<double> MM; \textcolor{comment}{// Meson mass vector}}
+\DoxyCodeLine{79   std::vector<double> YllA1e, YllA1mu;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81   \textcolor{comment}{// Wess-\/Zumino-\/Witten couplings between CP Odd mesons and photons}}
+\DoxyCodeLine{82   \textcolor{keywordtype}{double} Cpi3, Ceta, Cetp;}
+\DoxyCodeLine{83   \textcolor{keywordtype}{double} Yepi3, Ymueta;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{comment}{// Mesons index}}
+\DoxyCodeLine{86   \textcolor{keywordtype}{int} \_pi3, \_pip, \_pim, \_eta, \_etp, \_Kp, \_Km, \_Kz;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{comment}{// Amplitudes for decay into three mesons}}
+\DoxyCodeLine{89   std::vector<std::vector<std::vector<std::vector<double>>>> AmpA1, AmpPi3, AmpEta, AmpEtap;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

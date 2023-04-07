@@ -1,0 +1,128 @@
+\hypertarget{_mass_concentration_model_8h_source}{}\doxysection{Mass\+Concentration\+Model.\+h}
+\label{_mass_concentration_model_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/MassConcentrationModel.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/MassConcentrationModel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DEF\_MASSCONCENTRATIONMODEL}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DEF\_MASSCONCENTRATIONMODEL}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Cosmology.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}PressSchechter.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}PowerSpectrum.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12   \mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}}(\mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} n\_PS) : PS(n\_PS)}
+\DoxyCodeLine{13   \{}
+\DoxyCodeLine{14     \textcolor{comment}{//PS = PowerSpectrum(Cosmo, w);}}
+\DoxyCodeLine{15     PS\_rsth = \mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}}(Cosmo, PSWindowType::real\_space\_top\_hat);}
+\DoxyCodeLine{16     PrSc = \mbox{\hyperlink{class_press_schechter}{PressSchechter}}(PS);}
+\DoxyCodeLine{17     PrSc\_rsth = \mbox{\hyperlink{class_press_schechter}{PressSchechter}}(PS\_rsth);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     TF = \mbox{\hyperlink{class_transfer_function}{TransferFunction}}(Cosmo);}
+\DoxyCodeLine{20     gl1000 = \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}}(1000);}
+\DoxyCodeLine{21     gl200 = \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}}(200);}
+\DoxyCodeLine{22     gl500 = \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}}(500);}
+\DoxyCodeLine{23   \};}
+\DoxyCodeLine{24   \mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}}()\{\};}
+\DoxyCodeLine{25   \mbox{\hyperlink{class_mass_concentration_model}{\string~MassConcentrationModel}}()\{\};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \textcolor{keywordtype}{double} RedshiftOfCollapse\_vs\_Mass(\textcolor{keywordtype}{double} Mass);}
+\DoxyCodeLine{28   \textcolor{keywordtype}{double} Mass\_vs\_RedshiftOfCollapse(\textcolor{keywordtype}{double} zc);}
+\DoxyCodeLine{29   \textcolor{keywordtype}{double} fToDichotomieFor\_RedshiftOfCollapse\_vs\_Mass(std::vector<double> zM);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keywordtype}{double} fToIntOnM2\_RedshiftOfFormation\_LaceyCole(\textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} omegaF, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{32   \textcolor{keywordtype}{void} plot\_fToIntOnM2\_RedshiftOfFormation\_LaceyCole(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} zF, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{33   \textcolor{keywordtype}{double} ProbaRedshiftOfFormation\_LaceyCole\_vs\_zF(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} zF, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{34   \textcolor{keywordtype}{double} ProbaRedshiftOfFormation\_LaceyCole\_vs\_omF(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} omegaF, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{35   \textcolor{keywordtype}{void} plot\_ProbaRedshiftOfFormation\_LaceyCole\_vs\_zF(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{36   \textcolor{keywordtype}{void} plot\_ProbaRedshiftOfFormation\_LaceyCole\_vs\_omF(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \textcolor{keywordtype}{double} fToIntOnM2\_IntegratedProbaRedshiftOfFormation\_LaceyCole(\textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z2, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{39   \textcolor{keywordtype}{double} IntegratedProbaRedshiftOfFormation\_LaceyCole\_vs\_zF(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z2, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{40   \textcolor{keywordtype}{void} plot\_IntegratedProbaRedshiftOfFormation\_LaceyCole\_vs\_zF(\textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} z1);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{comment}{// norm = true if normalisation to 1 on positive redshifts only}}
+\DoxyCodeLine{43   \textcolor{comment}{// norm = false if normalisation to 1 on redshifts on [-\/1, \(\backslash\)infty]}}
+\DoxyCodeLine{44   \textcolor{keywordtype}{double} ProbaRedshiftOfCollapse(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} M, \textcolor{keywordtype}{bool} norm = \textcolor{keyword}{true});}
+\DoxyCodeLine{45   \textcolor{keywordtype}{double} CumulativeRedshiftOfCollapse(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{46   \textcolor{keywordtype}{double} MeanRedshiftOfCollapse(\textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48   \textcolor{keywordtype}{double} fToIntOnM\_for\_dndzc(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} M, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{49   \textcolor{keywordtype}{double} dndzc(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{50   \textcolor{keywordtype}{void} plot\_dndzc(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53   \textcolor{comment}{// Concentration models}}
+\DoxyCodeLine{54   \textcolor{keywordtype}{double} ConcentrationMaccio(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{55   \textcolor{keywordtype}{double} ConcentrationMaccioMass(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{56   \textcolor{keywordtype}{double} MeanConcentrationMaccio(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{57   \textcolor{keywordtype}{double} SigmaConcentrationMaccio(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59   \textcolor{keywordtype}{double} ConcentrationOkoli(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} m200);}
+\DoxyCodeLine{60   \textcolor{keywordtype}{double} A2\_Okoli(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{61   \textcolor{keywordtype}{double} B2\_Okoli(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{62   \textcolor{keywordtype}{double} AB\_Okoli(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{63   \textcolor{keywordtype}{double} Window\_B\_Okoli(\textcolor{keywordtype}{double} kR);}
+\DoxyCodeLine{64   \textcolor{keywordtype}{double} fToIntFor\_AB\_Okoli(std::vector<double> lnkRz);}
+\DoxyCodeLine{65   \textcolor{keywordtype}{double} fToIntFor\_B2\_Okoli(std::vector<double> lnkRz);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67   \textcolor{keywordtype}{double} ConcentrationFacchinetti(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{68   \textcolor{keywordtype}{double} ConcentrationFacchinetti\_vs\_m(\textcolor{keywordtype}{double} m, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{69   \textcolor{keywordtype}{double} RedshiftOfCollapse\_Facchinetti(\textcolor{keywordtype}{double} c, \textcolor{keywordtype}{double} m, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{70   \textcolor{keywordtype}{double} fForBissection\_ConcentrationFacchinetti(\textcolor{keywordtype}{double} c, \textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} zc);}
+\DoxyCodeLine{71   \textcolor{keywordtype}{double} fForBissection\_RedshiftOfCollapse\_Facchinetti(\textcolor{keywordtype}{double} zc, \textcolor{keywordtype}{double} c, \textcolor{keywordtype}{double} m, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{72   \textcolor{keywordtype}{double} fForBissection\_ConcentrationFacchinetti\_vs\_m(\textcolor{keywordtype}{double} c, \textcolor{keywordtype}{double} m, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74   \textcolor{keywordtype}{double} ConcentrationSanchezCondePrada(\textcolor{keywordtype}{double} m200);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{comment}{// Plot functions}}
+\DoxyCodeLine{79   \textcolor{keywordtype}{void} plot\_ProbaRedshiftOfCollapse\_vs\_zc(\textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{80   \textcolor{keywordtype}{void} plot\_ProbaRedshiftOfCollapse\_vs\_M(\textcolor{keywordtype}{double} zc);}
+\DoxyCodeLine{81   \textcolor{keywordtype}{void} plot\_CumulativeRedshiftOfCollapse\_vs\_zc(\textcolor{keywordtype}{double} M);}
+\DoxyCodeLine{82   \textcolor{keywordtype}{void} plot\_concentration(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{83   \textcolor{keywordtype}{void} plot\_B\_over\_A\_Okoli(\textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{84   \textcolor{keywordtype}{void} plot\_fToIntFor\_AB\_Okoli(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} R);}
+\DoxyCodeLine{85   \textcolor{comment}{//void plot\_ProbaRedshiftOfCollapse\_vs\_k(double zc);}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToDichotomieFor\_RedshiftOfCollapse\_vs\_Mass(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fToDichotomieFor\_RedshiftOfCollapse\_vs\_Mass(xx); \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fForBissection\_ConcentrationFacchinetti(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fForBissection\_ConcentrationFacchinetti(xx[0], xx[1], xx[2]); \};}
+\DoxyCodeLine{90   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fForBissection\_RedshiftOfCollapse\_Facchinetti(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fForBissection\_RedshiftOfCollapse\_Facchinetti(xx[0], xx[1], xx[2], xx[3]); \};}
+\DoxyCodeLine{91   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fForBissection\_ConcentrationFacchinetti\_vs\_m(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fForBissection\_ConcentrationFacchinetti\_vs\_m(xx[0], xx[1], xx[2]); \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_AB\_Okoli(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fToIntFor\_AB\_Okoli(xx); \};}
+\DoxyCodeLine{94   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_B2\_Okoli(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fToIntFor\_B2\_Okoli(xx); \};}
+\DoxyCodeLine{95   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_NormalisationProbazc(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> zcM) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ProbaRedshiftOfCollapse(zcM[0], zcM[1]); \};}
+\DoxyCodeLine{96   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_MomentProbazc(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> zcM) \{ \textcolor{keywordflow}{return} pow(zcM[0], zcM[2]) * ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ProbaRedshiftOfCollapse(zcM[0], zcM[1]); \};}
+\DoxyCodeLine{97   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_MeanConcentrationMaccio(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> zcMz) }
+\DoxyCodeLine{98     \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ConcentrationMaccio(zcMz[0], zcMz[2]) * ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ProbaRedshiftOfCollapse(zcMz[0], zcMz[1]); \};}
+\DoxyCodeLine{99   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_Log10ConcentrationNMaccio(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> zcMzn) }
+\DoxyCodeLine{100     \{ \textcolor{keywordflow}{return} pow(log10(((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ConcentrationMaccio(zcMzn[0], zcMzn[2])), zcMzn[3]) * ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ProbaRedshiftOfCollapse(zcMzn[0], zcMzn[1]); \};}
+\DoxyCodeLine{101  }
+\DoxyCodeLine{102   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntFor\_Concentration2Maccio(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> zcMz) }
+\DoxyCodeLine{103     \{ \textcolor{keywordflow}{return} pow(((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ConcentrationMaccio(zcMz[0], zcMz[2]), 2) * ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>ProbaRedshiftOfCollapse(zcMz[0], zcMz[1]); \};}
+\DoxyCodeLine{104   }
+\DoxyCodeLine{105   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnM2\_RedshiftOfFormation\_LaceyCole(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fToIntOnM2\_RedshiftOfFormation\_LaceyCole(xx[0], xx[1], xx[2], xx[3]); \};}
+\DoxyCodeLine{106   \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnM2\_IntegratedProbaRedshiftOfFormation\_LaceyCole(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) }
+\DoxyCodeLine{107     \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fToIntOnM2\_IntegratedProbaRedshiftOfFormation\_LaceyCole(xx[0], xx[1], xx[2], xx[3]); \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109  \textcolor{keyword}{static} \textcolor{keywordtype}{double} CallBack\_fToIntOnM\_for\_dndzc(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx) \{ \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_mass_concentration_model}{MassConcentrationModel}} *)pt2Object)-\/>fToIntOnM\_for\_dndzc(xx[0], xx[1], xx[2]); \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{keyword}{private}:}
+\DoxyCodeLine{112   \mbox{\hyperlink{class_cosmology}{Cosmology}} Cosmo;}
+\DoxyCodeLine{113   \mbox{\hyperlink{class_press_schechter}{PressSchechter}} PrSc\_rsth, PrSc;}
+\DoxyCodeLine{114   \mbox{\hyperlink{class_transfer_function}{TransferFunction}} TF;}
+\DoxyCodeLine{115   \mbox{\hyperlink{class_power_spectrum}{PowerSpectrum}} PS, PS\_rsth;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117   \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} gl1000, gl200, gl500;}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119   PSWindowType window\_type;}
+\DoxyCodeLine{120 \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

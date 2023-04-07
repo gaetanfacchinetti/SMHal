@@ -1,0 +1,38 @@
+####################################################
+#
+# CrossSection input file
+#
+# Gaetan Facchinetti
+# gaetan.facchinetti@umontpellier.fr
+# Laboratoire Univers et Particules Montpellier
+# Last update :  April 2019
+#
+####################################################
+
+# A single DM particle and a single axial-vector with universal couplings
+
+## Number of points to evaluate ##
+
+Npoints :: 1
+
+
+## Dark sector particles ##
+# DS particle of the form DSi :: (type, num of dof)
+DSCONT :: NDM :: 1
+DSCONT :: DSPart :: (vector, 3)
+
+## Dark matter particle type ##
+# By default it is Majorana but can also be set to Dirac
+TYPEDM :: 0 :: Majorana
+
+## Masses dark sector [GeV] ##
+MDMDS :: 0 :: 10, 0.01
+
+# Interactions Dark sector - SM elementary particles (DS-SMSM)
+# ...   :: i :: part :: couplings
+
+## Interactions Dark matter - Dark sector ##
+IntDSDM :: 0 :: 0 :: b_0_0=0.1
+
+
+## Interactions Dark sector - Dark sector

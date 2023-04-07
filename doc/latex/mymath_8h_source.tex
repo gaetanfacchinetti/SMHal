@@ -1,0 +1,258 @@
+\hypertarget{mymath_8h_source}{}\doxysection{mymath.\+h}
+\label{mymath_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/mymath.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/mymath.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MY\_MATH\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MY\_MATH\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../headers/CppLib.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}../headers/GaussLegendre.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gsl/gsl\_integration.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gsl/gsl\_sf.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{double} PI2;}
+\DoxyCodeLine{11 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{double} PI4;}
+\DoxyCodeLine{12 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{double} PI8;}
+\DoxyCodeLine{13 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{double} PI16;}
+\DoxyCodeLine{14 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{double} PI;}
+\DoxyCodeLine{15 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{double} pi;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{extern} \textcolor{keyword}{const} \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} gl100, gl200, gl500, gl1000, gl2000, gl5000;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// complex variables}}
+\DoxyCodeLine{20 \textcolor{keyword}{typedef} std::complex<double> dcomp;}
+\DoxyCodeLine{21 \textcolor{keyword}{static} \textcolor{keyword}{const} dcomp one\_i(0.0, 1.0);}
+\DoxyCodeLine{22 \textcolor{keyword}{static} \textcolor{keyword}{const} dcomp one(1.0, 0.0);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} double (*Function\_Pointer)(std::vector<double>);}
+\DoxyCodeLine{27 \textcolor{keyword}{typedef} dcomp (*fcomp\_ptr)(double);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{// Inline functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{32 T myMax(T a, T b) \{ \textcolor{keywordflow}{return} a < b ? b : a; \}}
+\DoxyCodeLine{33 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{34 T myMin(T a, T b) \{ \textcolor{keywordflow}{return} a > b ? b : a; \}}
+\DoxyCodeLine{35 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{36 T myAbs(T a) \{ \textcolor{keywordflow}{return} a >= 0 ? a : -\/a; \}}
+\DoxyCodeLine{37 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{38 T mySign(T a)}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} (myAbs(a) > 0)}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} a / myAbs(a);}
+\DoxyCodeLine{42     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{43         printf(\textcolor{stringliteral}{"{}sign of 0 undef!!! => return 0\(\backslash\)n"{}});}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 \textcolor{comment}{//else return 1;\} // We consider 0 as positive ...}}
+\DoxyCodeLine{47 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{48 \textcolor{keywordtype}{void} myOrderDown(T \&a, T \&b)}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     T c;}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (a > b)}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{53     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         c = b;}
+\DoxyCodeLine{56         b = a;}
+\DoxyCodeLine{57         a = c;}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{62 \textcolor{keywordtype}{void} myOrderUp(T \&a, T \&b)}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64     T c;}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (a < b)}
+\DoxyCodeLine{66         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{67     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{68     \{}
+\DoxyCodeLine{69         c = b;}
+\DoxyCodeLine{70         b = a;}
+\DoxyCodeLine{71         a = c;}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{77 std::vector<T> sorter(std::vector<T> vec)}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     std::vector<T> res;}
+\DoxyCodeLine{80     std::vector<T> vec2;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{int} jj = 0;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     T val;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool} add\_one = \textcolor{keyword}{true};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     vec2.resize(0);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < vec.size(); i++)}
+\DoxyCodeLine{92     \{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < vec2.size(); j++)}
+\DoxyCodeLine{94         \{}
+\DoxyCodeLine{95             \textcolor{keywordflow}{if} (vec2[j] == vec[i])}
+\DoxyCodeLine{96                 add\_one = \textcolor{keyword}{false};}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} (add\_one == \textcolor{keyword}{true})}
+\DoxyCodeLine{100             vec2.push\_back(vec[i]);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102         add\_one = \textcolor{keyword}{true};}
+\DoxyCodeLine{103     \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     res.resize(vec2.size());}
+\DoxyCodeLine{106     size = vec2.size();}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++)}
+\DoxyCodeLine{109     \{}
+\DoxyCodeLine{110         res[i] = vec2[0];}
+\DoxyCodeLine{111         jj = 0;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < vec2.size(); j++)}
+\DoxyCodeLine{114         \{}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116             \textcolor{keywordflow}{if} (vec2[j] < res[i])}
+\DoxyCodeLine{117             \{}
+\DoxyCodeLine{118                 res[i] = vec2[j];}
+\DoxyCodeLine{119                 jj = j;}
+\DoxyCodeLine{120             \}}
+\DoxyCodeLine{121             \textcolor{comment}{//std::cout << "{}here : "{} << i << "{} "{} << j << "{} "{} << jj << "{} "{} << vec[j] << "{} "{} << res[i] << std::endl;}}
+\DoxyCodeLine{122         \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124         \textcolor{comment}{// erase the last position that correspond to the min}}
+\DoxyCodeLine{126 \textcolor{comment}{}        vec2.erase(vec2.begin() + jj);}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{130 \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} simpson\_coef(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} N)}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{134     \textcolor{keywordflow}{if} (i == 0 || i == N)}
+\DoxyCodeLine{135         \textcolor{keywordflow}{return} 1. / 3.;}
+\DoxyCodeLine{136     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{137         \textcolor{keywordflow}{return} 2. * (1. + (i \% 2)) / 3.; \textcolor{comment}{// gives 4/3,2/3,4/3 ...}}
+\DoxyCodeLine{138 \}}
+\DoxyCodeLine{139 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{comment}{// Prototypes of normal functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keywordtype}{double} BesselI0(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{144 \textcolor{keywordtype}{double} BesselI1(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{145 \textcolor{keywordtype}{double} BesselK0(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{146 \textcolor{keywordtype}{double} BesselK1(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{147 \textcolor{keywordtype}{double} BesselK2(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{148 \textcolor{keywordtype}{double} BesselK3(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{149 \textcolor{keywordtype}{double} BesselKn(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{150 \textcolor{keywordtype}{double} BesselKx(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} xx);}
+\DoxyCodeLine{151 \textcolor{keywordtype}{double} DBesselKn(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{152 \textcolor{keywordtype}{double} expBesselK0(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{153 \textcolor{keywordtype}{double} expBesselK1(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{154 \textcolor{keywordtype}{double} expBesselK2(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157 dcomp fOneLoopScalarVectors(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{158 dcomp fOneLoopPseudoScalarVectors(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{comment}{// Special regulator for the QCD phase transition}}
+\DoxyCodeLine{161 \textcolor{keywordtype}{double} regulatorTQCD(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} alpha, \textcolor{keywordtype}{double} xshift, \textcolor{keywordtype}{double} max, \textcolor{keywordtype}{double} min);}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{keywordtype}{double} Simpson\_Integral1(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{int} isize, \textcolor{keywordtype}{int} ilog, \textcolor{keywordtype}{int} Nsteps,}
+\DoxyCodeLine{164                          \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> xx,}
+\DoxyCodeLine{165                          \textcolor{keywordtype}{double} (*myfunc)(std::vector<double>), \textcolor{keywordtype}{double} \&err);}
+\DoxyCodeLine{166 \textcolor{comment}{/* double Simpson\_Integral3(int ivar,int isize,int ilog,int Nsteps, */}}
+\DoxyCodeLine{167 \textcolor{comment}{/*           double xmin,double xmax,std::vector<double> xx, */}}
+\DoxyCodeLine{168 \textcolor{comment}{/*           double (*myfunc)(std::vector<double>),double \&err); */}}
+\DoxyCodeLine{169 \textcolor{keywordtype}{double} trapezoid\_integral(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{int} isize,}
+\DoxyCodeLine{170                           std::vector<double> xx, std::vector<double> interval,}
+\DoxyCodeLine{171                           \textcolor{keywordtype}{double} (*myfunc)(std::vector<double>), \textcolor{keywordtype}{double} \&err);}
+\DoxyCodeLine{172 \textcolor{keywordtype}{double} Simpson\_Integral2(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{int} isize,}
+\DoxyCodeLine{173                          std::vector<double> xx, std::vector<double> interval,}
+\DoxyCodeLine{174                          \textcolor{keywordtype}{double} (*myfunc)(std::vector<double>), \textcolor{keywordtype}{double} \&err);}
+\DoxyCodeLine{175 \textcolor{keywordtype}{double} myDerivative\_Static(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} ivar, std::vector<double> xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{176                     \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} * pt2Object, std::vector<double>), \textcolor{keywordtype}{double} eps = 1.e-\/3);}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{comment}{// Method too integrate non static (member) functions through wrapper}}
+\DoxyCodeLine{179 \textcolor{keywordtype}{double} Simpson\_Integral1\_Static(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{int} isize, \textcolor{keywordtype}{int} ilog, \textcolor{keywordtype}{int} Nsteps,}
+\DoxyCodeLine{180                                    \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{181                                    \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>), \textcolor{keywordtype}{double} \&err);}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{keywordtype}{double} GaussLegendre\_Integral\_Static(\textcolor{keywordtype}{int} \textcolor{keyword}{const} ivar, \textcolor{keywordtype}{int} \textcolor{keyword}{const} isize, \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} \textcolor{keyword}{const} \&gl,}
+\DoxyCodeLine{184                                      \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{185                                      \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>));}
+\DoxyCodeLine{186 \textcolor{keywordtype}{double} GaussLegendre\_IntegralLn\_Static(\textcolor{keywordtype}{int} \textcolor{keyword}{const} ivar, \textcolor{keywordtype}{int} \textcolor{keyword}{const} isize, \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} \textcolor{keyword}{const} \&gl,}
+\DoxyCodeLine{187                                        \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{188                                        \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>));}
+\DoxyCodeLine{189 \textcolor{keywordtype}{double} GaussLegendre\_IntegralInverseLn\_Static(\textcolor{keywordtype}{int} \textcolor{keyword}{const} ivar, \textcolor{keywordtype}{int} \textcolor{keyword}{const} isize, \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} \textcolor{keyword}{const} \&gl,}
+\DoxyCodeLine{190                                               \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{191                                               \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>));}
+\DoxyCodeLine{192 \textcolor{keywordtype}{double} GaussLegendre\_IntegralLnLn\_Static(\textcolor{keywordtype}{int} \textcolor{keyword}{const} ivar, \textcolor{keywordtype}{int} \textcolor{keyword}{const} isize, \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} \&gl,}
+\DoxyCodeLine{193                                          \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{194                                          \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>));}
+\DoxyCodeLine{195 \textcolor{keywordtype}{double} GaussLegendre\_IntegralInverseLnLn\_Static(\textcolor{keywordtype}{int} \textcolor{keyword}{const} ivar, \textcolor{keywordtype}{int} \textcolor{keyword}{const} isize, \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} \textcolor{keyword}{const} \&gl,}
+\DoxyCodeLine{196                                                 \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{197                                                 \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>));}
+\DoxyCodeLine{198 \textcolor{keywordtype}{double} GaussLegendre\_IntegralExp\_Static(\textcolor{keywordtype}{int} \textcolor{keyword}{const} ivar, \textcolor{keywordtype}{int} \textcolor{keyword}{const} isize, \mbox{\hyperlink{class_gauss_legendre}{GaussLegendre}} \textcolor{keyword}{const} \&gl,}
+\DoxyCodeLine{199                                         \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{200                                         \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>));}
+\DoxyCodeLine{201 \textcolor{keywordtype}{double} GSL\_Integral\_Static\_QAGS(\textcolor{keywordtype}{void} *params, gsl\_integration\_workspace *w, \textcolor{keywordtype}{size\_t} limit, \textcolor{keywordtype}{double} xmin, \textcolor{keywordtype}{double} xmax, std::vector<double> \textcolor{keyword}{const} \&xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{202                                 \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{void} *), \textcolor{keywordtype}{double} errabs, \textcolor{keywordtype}{double} errrel, \textcolor{keywordtype}{double} \&err);}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{keywordtype}{double} Dichotomie\_Static(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{int} isize, std::vector<double> xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{205                          \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx),}
+\DoxyCodeLine{206                          \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMin, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMax, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&prec, \textcolor{keywordtype}{double} dflt);}
+\DoxyCodeLine{207 \textcolor{keywordtype}{double} Dichotomie\_Static(\textcolor{keywordtype}{void} *pt2Object, \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, \textcolor{keywordtype}{double}),}
+\DoxyCodeLine{208                             \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMin, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMax, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&prec, \textcolor{keywordtype}{double} dlft); \textcolor{comment}{// Overriden function for a single parameter}}
+\DoxyCodeLine{209 \textcolor{keywordtype}{double} DichotomieLn\_Static(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{int} isize, std::vector<double> xx, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{210                            \textcolor{keywordtype}{double} (*myfunc)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double> xx),}
+\DoxyCodeLine{211                            \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMin, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&xMax, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&prec, \textcolor{keywordtype}{double} dflt);}
+\DoxyCodeLine{212 \textcolor{keywordtype}{double} myRungeKutta4\_Static(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{double} y\_in, std::vector<double> xx, \textcolor{keywordtype}{double} \&dx,}
+\DoxyCodeLine{213                                \textcolor{keywordtype}{void} *pt2Object, \textcolor{keywordtype}{double} (*dytodx)(\textcolor{keywordtype}{void} *pt2Objcet, std::vector<double>, \textcolor{keywordtype}{double}));}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{keywordtype}{double} myRungeKutta4(\textcolor{keywordtype}{int} ivar, \textcolor{keywordtype}{double} y\_in, std::vector<double> xx, \textcolor{keywordtype}{double} \&dx,}
+\DoxyCodeLine{216                      \textcolor{keywordtype}{double} (*dytodx)(std::vector<double>, \textcolor{keywordtype}{double}));}
+\DoxyCodeLine{217 \textcolor{keywordtype}{double} myRungeKutta6(\textcolor{keywordtype}{int} ivar, std::vector<double> x, \textcolor{keywordtype}{double} y0,}
+\DoxyCodeLine{218                      \textcolor{keywordtype}{void} (*derivs)(std::vector<double>, \textcolor{keywordtype}{double}, \textcolor{keywordtype}{double} \&),}
+\DoxyCodeLine{219                      \textcolor{keywordtype}{bool} varstep, \textcolor{keywordtype}{double} \&dx, \textcolor{keywordtype}{double} dxmin,}
+\DoxyCodeLine{220                      \textcolor{keywordtype}{double} prec, \textcolor{keywordtype}{bool} \&okprec);}
+\DoxyCodeLine{221 \textcolor{keywordtype}{double} myRungeKutta6\_Static(\textcolor{keywordtype}{int} ivar, std::vector<double> x, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{222                                \textcolor{keywordtype}{void} (*derivs)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>, \textcolor{keywordtype}{double}, \textcolor{keywordtype}{double} \&),}
+\DoxyCodeLine{223                                \textcolor{keywordtype}{bool} varstep, \textcolor{keywordtype}{double} \&dx, \textcolor{keywordtype}{double} dxmin,}
+\DoxyCodeLine{224                                \textcolor{keywordtype}{double} prec, \textcolor{keywordtype}{bool} \&okprec);}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \textcolor{comment}{// Implicit solver}}
+\DoxyCodeLine{227 \textcolor{keywordtype}{double} ImplicitEulerSolverSquares\_Static(\textcolor{keywordtype}{int} i, std::vector<double> x, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{228                                             \textcolor{keywordtype}{double} (*func\_A)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{229                                             \textcolor{keywordtype}{double} (*func\_Z)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{230                                             \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&dx);}
+\DoxyCodeLine{231 \textcolor{keywordtype}{double} ImplicitEulerSolverSquares\_Static(\textcolor{keywordtype}{int} i, std::vector<double> x, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{232                                             \textcolor{keywordtype}{double} (*func\_A)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{233                                             \textcolor{keywordtype}{double} (*func\_B)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{234                                             \textcolor{keywordtype}{double} (*func\_Z)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{235                                             \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&dx);}
+\DoxyCodeLine{236 \textcolor{keywordtype}{double} ImplicitEulerSolverLinear\_Static(\textcolor{keywordtype}{int} i, std::vector<double> x, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{237                                            \textcolor{keywordtype}{double} (*func\_A)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{238                                            \textcolor{keywordtype}{double} (*func\_Z)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{239                                            \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&dx);}
+\DoxyCodeLine{240 \textcolor{keywordtype}{double} ImplicitBackwardDiffSolver5Linear\_Static(\textcolor{keywordtype}{int} i, std::vector<double> x, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{double} ym1, \textcolor{keywordtype}{double} ym2, \textcolor{keywordtype}{double} ym3, \textcolor{keywordtype}{double} ym4, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{241                                                    \textcolor{keywordtype}{double} (*func\_A)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{242                                                    \textcolor{keywordtype}{double} (*func\_Z)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{243                                                    \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&dx);}
+\DoxyCodeLine{244 \textcolor{keywordtype}{double} ImplicitAdamsMoultonSolver5Linear\_Static(\textcolor{keywordtype}{int} i, std::vector<double> x, std::vector<double> x0, std::vector<double> xm1, std::vector<double> xm2, std::vector<double> xm3,}
+\DoxyCodeLine{245                                                    \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{double} ym1, \textcolor{keywordtype}{double} ym2, \textcolor{keywordtype}{double} ym3, \textcolor{keywordtype}{void} *pt2Object,}
+\DoxyCodeLine{246                                                    \textcolor{keywordtype}{double} (*func\_A)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{247                                                    \textcolor{keywordtype}{double} (*func\_Z)(\textcolor{keywordtype}{void} *pt2Object, std::vector<double>),}
+\DoxyCodeLine{248                                                    \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&dx);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 \textcolor{keywordtype}{double} sinc(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{251 \textcolor{keywordtype}{double} erfcx(\textcolor{keywordtype}{double} x);}
+\DoxyCodeLine{252 \textcolor{keywordtype}{double} my\_erf\_diff(\textcolor{keywordtype}{double} \textcolor{keyword}{const} \&b, \textcolor{keywordtype}{double} \textcolor{keyword}{const} \&a);}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

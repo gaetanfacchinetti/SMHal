@@ -1,0 +1,303 @@
+\hypertarget{myspline_8h_source}{}\doxysection{myspline.\+h}
+\label{myspline_8h_source}\index{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/myspline.h@{/Users/facchinettigaetan/Documents/Etudes/PhD\_projects/SMHal/src/headers/myspline.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_MY\_SPLINE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_MY\_SPLINE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }\{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }my\_spline \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{comment}{// band matrix solver}}
+\DoxyCodeLine{18 \textcolor{keyword}{class }band\_matrix \{}
+\DoxyCodeLine{19 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20    std::vector< std::vector<double> > m\_upper;  \textcolor{comment}{// upper band}}
+\DoxyCodeLine{21    std::vector< std::vector<double> > m\_lower;  \textcolor{comment}{// lower band}}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23    band\_matrix() \{\};                             \textcolor{comment}{// constructor}}
+\DoxyCodeLine{24    band\_matrix(\textcolor{keywordtype}{int} dim, \textcolor{keywordtype}{int} n\_u, \textcolor{keywordtype}{int} n\_l);       \textcolor{comment}{// constructor}}
+\DoxyCodeLine{25    \string~band\_matrix() \{\};                            \textcolor{comment}{// destructor}}
+\DoxyCodeLine{26    \textcolor{keywordtype}{void} resize(\textcolor{keywordtype}{int} dim, \textcolor{keywordtype}{int} n\_u, \textcolor{keywordtype}{int} n\_l);      \textcolor{comment}{// init with dim,n\_u,n\_l}}
+\DoxyCodeLine{27    \textcolor{keywordtype}{int} dim() \textcolor{keyword}{const};                             \textcolor{comment}{// matrix dimension}}
+\DoxyCodeLine{28    \textcolor{keywordtype}{int} num\_upper()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{29       \textcolor{keywordflow}{return} m\_upper.size()-\/1;}
+\DoxyCodeLine{30    \}}
+\DoxyCodeLine{31    \textcolor{keywordtype}{int} num\_lower()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{32       \textcolor{keywordflow}{return} m\_lower.size()-\/1;}
+\DoxyCodeLine{33    \}}
+\DoxyCodeLine{34    \textcolor{comment}{// access operator}}
+\DoxyCodeLine{35    \textcolor{keywordtype}{double} \& operator () (\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j);            \textcolor{comment}{// write}}
+\DoxyCodeLine{36    \textcolor{keywordtype}{double}   operator () (\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j) \textcolor{keyword}{const};      \textcolor{comment}{// read}}
+\DoxyCodeLine{37    \textcolor{comment}{// we can store an additional diogonal (in m\_lower)}}
+\DoxyCodeLine{38    \textcolor{keywordtype}{double}\& saved\_diag(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{39    \textcolor{keywordtype}{double}  saved\_diag(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{40    \textcolor{keywordtype}{void} lu\_decompose();}
+\DoxyCodeLine{41    std::vector<double> r\_solve(\textcolor{keyword}{const} std::vector<double>\& b) \textcolor{keyword}{const};}
+\DoxyCodeLine{42    std::vector<double> l\_solve(\textcolor{keyword}{const} std::vector<double>\& b) \textcolor{keyword}{const};}
+\DoxyCodeLine{43    std::vector<double> lu\_solve(\textcolor{keyword}{const} std::vector<double>\& b,}
+\DoxyCodeLine{44                                 \textcolor{keywordtype}{bool} is\_lu\_decomposed=\textcolor{keyword}{false});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{// spline interpolation}}
+\DoxyCodeLine{50 \textcolor{keyword}{class }spline \{}
+\DoxyCodeLine{51 \textcolor{keyword}{private}:}
+\DoxyCodeLine{52    std::vector<double> m\_x,m\_y;           \textcolor{comment}{// x,y coordinates of points}}
+\DoxyCodeLine{53    \textcolor{comment}{// interpolation parameters}}
+\DoxyCodeLine{54    \textcolor{comment}{// f(x) = a*(x-\/x\_i)\string^3 + b*(x-\/x\_i)\string^2 + c*(x-\/x\_i) + y\_i}}
+\DoxyCodeLine{55    std::vector<double> m\_a,m\_b,m\_c,m\_d;}
+\DoxyCodeLine{56 \textcolor{keyword}{public}:}
+\DoxyCodeLine{57    \textcolor{keywordtype}{void} set\_points(\textcolor{keyword}{const} std::vector<double>\& x,}
+\DoxyCodeLine{58                    \textcolor{keyword}{const} std::vector<double>\& y, \textcolor{keywordtype}{bool} cubic\_spline=\textcolor{keyword}{true});}
+\DoxyCodeLine{59    \textcolor{keywordtype}{double} operator() (\textcolor{keywordtype}{double} x) \textcolor{keyword}{const};}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{67 \textcolor{comment}{// implementation part, which should be separated into a cpp file}}
+\DoxyCodeLine{68 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{comment}{// band\_matrix implementation}}
+\DoxyCodeLine{74 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 band\_matrix::band\_matrix(\textcolor{keywordtype}{int} dim, \textcolor{keywordtype}{int} n\_u, \textcolor{keywordtype}{int} n\_l) \{}
+\DoxyCodeLine{77    resize(dim, n\_u, n\_l);}
+\DoxyCodeLine{78 \}}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void} band\_matrix::resize(\textcolor{keywordtype}{int} dim, \textcolor{keywordtype}{int} n\_u, \textcolor{keywordtype}{int} n\_l) \{}
+\DoxyCodeLine{80    assert(dim>0);}
+\DoxyCodeLine{81    assert(n\_u>=0);}
+\DoxyCodeLine{82    assert(n\_l>=0);}
+\DoxyCodeLine{83    m\_upper.resize(n\_u+1);}
+\DoxyCodeLine{84    m\_lower.resize(n\_l+1);}
+\DoxyCodeLine{85    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i=0; i<m\_upper.size(); i++) \{}
+\DoxyCodeLine{86       m\_upper[i].resize(dim);}
+\DoxyCodeLine{87    \}}
+\DoxyCodeLine{88    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i=0; i<m\_lower.size(); i++) \{}
+\DoxyCodeLine{89       m\_lower[i].resize(dim);}
+\DoxyCodeLine{90    \}}
+\DoxyCodeLine{91 \}}
+\DoxyCodeLine{92 \textcolor{keywordtype}{int} band\_matrix::dim()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{93    \textcolor{keywordflow}{if}(m\_upper.size()>0) \{}
+\DoxyCodeLine{94       \textcolor{keywordflow}{return} m\_upper[0].size();}
+\DoxyCodeLine{95    \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{96       \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{97    \}}
+\DoxyCodeLine{98 \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{comment}{// defines the new operator (), so that we can access the elements}}
+\DoxyCodeLine{102 \textcolor{comment}{// by A(i,j), index going from i=0,...,dim()-\/1}}
+\DoxyCodeLine{103 \textcolor{keywordtype}{double} \& band\_matrix::operator () (\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j) \{}
+\DoxyCodeLine{104    \textcolor{keywordtype}{int} k=j-\/i;       \textcolor{comment}{// what band is the entry}}
+\DoxyCodeLine{105    assert( (i>=0) \&\& (i<dim()) \&\& (j>=0) \&\& (j<dim()) );}
+\DoxyCodeLine{106    assert( (-\/num\_lower()<=k) \&\& (k<=num\_upper()) );}
+\DoxyCodeLine{107    \textcolor{comment}{// k=0 -\/> diogonal, k<0 lower left part, k>0 upper right part}}
+\DoxyCodeLine{108    \textcolor{keywordflow}{if}(k>=0)   \textcolor{keywordflow}{return} m\_upper[k][i];}
+\DoxyCodeLine{109    \textcolor{keywordflow}{else}     \textcolor{keywordflow}{return} m\_lower[-\/k][i];}
+\DoxyCodeLine{110 \}}
+\DoxyCodeLine{111 \textcolor{keywordtype}{double} band\_matrix::operator () (\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{112    \textcolor{keywordtype}{int} k=j-\/i;       \textcolor{comment}{// what band is the entry}}
+\DoxyCodeLine{113    assert( (i>=0) \&\& (i<dim()) \&\& (j>=0) \&\& (j<dim()) );}
+\DoxyCodeLine{114    assert( (-\/num\_lower()<=k) \&\& (k<=num\_upper()) );}
+\DoxyCodeLine{115    \textcolor{comment}{// k=0 -\/> diogonal, k<0 lower left part, k>0 upper right part}}
+\DoxyCodeLine{116    \textcolor{keywordflow}{if}(k>=0)   \textcolor{keywordflow}{return} m\_upper[k][i];}
+\DoxyCodeLine{117    \textcolor{keywordflow}{else}     \textcolor{keywordflow}{return} m\_lower[-\/k][i];}
+\DoxyCodeLine{118 \}}
+\DoxyCodeLine{119 \textcolor{comment}{// second diag (used in LU decomposition), saved in m\_lower}}
+\DoxyCodeLine{120 \textcolor{keywordtype}{double} band\_matrix::saved\_diag(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{121    assert( (i>=0) \&\& (i<dim()) );}
+\DoxyCodeLine{122    \textcolor{keywordflow}{return} m\_lower[0][i];}
+\DoxyCodeLine{123 \}}
+\DoxyCodeLine{124 \textcolor{keywordtype}{double} \& band\_matrix::saved\_diag(\textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{125    assert( (i>=0) \&\& (i<dim()) );}
+\DoxyCodeLine{126    \textcolor{keywordflow}{return} m\_lower[0][i];}
+\DoxyCodeLine{127 \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{comment}{// LR-\/Decomposition of a band matrix}}
+\DoxyCodeLine{130 \textcolor{keywordtype}{void} band\_matrix::lu\_decompose() \{}
+\DoxyCodeLine{131    \textcolor{keywordtype}{int}  i\_max,j\_max;}
+\DoxyCodeLine{132    \textcolor{keywordtype}{int}  j\_min;}
+\DoxyCodeLine{133    \textcolor{keywordtype}{double} x;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135    \textcolor{comment}{// preconditioning}}
+\DoxyCodeLine{136    \textcolor{comment}{// normalize column i so that a\_ii=1}}
+\DoxyCodeLine{137    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<this-\/>dim(); i++) \{}
+\DoxyCodeLine{138       assert(this-\/>\textcolor{keyword}{operator}()(i,i)!=0.0);}
+\DoxyCodeLine{139       this-\/>saved\_diag(i)=1.0/this-\/>operator()(i,i);}
+\DoxyCodeLine{140       j\_min=std::max(0,i-\/this-\/>num\_lower());}
+\DoxyCodeLine{141       j\_max=std::min(this-\/>dim()-\/1,i+this-\/>num\_upper());}
+\DoxyCodeLine{142       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=j\_min; j<=j\_max; j++) \{}
+\DoxyCodeLine{143          this-\/>operator()(i,j) *= this-\/>saved\_diag(i);}
+\DoxyCodeLine{144       \}}
+\DoxyCodeLine{145       this-\/>operator()(i,i)=1.0;          \textcolor{comment}{// prevents rounding errors}}
+\DoxyCodeLine{146    \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148    \textcolor{comment}{// Gauss LR-\/Decomposition}}
+\DoxyCodeLine{149    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0; k<this-\/>dim(); k++) \{}
+\DoxyCodeLine{150       i\_max=std::min(this-\/>dim()-\/1,k+this-\/>num\_lower());  \textcolor{comment}{// num\_lower not a mistake!}}
+\DoxyCodeLine{151       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=k+1; i<=i\_max; i++) \{}
+\DoxyCodeLine{152          assert(this-\/>\textcolor{keyword}{operator}()(k,k)!=0.0);}
+\DoxyCodeLine{153          x=-\/this-\/>operator()(i,k)/this-\/>operator()(k,k);}
+\DoxyCodeLine{154          this-\/>operator()(i,k)=-\/x;                         \textcolor{comment}{// assembly part of L}}
+\DoxyCodeLine{155          j\_max=std::min(this-\/>dim()-\/1,k+this-\/>num\_upper());}
+\DoxyCodeLine{156          \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=k+1; j<=j\_max; j++) \{}
+\DoxyCodeLine{157             \textcolor{comment}{// assembly part of R}}
+\DoxyCodeLine{158             this-\/>operator()(i,j)=this-\/>operator()(i,j)+x*this-\/>operator()(k,j);}
+\DoxyCodeLine{159          \}}
+\DoxyCodeLine{160       \}}
+\DoxyCodeLine{161    \}}
+\DoxyCodeLine{162 \}}
+\DoxyCodeLine{163 \textcolor{comment}{// solves Ly=b}}
+\DoxyCodeLine{164 std::vector<double> band\_matrix::l\_solve(\textcolor{keyword}{const} std::vector<double>\& b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{165    assert( this-\/>dim()==(\textcolor{keywordtype}{int})b.size() );}
+\DoxyCodeLine{166    std::vector<double> x(this-\/>dim());}
+\DoxyCodeLine{167    \textcolor{keywordtype}{int} j\_start;}
+\DoxyCodeLine{168    \textcolor{keywordtype}{double} sum;}
+\DoxyCodeLine{169    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<this-\/>dim(); i++) \{}
+\DoxyCodeLine{170       sum=0;}
+\DoxyCodeLine{171       j\_start=std::max(0,i-\/this-\/>num\_lower());}
+\DoxyCodeLine{172       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=j\_start; j<i; j++) sum += this-\/>\textcolor{keyword}{operator}()(i,j)*x[j];}
+\DoxyCodeLine{173       x[i]=(b[i]*this-\/>saved\_diag(i)) -\/ sum;}
+\DoxyCodeLine{174    \}}
+\DoxyCodeLine{175    \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{176 \}}
+\DoxyCodeLine{177 \textcolor{comment}{// solves Rx=y}}
+\DoxyCodeLine{178 std::vector<double> band\_matrix::r\_solve(\textcolor{keyword}{const} std::vector<double>\& b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{179    assert( this-\/>dim()==(\textcolor{keywordtype}{int})b.size() );}
+\DoxyCodeLine{180    std::vector<double> x(this-\/>dim());}
+\DoxyCodeLine{181    \textcolor{keywordtype}{int} j\_stop;}
+\DoxyCodeLine{182    \textcolor{keywordtype}{double} sum;}
+\DoxyCodeLine{183    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=this-\/>dim()-\/1; i>=0; i-\/-\/) \{}
+\DoxyCodeLine{184       sum=0;}
+\DoxyCodeLine{185       j\_stop=std::min(this-\/>dim()-\/1,i+this-\/>num\_upper());}
+\DoxyCodeLine{186       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=i+1; j<=j\_stop; j++) sum += this-\/>\textcolor{keyword}{operator}()(i,j)*x[j];}
+\DoxyCodeLine{187       x[i]=( b[i] -\/ sum ) / this-\/>\textcolor{keyword}{operator}()(i,i);}
+\DoxyCodeLine{188    \}}
+\DoxyCodeLine{189    \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{190 \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 std::vector<double> band\_matrix::lu\_solve(\textcolor{keyword}{const} std::vector<double>\& b,}
+\DoxyCodeLine{193       \textcolor{keywordtype}{bool} is\_lu\_decomposed) \{}
+\DoxyCodeLine{194    assert( this-\/>dim()==(\textcolor{keywordtype}{int})b.size() );}
+\DoxyCodeLine{195    std::vector<double>  x,y;}
+\DoxyCodeLine{196    \textcolor{keywordflow}{if}(is\_lu\_decomposed==\textcolor{keyword}{false}) \{}
+\DoxyCodeLine{197       this-\/>lu\_decompose();}
+\DoxyCodeLine{198    \}}
+\DoxyCodeLine{199    y=this-\/>l\_solve(b);}
+\DoxyCodeLine{200    x=this-\/>r\_solve(y);}
+\DoxyCodeLine{201    \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{202 \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{comment}{// spline implementation}}
+\DoxyCodeLine{209 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{keywordtype}{void} spline::set\_points(\textcolor{keyword}{const} std::vector<double>\& x,}
+\DoxyCodeLine{212                           \textcolor{keyword}{const} std::vector<double>\& y, \textcolor{keywordtype}{bool} cubic\_spline) \{}
+\DoxyCodeLine{213    assert(x.size()==y.size());}
+\DoxyCodeLine{214    m\_x=x;}
+\DoxyCodeLine{215    m\_y=y;}
+\DoxyCodeLine{216    \textcolor{keywordtype}{int}   n=x.size();}
+\DoxyCodeLine{217    \textcolor{comment}{// TODO sort x and y, rather than returning an error}}
+\DoxyCodeLine{218    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<n-\/1; i++) \{}
+\DoxyCodeLine{219       assert(m\_x[i]<m\_x[i+1]);}
+\DoxyCodeLine{220    \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222    \textcolor{keywordflow}{if}(cubic\_spline==\textcolor{keyword}{true}) \{ \textcolor{comment}{// cubic spline interpolation}}
+\DoxyCodeLine{223       \textcolor{comment}{// setting up the matrix and right hand side of the equation system}}
+\DoxyCodeLine{224       \textcolor{comment}{// for the parameters b[]}}
+\DoxyCodeLine{225       band\_matrix A(n,1,1);}
+\DoxyCodeLine{226       std::vector<double>  rhs(n);}
+\DoxyCodeLine{227       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=1; i<n-\/1; i++) \{}
+\DoxyCodeLine{228          A(i,i-\/1)=1.0/3.0*(x[i]-\/x[i-\/1]);}
+\DoxyCodeLine{229          A(i,i)=2.0/3.0*(x[i+1]-\/x[i-\/1]);}
+\DoxyCodeLine{230          A(i,i+1)=1.0/3.0*(x[i+1]-\/x[i]);}
+\DoxyCodeLine{231          rhs[i]=(y[i+1]-\/y[i])/(x[i+1]-\/x[i]) -\/ (y[i]-\/y[i-\/1])/(x[i]-\/x[i-\/1]);}
+\DoxyCodeLine{232       \}}
+\DoxyCodeLine{233       \textcolor{comment}{// boundary conditions, zero curvature b[0]=b[n-\/1]=0}}
+\DoxyCodeLine{234       A(0,0)=2.0;}
+\DoxyCodeLine{235       A(0,1)=0.0;}
+\DoxyCodeLine{236       rhs[0]=0.0;}
+\DoxyCodeLine{237       A(n-\/1,n-\/1)=2.0;}
+\DoxyCodeLine{238       A(n-\/1,n-\/2)=0.0;}
+\DoxyCodeLine{239       rhs[n-\/1]=0.0;}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241       \textcolor{comment}{// solve the equation system to obtain the parameters b[]}}
+\DoxyCodeLine{242       m\_b=A.lu\_solve(rhs);}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244       \textcolor{comment}{// calculate parameters a[] and c[] based on b[]}}
+\DoxyCodeLine{245       m\_a.resize(n);}
+\DoxyCodeLine{246       m\_c.resize(n);}
+\DoxyCodeLine{247       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<n-\/1; i++) \{}
+\DoxyCodeLine{248          m\_a[i]=1.0/3.0*(m\_b[i+1]-\/m\_b[i])/(x[i+1]-\/x[i]);}
+\DoxyCodeLine{249          m\_c[i]=(y[i+1]-\/y[i])/(x[i+1]-\/x[i])}
+\DoxyCodeLine{250                 -\/ 1.0/3.0*(2.0*m\_b[i]+m\_b[i+1])*(x[i+1]-\/x[i]);}
+\DoxyCodeLine{251       \}}
+\DoxyCodeLine{252    \} \textcolor{keywordflow}{else} \{ \textcolor{comment}{// linear interpolation}}
+\DoxyCodeLine{253       m\_a.resize(n);}
+\DoxyCodeLine{254       m\_b.resize(n);}
+\DoxyCodeLine{255       m\_c.resize(n);}
+\DoxyCodeLine{256       \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<n-\/1; i++) \{}
+\DoxyCodeLine{257          m\_a[i]=0.0;}
+\DoxyCodeLine{258          m\_b[i]=0.0;}
+\DoxyCodeLine{259          m\_c[i]=(m\_y[i+1]-\/m\_y[i])/(m\_x[i+1]-\/m\_x[i]);}
+\DoxyCodeLine{260       \}}
+\DoxyCodeLine{261    \}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263    \textcolor{comment}{// for the right boundary we define}}
+\DoxyCodeLine{264    \textcolor{comment}{// f\_\{n-\/1\}(x) = b*(x-\/x\_\{n-\/1\})\string^2 + c*(x-\/x\_\{n-\/1\}) + y\_\{n-\/1\}}}
+\DoxyCodeLine{265    \textcolor{keywordtype}{double} h=x[n-\/1]-\/x[n-\/2];}
+\DoxyCodeLine{266    \textcolor{comment}{// m\_b[n-\/1] is determined by the boundary condition}}
+\DoxyCodeLine{267    m\_a[n-\/1]=0.0;}
+\DoxyCodeLine{268    m\_c[n-\/1]=3.0*m\_a[n-\/2]*h*h+2.0*m\_b[n-\/2]*h+m\_c[n-\/2];   \textcolor{comment}{// = f'\_\{n-\/2\}(x\_\{n-\/1\})}}
+\DoxyCodeLine{269 \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271 \textcolor{keywordtype}{double} spline::operator() (\textcolor{keywordtype}{double} x)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{272    \textcolor{keywordtype}{size\_t} n=m\_x.size();}
+\DoxyCodeLine{273    \textcolor{comment}{// find the closest point m\_x[idx] < x, idx=0 even if x<m\_x[0]}}
+\DoxyCodeLine{274    std::vector<double>::const\_iterator it;}
+\DoxyCodeLine{275    it=std::lower\_bound(m\_x.begin(),m\_x.end(),x);}
+\DoxyCodeLine{276    \textcolor{keywordtype}{int} idx=std::max( \textcolor{keywordtype}{int}(it-\/m\_x.begin())-\/1, 0);}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278    \textcolor{keywordtype}{double} h=x-\/m\_x[idx];}
+\DoxyCodeLine{279    \textcolor{keywordtype}{double} interpol;}
+\DoxyCodeLine{280    \textcolor{keywordflow}{if}(x<m\_x[0]) \{}
+\DoxyCodeLine{281       \textcolor{comment}{// extrapolation to the left}}
+\DoxyCodeLine{282       interpol=((m\_b[0])*h + m\_c[0])*h + m\_y[0];}
+\DoxyCodeLine{283    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(x>m\_x[n-\/1]) \{}
+\DoxyCodeLine{284       \textcolor{comment}{// extrapolation to the right}}
+\DoxyCodeLine{285       interpol=((m\_b[n-\/1])*h + m\_c[n-\/1])*h + m\_y[n-\/1];}
+\DoxyCodeLine{286    \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{287       \textcolor{comment}{// interpolation}}
+\DoxyCodeLine{288       interpol=((m\_a[idx]*h + m\_b[idx])*h + m\_c[idx])*h + m\_y[idx];}
+\DoxyCodeLine{289    \}}
+\DoxyCodeLine{290    \textcolor{keywordflow}{return} interpol;}
+\DoxyCodeLine{291 \}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294  }
+\DoxyCodeLine{295 \} \textcolor{comment}{// namespace my\_spline}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \} \textcolor{comment}{// namespace}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_MY\_SPLINE\_H}}
+
+\end{DoxyCode}

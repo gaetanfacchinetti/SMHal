@@ -1,0 +1,80 @@
+\hypertarget{class_degree_freedom}{}\doxysection{Degree\+Freedom Class Reference}
+\label{class_degree_freedom}\index{DegreeFreedom@{DegreeFreedom}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_degree_freedom_aecba1ba7c91fc5dc68016cd1b317fa8f}\label{class_degree_freedom_aecba1ba7c91fc5dc68016cd1b317fa8f}} 
+{\bfseries Degree\+Freedom} (double T\+\_\+trans\+QCD, \mbox{\hyperlink{class_dark_sector_model}{Dark\+Sector\+Model}} $\ast$\+\_\+\+DS=NULL)
+\item 
+\mbox{\Hypertarget{class_degree_freedom_ae0b933b4eef360c64dee74b2269691c1}\label{class_degree_freedom_ae0b933b4eef360c64dee74b2269691c1}} 
+void {\bfseries Compute\+GAndH} ()
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a412316672ce4a070f3bbe46d3f013c57}\label{class_degree_freedom_a412316672ce4a070f3bbe46d3f013c57}} 
+void {\bfseries Compute\+GAnd\+HSmooth} ()
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a9ef6b596c1207316773da42d2d3e3fdf}\label{class_degree_freedom_a9ef6b596c1207316773da42d2d3e3fdf}} 
+void {\bfseries Compute\+GStar\+Half} ()
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a7e4484f1350acfcb135ea448e5647420}\label{class_degree_freedom_a7e4484f1350acfcb135ea448e5647420}} 
+void {\bfseries Initialise\+Lattice} ()
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a64c75e65efbc6b555639df937f0cc314}\label{class_degree_freedom_a64c75e65efbc6b555639df937f0cc314}} 
+int {\bfseries Interpolate} ()
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a0a8d696207705ad26671210312f478ae}\label{class_degree_freedom_a0a8d696207705ad26671210312f478ae}} 
+std\+::vector$<$ double $>$ {\bfseries reverse\+Vector} (std\+::vector$<$ double $>$ const \&vec)
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a7fdfe9eb363e1cf38104a27179dc5782}\label{class_degree_freedom_a7fdfe9eb363e1cf38104a27179dc5782}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+g} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_aee02b40f4c89b5eef0e9fa80f8314bea}\label{class_degree_freedom_aee02b40f4c89b5eef0e9fa80f8314bea}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+h} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_ab1da4a232232c34ff2de2675a6a5630d}\label{class_degree_freedom_ab1da4a232232c34ff2de2675a6a5630d}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+g\+Smooth} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a12b01387a28727241ed8502101b8b00a}\label{class_degree_freedom_a12b01387a28727241ed8502101b8b00a}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+h\+Smooth} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a70838addc8b9c6745e4f1fd25dc15def}\label{class_degree_freedom_a70838addc8b9c6745e4f1fd25dc15def}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+g\+Star\+Hald} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_ae4c2868a0a822f8eb89fa40775226e9e}\label{class_degree_freedom_ae4c2868a0a822f8eb89fa40775226e9e}} 
+std\+::vector$<$ double $>$ {\bfseries get\+\_\+logT} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a745da243c7899ab8d5983bf82e8d82d6}\label{class_degree_freedom_a745da243c7899ab8d5983bf82e8d82d6}} 
+double {\bfseries get\+\_\+\+T\+\_\+trans\+QCD} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a515b094a96968fdd280a304c119dbc52}\label{class_degree_freedom_a515b094a96968fdd280a304c119dbc52}} 
+double {\bfseries get\+\_\+der\+Log\+HSmooth\+Interp} (double const \&log10T) const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a6a6ae7b8910bc4591bc139fce3e94a9c}\label{class_degree_freedom_a6a6ae7b8910bc4591bc139fce3e94a9c}} 
+double {\bfseries get\+\_\+g\+Smooth\+Interp} (double const \&log10T) const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a6923f141bf389aa788193cf72e433ea9}\label{class_degree_freedom_a6923f141bf389aa788193cf72e433ea9}} 
+double {\bfseries get\+\_\+h\+Smooth\+Interp} (double const \&log10T) const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_ac8bb585a69190162df804b2464d2b37d}\label{class_degree_freedom_ac8bb585a69190162df804b2464d2b37d}} 
+double {\bfseries get\+\_\+g\+Star\+Half\+Interp} (double const \&log10T) const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a94dafe8821f331796976dbde907304ff}\label{class_degree_freedom_a94dafe8821f331796976dbde907304ff}} 
+my\+\_\+spline\+::spline {\bfseries get\+\_\+g\+Smooth\+Interp} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a496939a611acc307d25061663f786648}\label{class_degree_freedom_a496939a611acc307d25061663f786648}} 
+my\+\_\+spline\+::spline {\bfseries get\+\_\+h\+Smooth\+Interp} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_a466f40794c6ca452a7482349a94137d5}\label{class_degree_freedom_a466f40794c6ca452a7482349a94137d5}} 
+my\+\_\+spline\+::spline {\bfseries get\+\_\+g\+Star\+Half\+Interp} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_aae6a14d756478369a559f725d9e87cf8}\label{class_degree_freedom_aae6a14d756478369a559f725d9e87cf8}} 
+my\+\_\+spline\+::spline {\bfseries get\+\_\+der\+Log\+HSmooth\+Interp} () const
+\item 
+\mbox{\Hypertarget{class_degree_freedom_ad65d33bbf7b226c843ce46a02db2c794}\label{class_degree_freedom_ad65d33bbf7b226c843ce46a02db2c794}} 
+void {\bfseries plot\+\_\+\+GAndH} ()
+\begin{DoxyCompactList}\small\item\em Function that plot the evolution of G and H. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/headers/Degree\+Freedom.\+h\item 
+/\+Users/facchinettigaetan/\+Documents/\+Etudes/\+Ph\+D\+\_\+projects/\+SMHal/src/cpp/Degree\+Freedom.\+cpp\end{DoxyCompactItemize}
